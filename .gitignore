@@ -1,0 +1,28 @@
+# Build / publish
+bin/
+obj/
+publish/
+
+# Secrets et configuration locale
+appsettings.Development.json
+*.user
+.env
+.env.*
+!.env.*.example
+
+# Uploads utilisateurs (stockés hors dépôt)
+uploads/
+
+# IDE
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+
+# Logs
+*.log
+
+# Certificats
+nginx/certs/*.crt
+nginx/certs/*.key
