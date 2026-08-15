@@ -53,7 +53,7 @@ public class FastApiService : IFastApiService
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Service FastAPI indisponible — mode de repli activé");
+            _logger.LogError(ex, "Service FastAPI indisponible  mode de repli activé");
             return null;
         }
     }

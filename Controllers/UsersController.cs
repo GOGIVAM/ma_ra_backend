@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MaRa.Api.Controllers;
 
-/// <summary>Gestion des comptes utilisateurs — réservé ADMIN (CDC F1.3).</summary>
+/// <summary>Gestion des comptes utilisateurs  réservé ADMIN (CDC F1.3).</summary>
 [ApiController]
 [Route("api/users")]
 [Authorize(Policy = "AdminOnly")]

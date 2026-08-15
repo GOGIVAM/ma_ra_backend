@@ -55,7 +55,7 @@ public class GammesController : ControllerBase
         return Ok(ToFullResponse(g));
     }
 
-    /// <summary>Récupération par classe IA — utilisé par Unity StepController.</summary>
+    /// <summary>Récupération par classe IA  utilisé par Unity StepController.</summary>
     [HttpGet("by-class/{classe}")]
     public async Task<IActionResult> ByClass(string classe)
     {

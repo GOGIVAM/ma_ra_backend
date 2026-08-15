@@ -41,7 +41,7 @@ public class InferenceController : ControllerBase
 
         if (result is null)
         {
-            // Mode de repli (CDC §4.5) — FastAPI indisponible
+            // Mode de repli (CDC §4.5)  FastAPI indisponible
             return Ok(new InferenceProxyResponse(
                 req.SessionId,
                 Detections: [],

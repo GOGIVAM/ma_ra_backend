@@ -49,7 +49,7 @@ try
             }
             catch (Exception ex)
             {
-                Log.Warning(ex, "Serilog sink PostgreSQL non configuré — journalisation console uniquement");
+                Log.Warning(ex, "Serilog sink PostgreSQL non configuré  journalisation console uniquement");
             }
         }
     });
@@ -66,7 +66,7 @@ try
         opts.Password.RequiredLength      = 8;
         opts.Password.RequireUppercase    = false;
         opts.Password.RequireNonAlphanumeric = false;
-        // Verrouillage après 5 tentatives — CDC §3.5.4
+        // Verrouillage après 5 tentatives  CDC §3.5.4
         opts.Lockout.MaxFailedAccessAttempts = 5;
         opts.Lockout.DefaultLockoutTimeSpan  = TimeSpan.FromMinutes(15);
         opts.Lockout.AllowedForNewUsers      = true;
@@ -74,7 +74,7 @@ try
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
 
-    // ── JWT Bearer (RFC 7519 — CDC §3.5.1) ───────────────────────────────────
+    // ── JWT Bearer (RFC 7519  CDC §3.5.1) ───────────────────────────────────
     var jwtCfg    = builder.Configuration.GetSection("Jwt");
     var secretKey = jwtCfg["SecretKey"] ?? throw new InvalidOperationException("Jwt:SecretKey manquante");
 
@@ -109,7 +109,7 @@ try
             "DMAT", "DIF", "CI", "CIF", "ADMIN"));
     });
 
-    // ── Rate Limiting — protection force brute (CDC §3.5.4) ──────────────────
+    // ── Rate Limiting  protection force brute (CDC §3.5.4) ──────────────────
     builder.Services.AddRateLimiter(opts =>
     {
         // 10 tentatives par minute sur le endpoint /auth/login
@@ -135,7 +135,7 @@ try
         client.Timeout     = TimeSpan.FromSeconds(30);
     });
 
-    // ── CORS (CDC §3.1 — tablettes, postes fixes) ────────────────────────────
+    // ── CORS (CDC §3.1  tablettes, postes fixes) ────────────────────────────
     var origins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>() ?? ["*"];
     builder.Services.AddCors(opts =>
         opts.AddDefaultPolicy(policy =>
@@ -153,7 +153,7 @@ try
     {
         opts.SwaggerDoc("v1", new OpenApiInfo
         {
-            Title       = "MA-RA Backend .NET — CAMRAIL",
+            Title       = "MA-RA Backend .NET  CAMRAIL",
             Version     = "v1",
             Description = "Backend applicatif : auth, équipements, gammes, documents, proxy IA (CDC §3.2)"
         });
