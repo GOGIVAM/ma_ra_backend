@@ -1,5 +1,6 @@
 using MaRa.Api.Data;
 using MaRa.Api.Models.DTOs.Documents;
+using MaRa.Api.Models.Entities;
 using MaRa.Api.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

@@ -36,17 +36,16 @@ try
         {
             try
             {
-                var cols = new Dictionary<string, NpgsqlSerilogSink.ColumnWriterBase>
+                var cols = new Dictionary<string, Serilog.Sinks.PostgreSQL.ColumnWriters.ColumnWriterBase>
                 {
-                    { "message",    new NpgsqlSerilogSink.RenderedMessageColumnWriter() },
-                    { "level",      new NpgsqlSerilogSink.LevelColumnWriter() },
-                    { "timestamp",  new NpgsqlSerilogSink.TimestampColumnWriter() },
-                    { "properties", new NpgsqlSerilogSink.PropertiesColumnWriter() },
+                    { "message",    new Serilog.Sinks.PostgreSQL.ColumnWriters.RenderedMessageColumnWriter() },
+                    { "level",      new Serilog.Sinks.PostgreSQL.ColumnWriters.LevelColumnWriter() },
+                    { "timestamp",  new Serilog.Sinks.PostgreSQL.ColumnWriters.TimestampColumnWriter() },
+                    { "properties", new Serilog.Sinks.PostgreSQL.ColumnWriters.PropertiesColumnWriter() },
                 };
                 cfg.WriteTo.PostgreSQL(connStr, "audit_logs",
                     columnOptions: cols,
-                    needAutoCreateTable: true,
-                    respectCase: true);
+                    needAutoCreateTable: true);
             }
             catch (Exception ex)
             {
