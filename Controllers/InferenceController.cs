@@ -51,6 +51,10 @@ public class InferenceController : ControllerBase
             ));
         }
 
+        // Des détections simulées ne doivent ni alimenter le journal ni les KPI.
+        if (result.PipelineVersion == "simulation")
+            return Ok(result);
+
         // Journal d'intervention
         var bestDet = result.Detections.OrderByDescending(d => d.ScoreFinal).FirstOrDefault();
         _db.InterventionLogs.Add(new InterventionLog

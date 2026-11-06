@@ -36,7 +36,7 @@ public class FastApiService : IFastApiService
             var body = JsonSerializer.Serialize(new
             {
                 session_id   = sessionId,
-                image_base64 = imageBase64
+                image_b64    = imageBase64
             });
 
             using var req = new HttpRequestMessage(HttpMethod.Post, "/api/v1/inference")
@@ -49,7 +49,16 @@ public class FastApiService : IFastApiService
             resp.EnsureSuccessStatusCode();
 
             var raw = await resp.Content.ReadAsStringAsync(ct);
-            return JsonSerializer.Deserialize<InferenceProxyResponse>(raw, _jsonOpts);
+            var fa = JsonSerializer.Deserialize<FastApiResponse>(raw, _jsonOpts);
+            return fa is null ? null : new InferenceProxyResponse(
+                fa.SessionId,
+                fa.Detections.Select(d => new DetectionOut(
+                    d.ClassName, d.ScoreFinal, d.ScoreDet, d.ScoreCls, d.ScoreFinalSmoothed,
+                    d.PreActivateVuforia,
+                    new BoundingBoxOut(d.Bbox[0], d.Bbox[1], d.Bbox[2], d.Bbox[3], d.ScoreDet))).ToList(),
+                fa.FallbackQrRecommended,
+                fa.InferenceMs,
+                fa.PipelineVersion);
         }
         catch (Exception ex)
         {
@@ -57,6 +66,15 @@ public class FastApiService : IFastApiService
             return null;
         }
     }
+
+    // Format de réponse réel de FastAPI (POST /api/v1/inference)
+    private sealed record FastApiResponse(
+        string SessionId, List<FastApiDetection> Detections, double InferenceMs,
+        bool FallbackQrRecommended, string PipelineVersion);
+
+    private sealed record FastApiDetection(
+        string ClassName, double[] Bbox, double ScoreDet, double ScoreCls, double ScoreFinal,
+        double ScoreFinalSmoothed, bool PreActivateVuforia);
 
     public async Task<bool> IsHealthyAsync(CancellationToken ct = default)
     {

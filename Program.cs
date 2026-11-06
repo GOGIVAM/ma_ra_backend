@@ -235,6 +235,7 @@ try
         app.UseSwaggerUI(opts => opts.SwaggerEndpoint("/swagger/v1/swagger.json", "MA-RA v1"));
     }
 
+    app.MapGet("/healthz", () => Results.Ok(new { status = "ok" })).AllowAnonymous();
     app.MapControllers();
 
     Log.Information("MA-RA Backend .NET démarré (env={Env})", app.Environment.EnvironmentName);

@@ -26,7 +26,10 @@ public static class DbInitializer
         else
         {
             log.LogInformation("Données référentiel déjà présentes  seed ignoré");
+            await MarquerGammesDemoAsync(db);
         }
+
+        await SeedDemoEssieuT17Async(db, log);
     }
 
     // ─────────────────────────────────────────────────────────────────────────
@@ -197,6 +200,92 @@ public static class DbInitializer
     // ─────────────────────────────────────────────────────────────────────────
     // GAMMES + ÉTAPES  (max 80 chars / étape  exigence RealWear)
     // ─────────────────────────────────────────────────────────────────────────
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // DÉMONSTRATION ESSIEU T17
+    // Aucune cote : les valeurs viendront de la gamme validée par CAMRAIL.
+    // ─────────────────────────────────────────────────────────────────────────
+
+    private const string PointArret =
+        "Point d'arrêt : en cas de doute, signaler un écart et appeler l'expert";
+
+    private static async Task SeedDemoEssieuT17Async(AppDbContext db, ILogger log)
+    {
+        var equipementId = Guid.Parse("11000000-0000-0000-0000-000000000117");
+        if (await db.Equipements.AnyAsync(e => e.Id == equipementId))
+        {
+            var ancienne = await db.Etapes.FirstOrDefaultAsync(e =>
+                e.GammeId == NewId(117, 1) && e.Description.StartsWith("En cas de doute"));
+            if (ancienne is not null)
+            {
+                ancienne.Description = PointArret;
+                await db.SaveChangesAsync();
+            }
+            return;
+        }
+
+        db.Equipements.Add(new Equipement
+        {
+            Id          = equipementId,
+            Code        = "ESS-T17-DEMO",
+            Direction   = "DMAT",
+            Classe      = "bogie_essieux",
+            Designation = "Essieu T17 (exemple de démonstration)",
+            Marqueur    = "QR_ESS_T17",
+            Statut      = "actif",
+            Description = "Équipement fictif pour la démonstration. Numéro et données à remplacer " +
+                          "par ceux de CAMRAIL.",
+        });
+
+        var etape = 0;
+        Etape E(string texte, string securite = "NONE") => Step(++etape, texte, securite);
+
+        db.Gammes.Add(new Gamme
+        {
+            Id               = NewId(117, 1),
+            Code             = "GESS-T17-DEMO",
+            Titre            = MentionDemo + "Visite d'un essieu T17  déroulé type",
+            ClasseEquipement = "bogie_essieux",
+            Direction        = "DMAT",
+            EquipementId     = equipementId,
+            Version          = 1,
+            IsActive         = true,
+            Etapes           = new List<Etape>
+            {
+                E("Identifier l'essieu : relever son numéro et ouvrir son historique"),
+                E("Vérifier la gamme applicable et l'habilitation de l'opérateur", "ORANGE"),
+                E("Sécuriser le poste et la manutention selon les règles CAMRAIL", "ROUGE"),
+                E("Nettoyer l'essieu pour permettre l'examen"),
+                E("Examiner visuellement les roues, le corps et les fusées, avec photo"),
+                E("Mesurer les roues et saisir les valeurs : limites à fournir par CAMRAIL"),
+                E("Contrôler les boîtes et roulements selon la gamme CAMRAIL"),
+                E("Réaliser les contrôles non destructifs requis : personnel qualifié", "ORANGE"),
+                E(PointArret, "ROUGE"),
+                E("Clôturer : signature de l'opérateur et compte rendu de l'essieu", "ORANGE"),
+            },
+        });
+
+        await db.SaveChangesAsync();
+        log.LogInformation("Démonstration essieu T17 créée");
+    }
+
+    private const string MentionDemo = "[DÉMO, valeurs non validées] ";
+
+    private static readonly string[] CodesGammesDemo =
+    {
+        "GMT-001", "GMT-002", "GBG-001", "GCMP-001", "GPMP-001", "GGRF-001", "GPR-001", "GTRA-001", "GDRA-001", "GAIG-001", "GAIG-002", "GTRS-001", "GGE-001", "GSIG-001"
+    };
+
+    /// <summary>Marque aussi les gammes de démonstration d'une base déjà initialisée.</summary>
+    private static async Task MarquerGammesDemoAsync(AppDbContext db)
+    {
+        var aMarquer = await db.Gammes
+            .Where(g => CodesGammesDemo.Contains(g.Code) && !g.Titre.StartsWith(MentionDemo))
+            .ToListAsync();
+        foreach (var gamme in aMarquer)
+            gamme.Titre = MentionDemo + gamme.Titre;
+        await db.SaveChangesAsync();
+    }
 
     private static async Task SeedGammesAsync(AppDbContext db, ILogger log)
     {
@@ -493,6 +582,9 @@ public static class DbInitializer
                 },
             },
         };
+
+        foreach (var gamme in gammes)
+            gamme.Titre = MentionDemo + gamme.Titre;
 
         db.Gammes.AddRange(gammes);
         await db.SaveChangesAsync();
