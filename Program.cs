@@ -132,7 +132,8 @@ try
     {
         var baseUrl = builder.Configuration["FastApi:BaseUrl"] ?? "http://localhost:8000";
         client.BaseAddress = new Uri(baseUrl);
-        client.Timeout     = TimeSpan.FromSeconds(30);
+        // OWLv2 sur processeur : environ 25 s par image sur le poste de développement
+        client.Timeout     = TimeSpan.FromSeconds(90);
     });
 
     // ── CORS (CDC §3.1  tablettes, postes fixes) ────────────────────────────

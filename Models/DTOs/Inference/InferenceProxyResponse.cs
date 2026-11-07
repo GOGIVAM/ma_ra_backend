@@ -17,7 +17,8 @@ public record DetectionOut(
     double ScoreSmoothed,
     bool PreActivateVuforia,
     BoundingBoxOut BoundingBox,
-    bool AConfirmer
+    bool AConfirmer,
+    string? Organe = null
 );
 
 public record BoundingBoxOut(double X1, double Y1, double X2, double Y2, double Confidence);

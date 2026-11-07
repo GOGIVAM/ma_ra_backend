@@ -56,7 +56,7 @@ public class FastApiService : IFastApiService
                     d.ClassName, d.ScoreFinal, d.ScoreDet, d.ScoreCls, d.ScoreFinalSmoothed,
                     d.PreActivateVuforia,
                     new BoundingBoxOut(d.Bbox[0], d.Bbox[1], d.Bbox[2], d.Bbox[3], d.ScoreDet),
-                    d.AConfirmer)).ToList(),
+                    d.AConfirmer, d.Organe)).ToList(),
                 fa.FallbackQrRecommended,
                 fa.InferenceMs,
                 fa.PipelineVersion);
@@ -75,7 +75,7 @@ public class FastApiService : IFastApiService
 
     private sealed record FastApiDetection(
         string ClassName, double[] Bbox, double ScoreDet, double ScoreCls, double ScoreFinal,
-        double ScoreFinalSmoothed, bool PreActivateVuforia, bool AConfirmer);
+        double ScoreFinalSmoothed, bool PreActivateVuforia, bool AConfirmer, string? Organe = null);
 
     public async Task<bool> IsHealthyAsync(CancellationToken ct = default)
     {
