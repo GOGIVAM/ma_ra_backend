@@ -11,7 +11,12 @@ public record GammeResponse(
     Guid?  EquipementId,
     IEnumerable<EtapeResponse> Etapes,
     DateTime CreatedAt,
-    DateTime UpdatedAt
+    DateTime UpdatedAt,
+    string Statut,
+    string? SourceDocument,
+    string? ValidePar,
+    DateTime? ValideAt,
+    DateTime? ExpireAt
 );
 
 public record GammeSummary(
@@ -23,5 +28,6 @@ public record GammeSummary(
     int    Version,
     bool   IsActive,
     int    NbEtapes,
-    DateTime UpdatedAt
+    DateTime UpdatedAt,
+    string Statut
 );

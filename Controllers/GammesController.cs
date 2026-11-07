@@ -1,5 +1,6 @@
 using MaRa.Api.Data;
 using MaRa.Api.Models.DTOs.Gammes;
+using MaRa.Api.Models.DTOs.Visites;
 using MaRa.Api.Models.Entities;
 using MaRa.Api.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -41,7 +42,7 @@ public class GammesController : ControllerBase
 
         return Ok(list.Select(g => new GammeSummary(
             g.Id, g.Code, g.Titre, g.ClasseEquipement, g.Direction,
-            g.Version, g.IsActive, g.Etapes.Count, g.UpdatedAt)));
+            g.Version, g.IsActive, g.Etapes.Count, g.UpdatedAt, g.StatutEffectif(DateTime.UtcNow))));
     }
 
     [HttpGet("{id:guid}")]
@@ -111,8 +112,7 @@ public class GammesController : ControllerBase
         g.Direction        = req.Direction;
         g.EquipementId     = req.EquipementId;
         g.IsActive         = req.IsActive;
-        g.Version++;
-        g.UpdatedAt        = DateTime.UtcNow;
+        g.MarquerModifiee();
 
         await _db.SaveChangesAsync();
         return Ok(await GetFullGamme(id));
@@ -128,6 +128,28 @@ public class GammesController : ControllerBase
         _db.Gammes.Remove(g);
         await _db.SaveChangesAsync();
         return NoContent();
+    }
+
+    /// <summary>Valide une gamme : la source documentaire est obligatoire.</summary>
+    [HttpPost("{id:guid}/valider")]
+    [Authorize(Policy = "CI")]
+    public async Task<IActionResult> Valider(Guid id, [FromBody] ValidationGammeRequest req)
+    {
+        var g = await _db.Gammes.FindAsync(id);
+        if (g is null) return NotFound();
+        if (req.ExpireAt is not null && req.ExpireAt <= DateTime.UtcNow)
+            return BadRequest(new { message = "La date d'expiration est passée." });
+
+        var validateur = User.Identity?.Name ?? User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value ?? "?";
+        g.Statut         = "VALIDEE";
+        g.SourceDocument = req.SourceDocument.Trim();
+        g.ValidePar      = validateur;
+        g.ValideAt       = DateTime.UtcNow;
+        g.ExpireAt       = req.ExpireAt?.ToUniversalTime();
+        await _db.SaveChangesAsync();
+
+        _audit.LogAction(validateur, "VALIDE_GAMME", $"code={g.Code} v={g.Version}");
+        return Ok(await GetFullGamme(id));
     }
 
     // ── Étapes ───────────────────────────────────────────────────────────────
@@ -152,8 +174,7 @@ public class GammesController : ControllerBase
         };
 
         _db.Etapes.Add(etape);
-        g.Version++;
-        g.UpdatedAt = DateTime.UtcNow;
+        g.MarquerModifiee();
         await _db.SaveChangesAsync();
 
         return CreatedAtAction(nameof(GetById), new { id = gammeId }, ToEtapeResponse(etape));
@@ -174,7 +195,7 @@ public class GammesController : ControllerBase
         etape.Detail         = req.Detail;
 
         var g = await _db.Gammes.FindAsync(gammeId);
-        if (g is not null) { g.Version++; g.UpdatedAt = DateTime.UtcNow; }
+        g?.MarquerModifiee();
 
         await _db.SaveChangesAsync();
         return Ok(ToEtapeResponse(etape));
@@ -188,6 +209,7 @@ public class GammesController : ControllerBase
         if (etape is null) return NotFound();
 
         _db.Etapes.Remove(etape);
+        (await _db.Gammes.FindAsync(gammeId))?.MarquerModifiee();
         await _db.SaveChangesAsync();
         return NoContent();
     }
@@ -203,7 +225,8 @@ public class GammesController : ControllerBase
         g.Id, g.Code, g.Titre, g.ClasseEquipement, g.Direction,
         g.Version, g.IsActive, g.EquipementId,
         g.Etapes.OrderBy(e => e.OrdreIndex).Select(ToEtapeResponse),
-        g.CreatedAt, g.UpdatedAt);
+        g.CreatedAt, g.UpdatedAt, g.StatutEffectif(DateTime.UtcNow),
+        g.SourceDocument, g.ValidePar, g.ValideAt, g.ExpireAt);
 
     private static EtapeResponse ToEtapeResponse(Etape e) => new(
         e.Id, e.OrdreIndex, e.Description, e.ArContentRef,

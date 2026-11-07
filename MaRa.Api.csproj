@@ -33,4 +33,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.7.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="tests\**" />
+    <Content Remove="tests\**" />
+    <None Remove="tests\**" />
+  </ItemGroup>
+
 </Project>

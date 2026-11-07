@@ -13,6 +13,8 @@ public class AppDbContext : IdentityDbContext<ApplicationUser>
     public DbSet<Etape> Etapes => Set<Etape>();
     public DbSet<Document> Documents => Set<Document>();
     public DbSet<InterventionLog> InterventionLogs => Set<InterventionLog>();
+    public DbSet<VisiteEssieu> VisitesEssieu => Set<VisiteEssieu>();
+    public DbSet<VisiteEtape> VisitesEtapes => Set<VisiteEtape>();
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -47,6 +49,20 @@ public class AppDbContext : IdentityDbContext<ApplicationUser>
         {
             d.HasKey(x => x.Id);
             d.Property(x => x.Id).HasDefaultValueSql("gen_random_uuid()");
+        });
+
+        builder.Entity<VisiteEssieu>(v =>
+        {
+            v.HasKey(x => x.Id);
+            v.HasIndex(x => x.NumeroEssieu);
+            v.HasIndex(x => x.ClotureAt);
+            v.HasMany(x => x.Etapes).WithOne(e => e.Visite).HasForeignKey(e => e.VisiteId).OnDelete(DeleteBehavior.Cascade);
+        });
+
+        builder.Entity<VisiteEtape>(e =>
+        {
+            e.HasKey(x => x.Id);
+            e.HasIndex(x => new { x.VisiteId, x.EtapeId }).IsUnique();
         });
 
         builder.Entity<InterventionLog>(il =>

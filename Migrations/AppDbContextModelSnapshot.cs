@@ -319,9 +319,24 @@ namespace MaRa.Api.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("equipement_id");
 
+                    b.Property<DateTime?>("ExpireAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("expire_at");
+
                     b.Property<bool>("IsActive")
                         .HasColumnType("boolean")
                         .HasColumnName("is_active");
+
+                    b.Property<string>("SourceDocument")
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)")
+                        .HasColumnName("source_document");
+
+                    b.Property<string>("Statut")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)")
+                        .HasColumnName("statut");
 
                     b.Property<string>("Titre")
                         .IsRequired()
@@ -332,6 +347,15 @@ namespace MaRa.Api.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("updated_at");
+
+                    b.Property<DateTime?>("ValideAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("valide_at");
+
+                    b.Property<string>("ValidePar")
+                        .HasMaxLength(120)
+                        .HasColumnType("character varying(120)")
+                        .HasColumnName("valide_par");
 
                     b.Property<int>("Version")
                         .HasColumnType("integer")
@@ -425,6 +449,139 @@ namespace MaRa.Api.Migrations
                         .HasDatabaseName("ix_intervention_logs_user_id");
 
                     b.ToTable("intervention_logs", (string)null);
+                });
+
+            modelBuilder.Entity("MaRa.Api.Models.Entities.VisiteEssieu", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("id");
+
+                    b.Property<DateTime>("ClotureAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("cloture_at");
+
+                    b.Property<DateTime>("DebutAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("debut_at");
+
+                    b.Property<string>("GammeCode")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)")
+                        .HasColumnName("gamme_code");
+
+                    b.Property<Guid>("GammeId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("gamme_id");
+
+                    b.Property<string>("GammeStatut")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)")
+                        .HasColumnName("gamme_statut");
+
+                    b.Property<int>("GammeVersion")
+                        .HasColumnType("integer")
+                        .HasColumnName("gamme_version");
+
+                    b.Property<int>("NombreEcarts")
+                        .HasColumnType("integer")
+                        .HasColumnName("nombre_ecarts");
+
+                    b.Property<string>("NumeroEssieu")
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("character varying(60)")
+                        .HasColumnName("numero_essieu");
+
+                    b.Property<string>("OperateurId")
+                        .IsRequired()
+                        .HasMaxLength(450)
+                        .HasColumnType("character varying(450)")
+                        .HasColumnName("operateur_id");
+
+                    b.Property<DateTime>("RecueAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("recue_at");
+
+                    b.Property<string>("Signataire")
+                        .IsRequired()
+                        .HasMaxLength(120)
+                        .HasColumnType("character varying(120)")
+                        .HasColumnName("signataire");
+
+                    b.HasKey("Id")
+                        .HasName("pk_visites_essieu");
+
+                    b.HasIndex("ClotureAt")
+                        .HasDatabaseName("ix_visites_essieu_cloture_at");
+
+                    b.HasIndex("NumeroEssieu")
+                        .HasDatabaseName("ix_visites_essieu_numero_essieu");
+
+                    b.ToTable("visites_essieu", (string)null);
+                });
+
+            modelBuilder.Entity("MaRa.Api.Models.Entities.VisiteEtape", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("id");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(80)
+                        .HasColumnType("character varying(80)")
+                        .HasColumnName("description");
+
+                    b.Property<Guid>("EtapeId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("etape_id");
+
+                    b.Property<string>("Mesure")
+                        .HasMaxLength(40)
+                        .HasColumnType("character varying(40)")
+                        .HasColumnName("mesure");
+
+                    b.Property<string>("Note")
+                        .HasMaxLength(1000)
+                        .HasColumnType("character varying(1000)")
+                        .HasColumnName("note");
+
+                    b.Property<int>("Ordre")
+                        .HasColumnType("integer")
+                        .HasColumnName("ordre");
+
+                    b.Property<string>("PhotoRef")
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)")
+                        .HasColumnName("photo_ref");
+
+                    b.Property<DateTime>("RealiseeAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("realisee_at");
+
+                    b.Property<string>("Resultat")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("character varying(10)")
+                        .HasColumnName("resultat");
+
+                    b.Property<Guid>("VisiteId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("visite_id");
+
+                    b.HasKey("Id")
+                        .HasName("pk_visites_etapes");
+
+                    b.HasIndex("VisiteId", "EtapeId")
+                        .IsUnique()
+                        .HasDatabaseName("ix_visites_etapes_visite_id_etape_id");
+
+                    b.ToTable("visites_etapes", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -633,6 +790,18 @@ namespace MaRa.Api.Migrations
                         .HasConstraintName("fk_intervention_logs_users_application_user_id");
                 });
 
+            modelBuilder.Entity("MaRa.Api.Models.Entities.VisiteEtape", b =>
+                {
+                    b.HasOne("MaRa.Api.Models.Entities.VisiteEssieu", "Visite")
+                        .WithMany("Etapes")
+                        .HasForeignKey("VisiteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_visites_etapes_visites_essieu_visite_id");
+
+                    b.Navigation("Visite");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -703,6 +872,11 @@ namespace MaRa.Api.Migrations
                 });
 
             modelBuilder.Entity("MaRa.Api.Models.Entities.Gamme", b =>
+                {
+                    b.Navigation("Etapes");
+                });
+
+            modelBuilder.Entity("MaRa.Api.Models.Entities.VisiteEssieu", b =>
                 {
                     b.Navigation("Etapes");
                 });
