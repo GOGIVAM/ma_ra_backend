@@ -30,6 +30,7 @@ public class VisitesController : ControllerBase
 
     /// <summary>Enregistre une visite clôturée. Un renvoi du même identifiant ne change rien.</summary>
     [HttpPost]
+    [Authorize(Policy = "Technicien")]
     public async Task<IActionResult> Envoyer([FromBody] VisiteRequest req, CancellationToken ct)
     {
         if (req.Id == Guid.Empty)
@@ -41,7 +42,7 @@ public class VisitesController : ControllerBase
         if (req.ClotureAt < req.DebutAt)
             return BadRequest(new { message = "La clôture précède le début de la visite." });
 
-        var gamme = await _db.Gammes.AsNoTracking().FirstOrDefaultAsync(g => g.Id == req.GammeId, ct);
+        var gamme = await _db.Gammes.AsNoTracking().Include(g => g.Etapes).FirstOrDefaultAsync(g => g.Id == req.GammeId, ct);
         if (gamme is null) return BadRequest(new { message = "Gamme inconnue." });
 
         var photos = new Dictionary<Guid, byte[]>();
@@ -58,6 +59,15 @@ public class VisitesController : ControllerBase
         }
 
         var operateur = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "?";
+        var reference = gamme.Etapes.ToDictionary(e => e.Id);
+        var instantane = System.Text.Json.JsonSerializer.Serialize(new
+        {
+            gamme.Code, gamme.Titre, gamme.Version, Statut = gamme.StatutEffectif(DateTime.UtcNow), gamme.SourceDocument,
+            Etapes = gamme.Etapes.OrderBy(e => e.OrdreIndex).Select(e => new
+            {
+                e.Id, e.OrdreIndex, e.Description, e.NiveauSecurite, e.LimiteMin, e.LimiteMax, e.Unite,
+            }),
+        });
         var visite = new VisiteEssieu
         {
             Id           = req.Id,
@@ -70,8 +80,13 @@ public class VisitesController : ControllerBase
             Signataire   = req.Signataire.Trim(),
             DebutAt      = req.DebutAt.ToUniversalTime(),
             ClotureAt    = req.ClotureAt.ToUniversalTime(),
-            NombreEcarts = req.Etapes.Count(e => e.Resultat == "ecart"),
-            Etapes       = req.Etapes.Select(e => new VisiteEtape
+            VersionConforme = req.GammeVersion == gamme.Version,
+            GammeInstantane = instantane,
+            Etapes       = req.Etapes.Select(e =>
+            {
+                reference.TryGetValue(e.EtapeId, out var r);
+                var valeur = Usure.LireMesure(e.Mesure);
+                return new VisiteEtape
             {
                 Id          = Guid.NewGuid(),
                 EtapeId     = e.EtapeId,
@@ -82,8 +97,17 @@ public class VisitesController : ControllerBase
                 Note        = e.Note,
                 RealiseeAt  = e.RealiseeAt.ToUniversalTime(),
                 PhotoRef    = photos.ContainsKey(e.EtapeId) ? $"{e.EtapeId}.jpg" : null,
+                Valeur      = valeur,
+                LimiteMin   = r?.LimiteMin,
+                LimiteMax   = r?.LimiteMax,
+                Unite       = r?.Unite,
+                HorsLimites = Usure.HorsLimites(valeur, r?.LimiteMin, r?.LimiteMax),
+                NiveauSecurite = r?.NiveauSecurite ?? "NONE",
+            };
             }).ToList(),
         };
+        // Une mesure hors limites compte comme un écart, même déclarée conforme.
+        visite.NombreEcarts = visite.Etapes.Count(e => e.Resultat == "ecart" || e.HorsLimites);
 
         _db.VisitesEssieu.Add(visite);
         try
@@ -139,7 +163,8 @@ public class VisitesController : ControllerBase
             v.DebutAt, v.ClotureAt, v.RecueAt, v.NombreEcarts,
             v.Etapes.OrderBy(e => e.Ordre).Select(e => new VisiteEtapeResponse(
                 e.EtapeId, e.Ordre, e.Description, e.Resultat, e.Mesure, e.Note,
-                e.PhotoRef is not null, e.RealiseeAt))));
+                e.PhotoRef is not null, e.RealiseeAt, e.HorsLimites, e.LimiteMin, e.LimiteMax, e.Unite)),
+            v.VersionConforme));
     }
 
     [HttpGet("{id:guid}/etapes/{etapeId:guid}/photo")]

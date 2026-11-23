@@ -39,4 +39,11 @@
     <None Remove="tests\**" />
   </ItemGroup>
 
+  <!-- Catalogue des maquettes (outils/maquettes/generer.py), servi par MaquettesController -->
+  <ItemGroup>
+    <Content Remove="Maquettes\**" />
+    <None Remove="Maquettes\**" />
+    <Content Include="Maquettes\**" CopyToPublishDirectory="PreserveNewest" CopyToOutputDirectory="Never" />
+  </ItemGroup>
+
 </Project>

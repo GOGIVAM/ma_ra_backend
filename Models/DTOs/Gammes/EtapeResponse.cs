@@ -7,5 +7,8 @@ public record EtapeResponse(
     string? ArContentRef,
     string NiveauSecurite,
     int?   DureeSecondes,
-    string? Detail
+    string? Detail,
+    decimal? LimiteMin,
+    decimal? LimiteMax,
+    string? Unite
 );

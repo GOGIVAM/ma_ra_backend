@@ -1,0 +1,918 @@
+{
+ "schema": "mara-maquette/1",
+ "actif": "groupe-electrogene",
+ "version": "1.0.0",
+ "classe": "groupe_electrogene",
+ "codes": [
+  "GE-001"
+ ],
+ "titre": "Groupe électrogène de secours",
+ "variante": "Groupe ouvert 2 310 × 1 000 × 1 455 mm (fiche Cummins), alternateur à un palier type S4",
+ "statut": "illustratif",
+ "statutLibelle": "Encombrement de fiche, alternateur d'après un éclaté de pièces",
+ "avertissement": "Maquette illustrative d'une référence publique. Ce n'est pas l'équipement CAMRAIL. Moteur, alternateur et contrôleur sont des références indépendantes.",
+ "echelle": {
+  "unite": "m",
+  "ra_1_1": false,
+  "motif": "Dimensions et calage non validés sur la variante CAMRAIL."
+ },
+ "glb": {
+  "fichier": "modele.glb",
+  "octets": 70260,
+  "sha256": "cdf2739064695340569a1a5a3e8ad909aeea9376ff745592ae38671b931e3fad"
+ },
+ "vueInitiale": "trois_quarts",
+ "coupe": {
+  "axe": "z",
+  "libelle": "Coupe rotor / stator"
+ },
+ "sources": [
+  {
+   "id": "cummins",
+   "titre": "Fiche groupes électrogènes 0080056",
+   "editeur": "Cummins",
+   "url": "https://mart.cummins.com/imagelibrary/data/assetfiles/0080056.pdf",
+   "page": "p. 2–6 (dimensions p. 3)",
+   "fichier": "docs/recherche/catalogue_equipements_ra/sources/11-groupe/Cummins_fiche_0080056.pdf"
+  },
+  {
+   "id": "stamford",
+   "titre": "Catalogue de pièces A053J574 rév. 29, S4 un palier",
+   "editeur": "Cummins Generator Technologies / STAMFORD",
+   "url": "https://www.stamford-avk.com/sites/stamfordavk/files/Parts-Manual/Parts-Manual-Current-Products-I29.pdf",
+   "page": "p. imprimée 71 (fig. 20)",
+   "fichier": "docs/recherche/catalogue_equipements_ra/sources/11-groupe/Stamford_catalogue_pieces.pdf"
+  }
+ ],
+ "cotes": [
+  {
+   "libelle": "Encombrement du groupe ouvert retenu (L × l × h)",
+   "valeur": "2 310 × 1 000 × 1 455",
+   "unite": "mm",
+   "statut": "brochure",
+   "source": "cummins"
+  },
+  {
+   "libelle": "Masse de ce groupe",
+   "valeur": "997",
+   "unite": "kg",
+   "statut": "brochure",
+   "source": "cummins"
+  }
+ ],
+ "simplifications": [
+  "Moteur représenté par un bloc",
+  "Alternateur : carcasse, rotor, excitatrice et flasque",
+  "Capot de principe pour la version capotée"
+ ],
+ "plansManquants": [
+  "Plaque du groupe",
+  "Références du moteur, de l'alternateur et du contrôleur",
+  "Plan d'encombrement",
+  "Ventilation",
+  "Éclatés et schéma électrique autorisé"
+ ],
+ "pieces": [
+  {
+   "id": "chassis_ge",
+   "nom": "Châssis",
+   "noeud": "chassis_ge",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "chassis",
+   "source": "cummins",
+   "page": "p. 3"
+  },
+  {
+   "id": "moteur_ge",
+   "nom": "Moteur diesel",
+   "noeud": "moteur_ge",
+   "parent": null,
+   "transformation": {
+    "position": [
+     -0.25,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "moteur",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.3
+   }
+  },
+  {
+   "id": "radiateur",
+   "nom": "Radiateur",
+   "noeud": "radiateur",
+   "parent": null,
+   "transformation": {
+    "position": [
+     -1.02,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "refroidissement",
+   "source": "cummins",
+   "page": "p. 2",
+   "eclate": {
+    "axe": [
+     -1,
+     0,
+     0
+    ],
+    "distance": 0.4
+   }
+  },
+  {
+   "id": "ventilateur",
+   "nom": "Ventilateur",
+   "noeud": "ventilateur",
+   "parent": null,
+   "transformation": {
+    "position": [
+     -0.88,
+     0.7,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "refroidissement",
+   "eclate": {
+    "axe": [
+     -1,
+     0,
+     0
+    ],
+    "distance": 0.2
+   }
+  },
+  {
+   "id": "echappement",
+   "nom": "Échappement",
+   "noeud": "echappement",
+   "parent": null,
+   "transformation": {
+    "position": [
+     -0.3,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "echappement",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.3
+   }
+  },
+  {
+   "id": "panneau",
+   "nom": "Panneau de commande",
+   "noeud": "panneau",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.75,
+     0.0,
+     0.42
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "commande",
+   "eclate": {
+    "axe": [
+     0,
+     0,
+     1
+    ],
+    "distance": 0.3
+   }
+  },
+  {
+   "id": "batterie",
+   "nom": "Batterie de démarrage",
+   "noeud": "batterie",
+   "parent": null,
+   "transformation": {
+    "position": [
+     -0.6,
+     0.26,
+     0.38
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "demarrage",
+   "source": "cummins",
+   "page": "p. 2",
+   "eclate": {
+    "axe": [
+     0,
+     0,
+     1
+    ],
+    "distance": 0.3
+   }
+  },
+  {
+   "id": "alternateur",
+   "nom": "Alternateur",
+   "noeud": "alternateur",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.62,
+     0.6,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "alternateur",
+   "source": "stamford",
+   "page": "p. 71",
+   "ensemble": true
+  },
+  {
+   "id": "carcasse_stator",
+   "nom": "Carcasse et stator principal",
+   "noeud": "carcasse_stator",
+   "parent": "alternateur",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "alternateur",
+   "repere": "8",
+   "source": "stamford",
+   "page": "p. 71"
+  },
+  {
+   "id": "rotor",
+   "nom": "Rotor principal",
+   "noeud": "rotor",
+   "parent": "alternateur",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "alternateur",
+   "repere": "10",
+   "source": "stamford",
+   "page": "p. 71",
+   "eclate": {
+    "axe": [
+     1,
+     0,
+     0
+    ],
+    "distance": 0.9
+   },
+   "depose": [
+    1.1,
+    0,
+    0
+   ],
+   "dependances": [
+    "flasque_arriere",
+    "excitatrice"
+   ]
+  },
+  {
+   "id": "excitatrice",
+   "nom": "Excitatrice",
+   "noeud": "excitatrice",
+   "parent": "alternateur",
+   "transformation": {
+    "position": [
+     0.33,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "alternateur",
+   "repere": "7",
+   "source": "stamford",
+   "page": "p. 71",
+   "eclate": {
+    "axe": [
+     1,
+     0,
+     0
+    ],
+    "distance": 0.55
+   },
+   "depose": [
+    0.6,
+    0.3,
+    0
+   ],
+   "dependances": [
+    "flasque_arriere"
+   ]
+  },
+  {
+   "id": "flasque_arriere",
+   "nom": "Flasque arrière",
+   "noeud": "flasque_arriere",
+   "parent": "alternateur",
+   "transformation": {
+    "position": [
+     0.3,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "alternateur",
+   "repere": "5",
+   "source": "stamford",
+   "page": "p. 71",
+   "eclate": {
+    "axe": [
+     1,
+     0,
+     0
+    ],
+    "distance": 0.35
+   },
+   "depose": [
+    0.45,
+    0,
+    0
+   ],
+   "dependances": [
+    "vis_flasque_ge_1",
+    "vis_flasque_ge_2",
+    "vis_flasque_ge_3",
+    "vis_flasque_ge_4"
+   ]
+  },
+  {
+   "id": "bornier",
+   "nom": "Boîte à bornes",
+   "noeud": "bornier",
+   "parent": "alternateur",
+   "transformation": {
+    "position": [
+     0.0,
+     0.4,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "alternateur",
+   "source": "stamford",
+   "page": "p. 71",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.25
+   }
+  },
+  {
+   "id": "capot_ge",
+   "nom": "Capot (version capotée)",
+   "noeud": "capot_ge",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "capot",
+   "source": "cummins",
+   "page": "p. 2",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.5
+   },
+   "depose": [
+    0,
+    1.3,
+    0
+   ]
+  },
+  {
+   "id": "vis_flasque_ge_1",
+   "nom": "Vis de flasque 1",
+   "noeud": "vis_flasque_ge_1",
+   "parent": "alternateur",
+   "transformation": {
+    "position": [
+     0.33,
+     0.19799,
+     0.19799
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_flasque_ge",
+   "fixe": "flasque_arriere",
+   "depose": [
+    0.095,
+    0.0,
+    0.0
+   ],
+   "fixation": {
+    "axe": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "degagement": 0.035,
+    "tours": 4
+   }
+  },
+  {
+   "id": "vis_flasque_ge_2",
+   "nom": "Vis de flasque 2",
+   "noeud": "vis_flasque_ge_2",
+   "parent": "alternateur",
+   "transformation": {
+    "position": [
+     0.33,
+     -0.19799,
+     0.19799
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_flasque_ge",
+   "fixe": "flasque_arriere",
+   "depose": [
+    0.095,
+    0.0,
+    0.0
+   ],
+   "fixation": {
+    "axe": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "degagement": 0.035,
+    "tours": 4
+   }
+  },
+  {
+   "id": "vis_flasque_ge_3",
+   "nom": "Vis de flasque 3",
+   "noeud": "vis_flasque_ge_3",
+   "parent": "alternateur",
+   "transformation": {
+    "position": [
+     0.33,
+     -0.19799,
+     -0.19799
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_flasque_ge",
+   "fixe": "flasque_arriere",
+   "depose": [
+    0.095,
+    0.0,
+    0.0
+   ],
+   "fixation": {
+    "axe": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "degagement": 0.035,
+    "tours": 4
+   }
+  },
+  {
+   "id": "vis_flasque_ge_4",
+   "nom": "Vis de flasque 4",
+   "noeud": "vis_flasque_ge_4",
+   "parent": "alternateur",
+   "transformation": {
+    "position": [
+     0.33,
+     0.19799,
+     -0.19799
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_flasque_ge",
+   "fixe": "flasque_arriere",
+   "depose": [
+    0.095,
+    0.0,
+    0.0
+   ],
+   "fixation": {
+    "axe": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "degagement": 0.035,
+    "tours": 4
+   }
+  }
+ ],
+ "scenario": {
+  "titre": "Ouverture du capot et isolement de l'alternateur",
+  "illustratif": true,
+  "avertissement": "Scénario illustratif en simulation. Ordre, couples et outillage à prendre dans la gamme approuvée par CAMRAIL. L'application ne pilote aucun équipement.",
+  "etapes": [
+   {
+    "id": "d1",
+    "texte": "Déposer le capot",
+    "action": "deposer",
+    "pieces": [
+     "capot_ge"
+    ]
+   },
+   {
+    "id": "d2",
+    "texte": "Dévisser les vis du flasque arrière",
+    "action": "devisser",
+    "pieces": [
+     "vis_flasque_ge_1",
+     "vis_flasque_ge_2",
+     "vis_flasque_ge_3",
+     "vis_flasque_ge_4"
+    ]
+   },
+   {
+    "id": "d3",
+    "texte": "Déposer le flasque arrière",
+    "action": "deposer",
+    "pieces": [
+     "flasque_arriere"
+    ]
+   },
+   {
+    "id": "d4",
+    "texte": "Déposer l'excitatrice",
+    "action": "deposer",
+    "pieces": [
+     "excitatrice"
+    ]
+   },
+   {
+    "id": "d5",
+    "texte": "Déposer le rotor principal",
+    "action": "deposer",
+    "pieces": [
+     "rotor"
+    ]
+   },
+   {
+    "id": "r1",
+    "texte": "Reposer le rotor principal",
+    "action": "reposer",
+    "pieces": [
+     "rotor"
+    ]
+   },
+   {
+    "id": "r2",
+    "texte": "Reposer l'excitatrice",
+    "action": "reposer",
+    "pieces": [
+     "excitatrice"
+    ]
+   },
+   {
+    "id": "r3",
+    "texte": "Reposer le flasque arrière",
+    "action": "reposer",
+    "pieces": [
+     "flasque_arriere"
+    ]
+   },
+   {
+    "id": "r4",
+    "texte": "Revisser les vis du flasque arrière",
+    "action": "visser",
+    "pieces": [
+     "vis_flasque_ge_1",
+     "vis_flasque_ge_2",
+     "vis_flasque_ge_3",
+     "vis_flasque_ge_4"
+    ]
+   },
+   {
+    "id": "r5",
+    "texte": "Reposer le capot",
+    "action": "reposer",
+    "pieces": [
+     "capot_ge"
+    ]
+   }
+  ]
+ },
+ "articulations": [],
+ "etats": []
+}

@@ -1,0 +1,723 @@
+{
+ "schema": "mara-maquette/1",
+ "actif": "grue-ferroviaire",
+ "version": "1.0.0",
+ "classe": "grue_ferroviaire",
+ "codes": [
+  "GRF-001"
+ ],
+ "titre": "Grue ferroviaire automotrice",
+ "variante": "Silhouette type Multi Tasker : flèche télescopique, contrepoids télescopique",
+ "statut": "illustratif",
+ "statutLibelle": "Silhouette de brochure, proportions approchées",
+ "avertissement": "Maquette illustrative d'une référence publique. Ce n'est pas l'équipement CAMRAIL.",
+ "echelle": {
+  "unite": "m",
+  "ra_1_1": false,
+  "motif": "Dimensions et calage non validés sur la variante CAMRAIL."
+ },
+ "glb": {
+  "fichier": "modele.glb",
+  "octets": 87068,
+  "sha256": "cc2d2aeeda8bdf9cd1e18841deb40ac1472475890a5256386ccdac3759f658c8"
+ },
+ "vueInitiale": "trois_quarts",
+ "coupe": {
+  "axe": "x",
+  "libelle": "Coupe longitudinale"
+ },
+ "sources": [
+  {
+   "id": "techne",
+   "titre": "Brochure Multi Tasker",
+   "editeur": "Techne Kirow",
+   "url": "https://www.techne-kirow.de/fileadmin/Downloads/Broschueren/Faltblatt-Multi-Tasker.pdf",
+   "page": "p. 1–2",
+   "fichier": "docs/recherche/catalogue_equipements_ra/sources/05-grue/TECHNE_Multi_Tasker.pdf"
+  },
+  {
+   "id": "kirow",
+   "titre": "Multi Tasker, gamme et configurations",
+   "editeur": "Kirow (copie distributeur)",
+   "url": "https://dzwigi24.pl/files/MULTI_TASKER_EN.pdf",
+   "page": "p. 4–6 et 13–15",
+   "fichier": "docs/recherche/catalogue_equipements_ra/sources/05-grue/Kirow_Multi_Tasker_gammes.pdf"
+  }
+ ],
+ "cotes": [
+  {
+   "libelle": "Capacité de levage selon modèle",
+   "valeur": "10 à 125",
+   "unite": "t",
+   "statut": "brochure",
+   "source": "kirow"
+  },
+  {
+   "libelle": "Longueur de la maquette",
+   "valeur": "≈ 15",
+   "unite": "m",
+   "statut": "hypothese"
+  }
+ ],
+ "simplifications": [
+  "Bogies de grue simplifiés",
+  "Vérin de relevage solidaire de la flèche",
+  "Treuil fermé, sans coupe (aucune coupe constructeur disponible)"
+ ],
+ "plansManquants": [
+  "Plan d'ensemble replié / déployé",
+  "Schémas hydraulique et électrique",
+  "Éclatés du crochet et du treuil",
+  "Documents de la référence réelle"
+ ],
+ "pieces": [
+  {
+   "id": "porteur",
+   "nom": "Châssis porteur",
+   "noeud": "porteur",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "porteur",
+   "source": "techne",
+   "page": "p. 1"
+  },
+  {
+   "id": "cabine_conduite",
+   "nom": "Cabine de conduite",
+   "noeud": "cabine_conduite",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "cabine",
+   "eclate": {
+    "axe": [
+     0,
+     0,
+     1
+    ],
+    "distance": 0.6
+   }
+  },
+  {
+   "id": "bogie_grue_1",
+   "nom": "Bogie 1",
+   "noeud": "bogie_grue_1",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     4.6
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "roulement",
+   "source": "kirow",
+   "page": "p. 4",
+   "eclate": {
+    "axe": [
+     0,
+     -1,
+     0
+    ],
+    "distance": 0.5
+   }
+  },
+  {
+   "id": "bogie_grue_2",
+   "nom": "Bogie 2",
+   "noeud": "bogie_grue_2",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     -4.6
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "roulement",
+   "source": "kirow",
+   "page": "p. 4",
+   "eclate": {
+    "axe": [
+     0,
+     -1,
+     0
+    ],
+    "distance": 0.5
+   }
+  },
+  {
+   "id": "tourelle",
+   "nom": "Superstructure tournante",
+   "noeud": "tourelle",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     1.8,
+     -1.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "tourelle",
+   "source": "techne",
+   "page": "p. 1",
+   "ensemble": true
+  },
+  {
+   "id": "couronne_orientation",
+   "nom": "Couronne d'orientation",
+   "noeud": "couronne_orientation",
+   "parent": "tourelle",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "tourelle",
+   "eclate": {
+    "axe": [
+     0,
+     -1,
+     0
+    ],
+    "distance": 0.3
+   }
+  },
+  {
+   "id": "caisse_tourelle",
+   "nom": "Caisse de superstructure",
+   "noeud": "caisse_tourelle",
+   "parent": "tourelle",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "tourelle",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.6
+   }
+  },
+  {
+   "id": "cabine_grutier",
+   "nom": "Cabine du grutier",
+   "noeud": "cabine_grutier",
+   "parent": "tourelle",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "cabine",
+   "eclate": {
+    "axe": [
+     1,
+     0,
+     0
+    ],
+    "distance": 0.5
+   }
+  },
+  {
+   "id": "treuil",
+   "nom": "Treuil",
+   "noeud": "treuil",
+   "parent": "tourelle",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "treuil",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.5
+   }
+  },
+  {
+   "id": "contrepoids",
+   "nom": "Contrepoids télescopique",
+   "noeud": "contrepoids",
+   "parent": "tourelle",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     -2.3
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "contrepoids",
+   "source": "kirow",
+   "page": "p. 13",
+   "eclate": {
+    "axe": [
+     0,
+     0,
+     -1
+    ],
+    "distance": 0.6
+   }
+  },
+  {
+   "id": "fleche",
+   "nom": "Flèche",
+   "noeud": "fleche",
+   "parent": "tourelle",
+   "transformation": {
+    "position": [
+     0.0,
+     1.9,
+     1.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "fleche",
+   "source": "techne",
+   "page": "p. 1"
+  },
+  {
+   "id": "fut_telescopique",
+   "nom": "Fût télescopique",
+   "noeud": "fut_telescopique",
+   "parent": "fleche",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "fleche",
+   "eclate": {
+    "axe": [
+     0,
+     0,
+     1
+    ],
+    "distance": 0.8
+   }
+  },
+  {
+   "id": "tete_fleche",
+   "nom": "Tête de flèche et poulies",
+   "noeud": "tete_fleche",
+   "parent": "fut_telescopique",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "fleche",
+   "eclate": {
+    "axe": [
+     0,
+     0,
+     1
+    ],
+    "distance": 0.4
+   }
+  },
+  {
+   "id": "verin_relevage",
+   "nom": "Vérin de relevage",
+   "noeud": "verin_relevage",
+   "parent": "fleche",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "hydraulique",
+   "simplification": "Représenté solidaire de la flèche.",
+   "eclate": {
+    "axe": [
+     0,
+     -1,
+     0
+    ],
+    "distance": 0.5
+   }
+  },
+  {
+   "id": "crochet_grue",
+   "nom": "Moufle et crochet",
+   "noeud": "crochet_grue",
+   "parent": "tete_fleche",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "crochet",
+   "eclate": {
+    "axe": [
+     0,
+     -1,
+     0
+    ],
+    "distance": 0.4
+   }
+  }
+ ],
+ "scenario": null,
+ "articulations": [
+  {
+   "id": "orientation",
+   "libelle": "Orientation de la superstructure",
+   "unite": "°",
+   "min": -180,
+   "max": 180,
+   "pas": 1,
+   "valeur": 0,
+   "cibles": [
+    {
+     "piece": "tourelle",
+     "type": "rotation",
+     "axe": [
+      0,
+      1,
+      0
+     ],
+     "facteur": 0.017453292519943295
+    }
+   ]
+  },
+  {
+   "id": "relevage",
+   "libelle": "Relevage de la flèche",
+   "unite": "°",
+   "min": 0,
+   "max": 60,
+   "pas": 1,
+   "valeur": 0,
+   "cibles": [
+    {
+     "piece": "fleche",
+     "type": "rotation",
+     "axe": [
+      -1,
+      0,
+      0
+     ],
+     "facteur": 0.017453292519943295
+    }
+   ]
+  },
+  {
+   "id": "telescopage",
+   "libelle": "Sortie du fût télescopique",
+   "unite": "m",
+   "min": -4,
+   "max": 0,
+   "pas": 0.1,
+   "valeur": -4,
+   "cibles": [
+    {
+     "piece": "fut_telescopique",
+     "type": "translation",
+     "axe": [
+      0,
+      0,
+      1
+     ],
+     "facteur": 1
+    }
+   ]
+  },
+  {
+   "id": "contrepoids",
+   "libelle": "Sortie du contrepoids",
+   "unite": "m",
+   "min": 0,
+   "max": 1.6,
+   "pas": 0.05,
+   "valeur": 0,
+   "cibles": [
+    {
+     "piece": "contrepoids",
+     "type": "translation",
+     "axe": [
+      0,
+      0,
+      -1
+     ],
+     "facteur": 1
+    }
+   ]
+  }
+ ],
+ "etats": []
+}

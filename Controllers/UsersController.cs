@@ -14,7 +14,8 @@ namespace MaRa.Api.Controllers;
 [Authorize(Policy = "AdminOnly")]
 public class UsersController : ControllerBase
 {
-    private static readonly string[] ValidGroupes = ["DMAT", "DIF", "CI", "CIF", "ADMIN"];
+    // CMSF : Coordination Management de la Sécurité Ferroviaire, utilisateur secondaire du cahier des charges (consultation).
+    public static readonly string[] ValidGroupes = ["DMAT", "DIF", "CI", "CIF", "CMSF", "ADMIN"];
 
     private readonly UserManager<ApplicationUser> _users;
     private readonly IAuditService _audit;
@@ -103,6 +104,23 @@ public class UsersController : ControllerBase
         var caller = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value ?? "?";
         _audit.LogAction(caller, "CHANGE_GROUPE", $"userId={id} groupe={groupe}");
 
+        return NoContent();
+    }
+
+    /// <summary>Réinitialisation du mot de passe d'un compte par l'administrateur.</summary>
+    [HttpPut("{id}/password")]
+    public async Task<IActionResult> ResetPassword(string id, [FromBody] PasswordResetRequest req)
+    {
+        var user = await _users.FindByIdAsync(id);
+        if (user is null) return NotFound();
+
+        var jeton  = await _users.GeneratePasswordResetTokenAsync(user);
+        var result = await _users.ResetPasswordAsync(user, jeton, req.NouveauMotDePasse);
+        if (!result.Succeeded)
+            return BadRequest(new { errors = result.Errors.Select(e => e.Description) });
+
+        var caller = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value ?? "?";
+        _audit.LogAction(caller, "RESET_PASSWORD", $"userId={id}");
         return NoContent();
     }
 

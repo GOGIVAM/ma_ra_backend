@@ -1,0 +1,760 @@
+{
+ "schema": "mara-maquette/1",
+ "actif": "draisine-vmt",
+ "version": "1.0.0",
+ "classe": "draisine",
+ "codes": [
+  "DRA-001"
+ ],
+ "titre": "Draisine de chantier",
+ "variante": "Silhouette type VMT 980 GR : cabine, plateforme et grue de chargement",
+ "statut": "illustratif",
+ "statutLibelle": "Silhouette de catalogue, organes de principe",
+ "avertissement": "Maquette illustrative d'une référence publique. Ce n'est pas l'équipement CAMRAIL.",
+ "echelle": {
+  "unite": "m",
+  "ra_1_1": false,
+  "motif": "Dimensions et calage non validés sur la variante CAMRAIL."
+ },
+ "glb": {
+  "fichier": "modele.glb",
+  "octets": 52516,
+  "sha256": "ba19a1bf891944dcfbab0c4b9fcac2e2d4a942f7490a989af3c87858e4529809"
+ },
+ "vueInitiale": "trois_quarts",
+ "coupe": {
+  "axe": "x",
+  "libelle": "Coupe longitudinale"
+ },
+ "sources": [
+  {
+   "id": "geismar",
+   "titre": "Catalogue matériel roulant, VMT 980 GR et VMT 980 MT",
+   "editeur": "Geismar",
+   "url": "https://geismar.com/wp-content/uploads/2025/06/geismar-catalogue-fra.pdf",
+   "page": "p. 124 et 128",
+   "fichier": "docs/recherche/catalogue_equipements_ra/sources/08-draisine/Geismar_catalogue_materiel_roulant_FR.pdf"
+  }
+ ],
+ "cotes": [
+  {
+   "libelle": "Écartement possible",
+   "valeur": "1 000 à 1 676",
+   "unite": "mm",
+   "statut": "brochure",
+   "source": "geismar"
+  },
+  {
+   "libelle": "Masse",
+   "valeur": "≈ 35",
+   "unite": "t",
+   "statut": "brochure",
+   "source": "geismar"
+  },
+  {
+   "libelle": "Surface de plateforme",
+   "valeur": "10",
+   "unite": "m²",
+   "statut": "brochure",
+   "source": "geismar"
+  },
+  {
+   "libelle": "Charge utile",
+   "valeur": "5",
+   "unite": "t",
+   "statut": "brochure",
+   "source": "geismar"
+  }
+ ],
+ "simplifications": [
+  "Transmission réduite à une boîte et un arbre",
+  "Grue de chargement à deux segments"
+ ],
+ "plansManquants": [
+  "Plans de caisse et châssis",
+  "Références moteur et transmission",
+  "Schémas de freinage et de mesure",
+  "Photos des accès et du dessous"
+ ],
+ "pieces": [
+  {
+   "id": "chassis_draisine",
+   "nom": "Châssis",
+   "noeud": "chassis_draisine",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "chassis",
+   "source": "geismar",
+   "page": "p. 124"
+  },
+  {
+   "id": "cabine",
+   "nom": "Cabine",
+   "noeud": "cabine",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "cabine",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.6
+   }
+  },
+  {
+   "id": "plateforme",
+   "nom": "Plateforme",
+   "noeud": "plateforme",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "plateforme",
+   "source": "geismar",
+   "page": "p. 124"
+  },
+  {
+   "id": "moteur_diesel",
+   "nom": "Moteur diesel",
+   "noeud": "moteur_diesel",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "motorisation",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.8
+   }
+  },
+  {
+   "id": "transmission",
+   "nom": "Transmission hydrodynamique",
+   "noeud": "transmission",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "transmission",
+   "source": "geismar",
+   "page": "p. 124",
+   "eclate": {
+    "axe": [
+     0,
+     -1,
+     0
+    ],
+    "distance": 0.5
+   }
+  },
+  {
+   "id": "capot_gauche",
+   "nom": "Capot moteur gauche",
+   "noeud": "capot_gauche",
+   "parent": null,
+   "transformation": {
+    "position": [
+     -0.75,
+     2.6,
+     0.9
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "capot",
+   "eclate": {
+    "axe": [
+     -1,
+     0,
+     0
+    ],
+    "distance": 0.4
+   }
+  },
+  {
+   "id": "capot_droit",
+   "nom": "Capot moteur droit",
+   "noeud": "capot_droit",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.75,
+     2.6,
+     0.9
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "capot",
+   "eclate": {
+    "axe": [
+     1,
+     0,
+     0
+    ],
+    "distance": 0.4
+   }
+  },
+  {
+   "id": "toit_capot",
+   "nom": "Toit du compartiment moteur",
+   "noeud": "toit_capot",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "capot",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.5
+   }
+  },
+  {
+   "id": "grue_chargement",
+   "nom": "Grue de chargement",
+   "noeud": "grue_chargement",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "grue",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.6
+   }
+  },
+  {
+   "id": "reservoir",
+   "nom": "Réservoir de carburant",
+   "noeud": "reservoir",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "motorisation",
+   "eclate": {
+    "axe": [
+     -1,
+     0,
+     0
+    ],
+    "distance": 0.5
+   }
+  },
+  {
+   "id": "essieu_draisine_1",
+   "nom": "Essieu 1",
+   "noeud": "essieu_draisine_1",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.42,
+     3.4
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "essieu",
+   "ensemble": true,
+   "eclate": {
+    "axe": [
+     0,
+     -1,
+     0
+    ],
+    "distance": 0.4
+   }
+  },
+  {
+   "id": "axe_draisine_1",
+   "nom": "Axe",
+   "noeud": "axe_draisine_1",
+   "parent": "essieu_draisine_1",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "essieu"
+  },
+  {
+   "id": "roues_draisine_1",
+   "nom": "Roues",
+   "noeud": "roues_draisine_1",
+   "parent": "essieu_draisine_1",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "essieu"
+  },
+  {
+   "id": "freins_draisine_1",
+   "nom": "Freins",
+   "noeud": "freins_draisine_1",
+   "parent": "essieu_draisine_1",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "frein",
+   "eclate": {
+    "axe": [
+     0,
+     0,
+     1
+    ],
+    "distance": 0.2
+   }
+  },
+  {
+   "id": "essieu_draisine_2",
+   "nom": "Essieu 2",
+   "noeud": "essieu_draisine_2",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.42,
+     -3.4
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "essieu",
+   "ensemble": true,
+   "eclate": {
+    "axe": [
+     0,
+     -1,
+     0
+    ],
+    "distance": 0.4
+   }
+  },
+  {
+   "id": "axe_draisine_2",
+   "nom": "Axe",
+   "noeud": "axe_draisine_2",
+   "parent": "essieu_draisine_2",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "essieu"
+  },
+  {
+   "id": "roues_draisine_2",
+   "nom": "Roues",
+   "noeud": "roues_draisine_2",
+   "parent": "essieu_draisine_2",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "essieu"
+  },
+  {
+   "id": "freins_draisine_2",
+   "nom": "Freins",
+   "noeud": "freins_draisine_2",
+   "parent": "essieu_draisine_2",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "frein",
+   "eclate": {
+    "axe": [
+     0,
+     0,
+     1
+    ],
+    "distance": 0.2
+   }
+  }
+ ],
+ "scenario": null,
+ "articulations": [
+  {
+   "id": "capots",
+   "libelle": "Ouverture des capots",
+   "unite": "°",
+   "min": 0,
+   "max": 100,
+   "pas": 1,
+   "valeur": 0,
+   "cibles": [
+    {
+     "piece": "capot_gauche",
+     "type": "rotation",
+     "axe": [
+      0,
+      0,
+      1
+     ],
+     "facteur": 0.017453292519943295
+    },
+    {
+     "piece": "capot_droit",
+     "type": "rotation",
+     "axe": [
+      0,
+      0,
+      -1
+     ],
+     "facteur": 0.017453292519943295
+    }
+   ]
+  }
+ ],
+ "etats": []
+}

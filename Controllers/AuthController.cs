@@ -84,6 +84,23 @@ public class AuthController : ControllerBase
         return Ok(new UserResponse(user.Id, user.UserName!, user.Email ?? "", user.Groupe, user.IsActive, user.CreatedAt));
     }
 
+    /// <summary>Changement de son propre mot de passe : l'ancien est exigé.</summary>
+    [HttpPost("password")]
+    [Authorize]
+    public async Task<IActionResult> ChangePassword([FromBody] PasswordChangeRequest req)
+    {
+        var id   = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value ?? "";
+        var user = await _users.FindByIdAsync(id);
+        if (user is null) return Unauthorized();
+
+        var result = await _users.ChangePasswordAsync(user, req.AncienMotDePasse, req.NouveauMotDePasse);
+        if (!result.Succeeded)
+            return BadRequest(new { message = "Mot de passe non modifié : ancien mot de passe incorrect ou nouveau mot de passe trop faible." });
+
+        _audit.LogAction(id, "CHANGE_PASSWORD", $"username={user.UserName}");
+        return NoContent();
+    }
+
     /// <summary>Révocation du refresh token (déconnexion propre).</summary>
     [HttpPost("logout")]
     [Authorize]

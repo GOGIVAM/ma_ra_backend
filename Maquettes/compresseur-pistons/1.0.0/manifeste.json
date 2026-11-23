@@ -1,0 +1,744 @@
+{
+ "schema": "mara-maquette/1",
+ "actif": "compresseur-pistons",
+ "version": "1.0.0",
+ "classe": "compresseur",
+ "codes": [
+  "COMP-001"
+ ],
+ "titre": "Groupe compresseur d'air de frein",
+ "variante": "Groupe à pistons en V, sans huile, avec refroidisseur",
+ "statut": "coupe_de_principe",
+ "statutLibelle": "Enveloppe d'après brochures, organes internes de principe",
+ "avertissement": "Maquette illustrative d'une référence publique. Ce n'est pas l'équipement CAMRAIL.",
+ "echelle": {
+  "unite": "m",
+  "ra_1_1": false,
+  "motif": "Dimensions et calage non validés sur la variante CAMRAIL."
+ },
+ "glb": {
+  "fichier": "modele.glb",
+  "octets": 76652,
+  "sha256": "396fb2f56eb3d28ab9715fe19b2156d53c572f7f392b43ac193e4f6036c6978e"
+ },
+ "vueInitiale": "trois_quarts",
+ "coupe": {
+  "axe": "x",
+  "libelle": "Coupe par les cylindres"
+ },
+ "sources": [
+  {
+   "id": "knorr",
+   "titre": "Fiche PistonSupply Eco",
+   "editeur": "Knorr-Bremse",
+   "url": "https://rail.knorr-bremse.com/media/2000-products/product-broschures/p-1262-pistonsupply-eco.pdf",
+   "page": "p. 1–2",
+   "fichier": "docs/recherche/catalogue_equipements_ra/sources/03-compresseur/Knorr_PistonSupply_Eco.pdf"
+  },
+  {
+   "id": "elgi",
+   "titre": "Compresseurs ferroviaires",
+   "editeur": "ELGi",
+   "url": "https://www.elgi.com/me/wp-content/uploads/2019/04/Railway-Compressors.pdf",
+   "page": "p. 2–10",
+   "fichier": "docs/recherche/catalogue_equipements_ra/sources/03-compresseur/ELGi_compresseurs_ferroviaires.pdf"
+  }
+ ],
+ "cotes": [
+  {
+   "libelle": "Dimensions",
+   "valeur": "non cotées sur les brochures consultées",
+   "unite": "",
+   "statut": "hypothese"
+  }
+ ],
+ "simplifications": [
+  "Deux cylindres en V (basse et haute pression)",
+  "Pistons, bielles et soupapes de principe",
+  "Tuyauteries droites"
+ ],
+ "plansManquants": [
+  "Plaque du compresseur installé",
+  "Coupe et éclaté du groupe",
+  "Schéma pneumatique",
+  "Références des filtres et soupapes",
+  "Interfaces avec l'installation"
+ ],
+ "pieces": [
+  {
+   "id": "socle",
+   "nom": "Socle",
+   "noeud": "socle",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "structure"
+  },
+  {
+   "id": "moteur_electrique",
+   "nom": "Moteur électrique",
+   "noeud": "moteur_electrique",
+   "parent": null,
+   "transformation": {
+    "position": [
+     -0.35,
+     0.28,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "motorisation",
+   "source": "knorr",
+   "page": "p. 1",
+   "eclate": {
+    "axe": [
+     -1,
+     0,
+     0
+    ],
+    "distance": 0.4
+   }
+  },
+  {
+   "id": "accouplement",
+   "nom": "Accouplement",
+   "noeud": "accouplement",
+   "parent": null,
+   "transformation": {
+    "position": [
+     -0.08,
+     0.28,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "motorisation",
+   "eclate": {
+    "axe": [
+     -1,
+     0,
+     0
+    ],
+    "distance": 0.2
+   }
+  },
+  {
+   "id": "carter",
+   "nom": "Carter de vilebrequin",
+   "noeud": "carter",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.22,
+     0.24,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "carter",
+   "source": "knorr",
+   "page": "p. 1"
+  },
+  {
+   "id": "cylindre_bp",
+   "nom": "Cylindre basse pression",
+   "noeud": "cylindre_bp",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.22,
+     0.38,
+     0.0
+    ],
+    "rotation": [
+     0.300706,
+     0.0,
+     0.0,
+     0.953717
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "cylindre",
+   "source": "knorr",
+   "page": "p. 1",
+   "eclate": {
+    "axe": [
+     0,
+     0.8191520442889918,
+     0.573576436351046
+    ],
+    "distance": 0.25
+   }
+  },
+  {
+   "id": "piston_bp",
+   "nom": "Piston basse pression",
+   "noeud": "piston_bp",
+   "parent": "cylindre_bp",
+   "transformation": {
+    "position": [
+     0.0,
+     0.1,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "piston",
+   "simplification": "Piston de principe, non documenté."
+  },
+  {
+   "id": "bielle_bp",
+   "nom": "Bielle basse pression",
+   "noeud": "bielle_bp",
+   "parent": "cylindre_bp",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "piston"
+  },
+  {
+   "id": "culasse_bp",
+   "nom": "Culasse basse pression",
+   "noeud": "culasse_bp",
+   "parent": "cylindre_bp",
+   "transformation": {
+    "position": [
+     0.0,
+     0.265,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "culasse",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.2
+   },
+   "depose": [
+    0,
+    0.3,
+    0
+   ]
+  },
+  {
+   "id": "soupapes_bp",
+   "nom": "Soupapes basse pression",
+   "noeud": "soupapes_bp",
+   "parent": "cylindre_bp",
+   "transformation": {
+    "position": [
+     0.0,
+     0.33,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "circuit_air",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.35
+   }
+  },
+  {
+   "id": "cylindre_hp",
+   "nom": "Cylindre haute pression",
+   "noeud": "cylindre_hp",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.22,
+     0.38,
+     0.0
+    ],
+    "rotation": [
+     -0.300706,
+     -0.0,
+     -0.0,
+     0.953717
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "cylindre",
+   "source": "knorr",
+   "page": "p. 1",
+   "eclate": {
+    "axe": [
+     0,
+     0.8191520442889918,
+     -0.573576436351046
+    ],
+    "distance": 0.25
+   }
+  },
+  {
+   "id": "piston_hp",
+   "nom": "Piston haute pression",
+   "noeud": "piston_hp",
+   "parent": "cylindre_hp",
+   "transformation": {
+    "position": [
+     0.0,
+     0.1,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "piston",
+   "simplification": "Piston de principe, non documenté."
+  },
+  {
+   "id": "bielle_hp",
+   "nom": "Bielle haute pression",
+   "noeud": "bielle_hp",
+   "parent": "cylindre_hp",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "piston"
+  },
+  {
+   "id": "culasse_hp",
+   "nom": "Culasse haute pression",
+   "noeud": "culasse_hp",
+   "parent": "cylindre_hp",
+   "transformation": {
+    "position": [
+     0.0,
+     0.265,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "culasse",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.2
+   },
+   "depose": [
+    0,
+    0.3,
+    0
+   ]
+  },
+  {
+   "id": "soupapes_hp",
+   "nom": "Soupapes haute pression",
+   "noeud": "soupapes_hp",
+   "parent": "cylindre_hp",
+   "transformation": {
+    "position": [
+     0.0,
+     0.33,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "circuit_air",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.35
+   }
+  },
+  {
+   "id": "refroidisseur",
+   "nom": "Refroidisseur",
+   "noeud": "refroidisseur",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.66,
+     0.4,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "circuit_air",
+   "source": "knorr",
+   "page": "p. 1",
+   "eclate": {
+    "axe": [
+     1,
+     0,
+     0
+    ],
+    "distance": 0.35
+   }
+  },
+  {
+   "id": "filtre_admission",
+   "nom": "Filtre d'admission",
+   "noeud": "filtre_admission",
+   "parent": null,
+   "transformation": {
+    "position": [
+     -0.05,
+     0.62,
+     0.18
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "circuit_air",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.25
+   },
+   "depose": [
+    0,
+    0.3,
+    0.1
+   ]
+  },
+  {
+   "id": "tuyauteries",
+   "nom": "Tuyauteries d'air",
+   "noeud": "tuyauteries",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "circuit_air",
+   "simplification": "Tracé de principe ; schéma pneumatique à obtenir."
+  }
+ ],
+ "scenario": {
+  "titre": "Accès au filtre d'admission",
+  "illustratif": true,
+  "avertissement": "Scénario illustratif en simulation. Ordre, couples et outillage à prendre dans la gamme approuvée par CAMRAIL. L'application ne pilote aucun équipement.",
+  "etapes": [
+   {
+    "id": "d1",
+    "texte": "Déposer le filtre d'admission",
+    "action": "deposer",
+    "pieces": [
+     "filtre_admission"
+    ]
+   },
+   {
+    "id": "r1",
+    "texte": "Reposer le filtre d'admission",
+    "action": "reposer",
+    "pieces": [
+     "filtre_admission"
+    ]
+   }
+  ]
+ },
+ "articulations": [
+  {
+   "id": "course",
+   "libelle": "Course des pistons (illustrative)",
+   "unite": "",
+   "min": 0,
+   "max": 1,
+   "pas": 0.02,
+   "valeur": 0,
+   "cibles": [
+    {
+     "piece": "piston_bp",
+     "type": "translation",
+     "axe": [
+      0,
+      1,
+      0
+     ],
+     "facteur": 0.06
+    },
+    {
+     "piece": "piston_hp",
+     "type": "translation",
+     "axe": [
+      0,
+      -1,
+      0
+     ],
+     "facteur": 0.06
+    }
+   ]
+  }
+ ],
+ "etats": []
+}

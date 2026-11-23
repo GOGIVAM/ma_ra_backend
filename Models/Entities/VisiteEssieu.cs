@@ -35,7 +35,14 @@ public class VisiteEssieu
     public DateTime ClotureAt { get; set; }
     public DateTime RecueAt { get; set; } = DateTime.UtcNow;
 
+    /// <summary>Nombre d'étapes en écart, mesures hors limites comprises.</summary>
     public int NombreEcarts { get; set; }
+
+    /// <summary>Vrai si la version déclarée par le terminal est celle de la gamme à la réception.</summary>
+    public bool VersionConforme { get; set; } = true;
+
+    /// <summary>Copie JSON de la gamme (étapes, niveaux, limites) au moment de la réception.</summary>
+    public string? GammeInstantane { get; set; }
 
     public ICollection<VisiteEtape> Etapes { get; set; } = new List<VisiteEtape>();
 }
@@ -65,6 +72,19 @@ public class VisiteEtape
 
     [MaxLength(200)]
     public string? PhotoRef { get; set; }
+
+    /// <summary>Valeur numérique lue dans la mesure, et limites de la gamme au moment de la visite.</summary>
+    public decimal? Valeur { get; set; }
+    public decimal? LimiteMin { get; set; }
+    public decimal? LimiteMax { get; set; }
+
+    [MaxLength(15)]
+    public string? Unite { get; set; }
+
+    public bool HorsLimites { get; set; }
+
+    [MaxLength(10)]
+    public string NiveauSecurite { get; set; } = "NONE";
 
     public DateTime RealiseeAt { get; set; }
 }

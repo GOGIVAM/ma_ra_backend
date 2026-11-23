@@ -1,0 +1,266 @@
+{
+ "schema": "mara-catalogue/1",
+ "genere": "2026-11-23",
+ "avertissement": "Maquettes de démonstration. Cotes de maintenance, couples et séquences : gamme approuvée par CAMRAIL.",
+ "actifs": [
+  {
+   "actif": "axe-eg6",
+   "version": "1.0.0",
+   "classe": "bogie_essieux",
+   "codes": [
+    "ESS-T17-DEMO"
+   ],
+   "titre": "Axe d'essieu de voie métrique",
+   "variante": "Axe EG6 142.090, voie métrique, 20 t par essieu",
+   "statut": "cotes_plan",
+   "statutLibelle": "Cotes lues sur un plan public, maquette de travail",
+   "manifeste": "axe-eg6/1.0.0/manifeste.json",
+   "manifesteSha256": "d86382a16b6efeb6a4bd76cb2792f06170726af5a2f68402ad263eac89ddf6c9",
+   "glb": "axe-eg6/1.0.0/modele.glb",
+   "octets": 100080,
+   "sha256": "d66c522169419432dd95dcfc52e3c05e3b0acb3c6235d8bec3a53e8c24d4512f",
+   "pieces": 8,
+   "scenario": false
+  },
+  {
+   "actif": "pompe-eau-qsk19",
+   "version": "1.0.0",
+   "classe": "pompe_eau",
+   "codes": [
+    "POMP-001"
+   ],
+   "titre": "Pompe à eau de refroidissement",
+   "variante": "Famille Cummins QSK19, éclaté du catalogue FP Diesel",
+   "statut": "illustratif",
+   "statutLibelle": "Illustratif : nomenclature d'un catalogue, formes non cotées",
+   "manifeste": "pompe-eau-qsk19/1.0.0/manifeste.json",
+   "manifesteSha256": "0c7b25cc32738db91b1aed8f1cdf22c642a10a815812f2d9c117d9f2a129401f",
+   "glb": "pompe-eau-qsk19/1.0.0/modele.glb",
+   "octets": 259920,
+   "sha256": "412076a0e3ed8360f1be496f75c92f428fa69aa2fda8ba027c0cabe651a0d966",
+   "pieces": 26,
+   "scenario": true,
+   "defautClasse": true
+  },
+  {
+   "actif": "pont-roulant-palan",
+   "version": "1.0.0",
+   "classe": "pont_roulant",
+   "codes": [
+    "PR-001"
+   ],
+   "titre": "Pont roulant monopoutre et palan à câble",
+   "variante": "Pont monopoutre type CXT, palan à câble type SH sur chariot monorail",
+   "statut": "illustratif",
+   "statutLibelle": "Illustratif : silhouettes de brochures, dimensions non relevées",
+   "manifeste": "pont-roulant-palan/1.0.0/manifeste.json",
+   "manifesteSha256": "0979390666bc953672cc9441d16fe6d75c42990d8d30e402b78c4f2eef427f67",
+   "glb": "pont-roulant-palan/1.0.0/modele.glb",
+   "octets": 573524,
+   "sha256": "a06317b9a2478d18190c7aa2031866f87b5235a4d95e7858caf735722d9841ad",
+   "pieces": 35,
+   "scenario": true,
+   "defautClasse": true
+  },
+  {
+   "actif": "bogie-y25-metrique",
+   "version": "1.1.0",
+   "classe": "bogie_essieux",
+   "codes": [
+    "BOG-001"
+   ],
+   "titre": "Bogie de fret illustratif — deux essieux",
+   "variante": "Organisation générale Y25Ls-C (ELH, voie normale) sur axes EG6 (SNCFT, voie métrique) ; ce n'est pas le bogie T17",
+   "statut": "illustratif",
+   "statutLibelle": "Illustratif : combinaison de deux références publiques",
+   "manifeste": "bogie-y25-metrique/1.1.0/manifeste.json",
+   "manifesteSha256": "9df77cd5874d441a16afef4e282c5cd24bba5e5a3d08ff6f5542dd8d5aa4bb36",
+   "glb": "bogie-y25-metrique/1.1.0/modele.glb",
+   "octets": 354076,
+   "sha256": "26a040af22fb42b841aff1d88fe1f2bef60bd0d349561875bad47970e1f6e622",
+   "pieces": 50,
+   "scenario": true,
+   "defautClasse": true
+  },
+  {
+   "actif": "moteur-traction-cc",
+   "version": "1.0.0",
+   "classe": "moteur_traction",
+   "codes": [
+    "LOC-001"
+   ],
+   "titre": "Moteur de traction à courant continu",
+   "variante": "Moteur à collecteur suspendu par le nez, coupe de principe",
+   "statut": "coupe_de_principe",
+   "statutLibelle": "Coupe de principe d'après une coupe historique, organes internes non cotés",
+   "manifeste": "moteur-traction-cc/1.0.0/manifeste.json",
+   "manifesteSha256": "de86dc07b022ec85b5c9e7e2725019e6658b2a9f06db1efeb6405f393ffc4a4a",
+   "glb": "moteur-traction-cc/1.0.0/modele.glb",
+   "octets": 216488,
+   "sha256": "e4769f85968401cd4cb6841bff6cd4d236cc12eefe132739a6d6891a20f572b3",
+   "pieces": 20,
+   "scenario": true,
+   "defautClasse": true
+  },
+  {
+   "actif": "compresseur-pistons",
+   "version": "1.0.0",
+   "classe": "compresseur",
+   "codes": [
+    "COMP-001"
+   ],
+   "titre": "Groupe compresseur d'air de frein",
+   "variante": "Groupe à pistons en V, sans huile, avec refroidisseur",
+   "statut": "coupe_de_principe",
+   "statutLibelle": "Enveloppe d'après brochures, organes internes de principe",
+   "manifeste": "compresseur-pistons/1.0.0/manifeste.json",
+   "manifesteSha256": "ba15d6f60414189ba1823bf4f38bda0c23af80785c8b390298dc7f9711877e38",
+   "glb": "compresseur-pistons/1.0.0/modele.glb",
+   "octets": 76652,
+   "sha256": "396fb2f56eb3d28ab9715fe19b2156d53c572f7f392b43ac193e4f6036c6978e",
+   "pieces": 17,
+   "scenario": true,
+   "defautClasse": true
+  },
+  {
+   "actif": "tour-en-fosse",
+   "version": "1.0.0",
+   "classe": "tours_atelier",
+   "codes": [
+    "TRA-001"
+   ],
+   "titre": "Tour en fosse pour reprofilage des roues",
+   "variante": "Tour en fosse type U2000-400, essieu de voie métrique",
+   "statut": "illustratif",
+   "statutLibelle": "Encombrements de brochure, sous-ensembles de principe",
+   "manifeste": "tour-en-fosse/1.0.0/manifeste.json",
+   "manifesteSha256": "fdc3f36118eec921705cc875d6434fbd5d5d7ca45f799e0ffbeb2f5ad09c8258",
+   "glb": "tour-en-fosse/1.0.0/modele.glb",
+   "octets": 151108,
+   "sha256": "8fa88cc03ec751f098d67822db5bf6a74ff3805fea0ac75ef63779f01fe1b88a",
+   "pieces": 12,
+   "scenario": false,
+   "defautClasse": true
+  },
+  {
+   "actif": "aiguillage-principe",
+   "version": "1.0.0",
+   "classe": "aiguillage",
+   "codes": [
+    "AIG-001"
+   ],
+   "titre": "Appareil de voie à commande électrique",
+   "variante": "Aiguillage simple de principe (tangente 1/8), voie métrique",
+   "statut": "illustratif",
+   "statutLibelle": "Géométrie de principe, pas un plan de pose",
+   "manifeste": "aiguillage-principe/1.0.0/manifeste.json",
+   "manifesteSha256": "52c81a3e0ae21fc5d07fae64ce89e60db99e32c790e011f01f973f90e3644773",
+   "glb": "aiguillage-principe/1.0.0/modele.glb",
+   "octets": 28948,
+   "sha256": "5d9c1d6d5cd7d3c3f37408cf381c31e07da25b497bd0c4db0f9e198ac55bbe30",
+   "pieces": 11,
+   "scenario": false,
+   "defautClasse": true
+  },
+  {
+   "actif": "grue-ferroviaire",
+   "version": "1.0.0",
+   "classe": "grue_ferroviaire",
+   "codes": [
+    "GRF-001"
+   ],
+   "titre": "Grue ferroviaire automotrice",
+   "variante": "Silhouette type Multi Tasker : flèche télescopique, contrepoids télescopique",
+   "statut": "illustratif",
+   "statutLibelle": "Silhouette de brochure, proportions approchées",
+   "manifeste": "grue-ferroviaire/1.0.0/manifeste.json",
+   "manifesteSha256": "9f5310d0e41880f0483097a3bf729367bb598a4b5c22e99b6cd66a9aab7fc0a5",
+   "glb": "grue-ferroviaire/1.0.0/modele.glb",
+   "octets": 87068,
+   "sha256": "cc2d2aeeda8bdf9cd1e18841deb40ac1472475890a5256386ccdac3759f658c8",
+   "pieces": 15,
+   "scenario": false,
+   "defautClasse": true
+  },
+  {
+   "actif": "draisine-vmt",
+   "version": "1.0.0",
+   "classe": "draisine",
+   "codes": [
+    "DRA-001"
+   ],
+   "titre": "Draisine de chantier",
+   "variante": "Silhouette type VMT 980 GR : cabine, plateforme et grue de chargement",
+   "statut": "illustratif",
+   "statutLibelle": "Silhouette de catalogue, organes de principe",
+   "manifeste": "draisine-vmt/1.0.0/manifeste.json",
+   "manifesteSha256": "2ea65e2292f0d3836a0a3e2ae00ccde4ec98fbd44d80d68069792bb2fdc92b03",
+   "glb": "draisine-vmt/1.0.0/modele.glb",
+   "octets": 52516,
+   "sha256": "ba19a1bf891944dcfbab0c4b9fcac2e2d4a942f7490a989af3c87858e4529809",
+   "pieces": 18,
+   "scenario": false,
+   "defautClasse": true
+  },
+  {
+   "actif": "transformateur-immerge",
+   "version": "1.1.0",
+   "classe": "transformateur_ht",
+   "codes": [
+    "TRS-001"
+   ],
+   "titre": "Transformateur immergé dans l'huile",
+   "variante": "Enveloppe type Minera ODT, cuve à ondes ; partie active de principe",
+   "statut": "coupe_de_principe",
+   "statutLibelle": "Enveloppe de brochure, coupe noyau / enroulements de principe",
+   "manifeste": "transformateur-immerge/1.1.0/manifeste.json",
+   "manifesteSha256": "ff75783fa2c422e166ac391c17868193738d124ed1cd84aefe6098722ee36726",
+   "glb": "transformateur-immerge/1.1.0/modele.glb",
+   "octets": 592376,
+   "sha256": "c63a043250c5a6fc7be656e78b6358ae0f6e945cc47bde70fa7b0119c8ed49a1",
+   "pieces": 19,
+   "scenario": true,
+   "defautClasse": true
+  },
+  {
+   "actif": "groupe-electrogene",
+   "version": "1.0.0",
+   "classe": "groupe_electrogene",
+   "codes": [
+    "GE-001"
+   ],
+   "titre": "Groupe électrogène de secours",
+   "variante": "Groupe ouvert 2 310 × 1 000 × 1 455 mm (fiche Cummins), alternateur à un palier type S4",
+   "statut": "illustratif",
+   "statutLibelle": "Encombrement de fiche, alternateur d'après un éclaté de pièces",
+   "manifeste": "groupe-electrogene/1.0.0/manifeste.json",
+   "manifesteSha256": "2f3df0b1fd2b07046478ed7884a1cfa2c73baf83ecc47f6554ae270eb5d497f5",
+   "glb": "groupe-electrogene/1.0.0/modele.glb",
+   "octets": 70260,
+   "sha256": "cdf2739064695340569a1a5a3e8ad909aeea9376ff745592ae38671b931e3fad",
+   "pieces": 18,
+   "scenario": true,
+   "defautClasse": true
+  },
+  {
+   "actif": "signal-led",
+   "version": "1.0.0",
+   "classe": "signal_ferroviaire",
+   "codes": [
+    "SIG-001"
+   ],
+   "titre": "Signal lumineux à LED",
+   "variante": "Mât et trois feux 8 pouces, module type GTX série 93",
+   "statut": "illustratif",
+   "statutLibelle": "Module d'après dessin coté, mât et tête de principe",
+   "manifeste": "signal-led/1.0.0/manifeste.json",
+   "manifesteSha256": "6a4c078509213cea6b9d43a5a1ec7eb0fb57fca5a6dcf169f3169d18efe420ec",
+   "glb": "signal-led/1.0.0/modele.glb",
+   "octets": 77048,
+   "sha256": "a3d14a8856c8ee90f8ee2c742c058732a1d81e3ebd2de481756681918a163b99",
+   "pieces": 20,
+   "scenario": true,
+   "defautClasse": true
+  }
+ ]
+}

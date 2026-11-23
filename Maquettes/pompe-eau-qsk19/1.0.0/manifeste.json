@@ -1,0 +1,1482 @@
+{
+ "schema": "mara-maquette/1",
+ "actif": "pompe-eau-qsk19",
+ "version": "1.0.0",
+ "classe": "pompe_eau",
+ "codes": [
+  "POMP-001"
+ ],
+ "titre": "Pompe à eau de refroidissement",
+ "variante": "Famille Cummins QSK19, éclaté du catalogue FP Diesel",
+ "statut": "illustratif",
+ "statutLibelle": "Illustratif : nomenclature d'un catalogue, formes non cotées",
+ "avertissement": "Maquette illustrative d'une référence publique. Ce n'est pas l'équipement CAMRAIL.",
+ "echelle": {
+  "unite": "m",
+  "ra_1_1": false,
+  "motif": "Dimensions et calage non validés sur la variante CAMRAIL."
+ },
+ "glb": {
+  "fichier": "modele.glb",
+  "octets": 259920,
+  "sha256": "412076a0e3ed8360f1be496f75c92f428fa69aa2fda8ba027c0cabe651a0d966"
+ },
+ "vueInitiale": "trois_quarts",
+ "coupe": {
+  "axe": "z",
+  "libelle": "Coupe axiale"
+ },
+ "sources": [
+  {
+   "id": "fp",
+   "titre": "Catalogue FP Diesel, moteurs Cummins, pompe à eau QSK19",
+   "editeur": "FP Diesel / DRiV",
+   "url": "https://www.drivheavydutyparts.com/content/dam/marketing/North-America/catalogs/fp-diesel/pdf/fp-diesel-cummins-engines.pdf",
+   "page": "p. PDF 244–245 (imprimées 234–235)",
+   "fichier": "docs/recherche/catalogue_equipements_ra/sources/04-pompe/FP_Diesel_Cummins_pompe_QSK19.pdf"
+  }
+ ],
+ "cotes": [
+  {
+   "libelle": "Dimensions",
+   "valeur": "non cotées sur l'éclaté",
+   "unite": "",
+   "statut": "hypothese",
+   "source": "fp"
+  },
+  {
+   "libelle": "Diamètre de volute retenu pour la maquette",
+   "valeur": "≈ 240",
+   "unite": "mm",
+   "statut": "hypothese"
+  }
+ ],
+ "simplifications": [
+  "Volute représentée par une enveloppe circulaire et deux tubulures",
+  "Fixation de la roue sur l'arbre non représentée (absente de la nomenclature)",
+  "Carter d'entraînement (pignon, roulement 8, joint 7 aval) regroupé en un couvercle arrière",
+  "Repères 12, 15, 16 et 26 dessinés mais absents de la nomenclature p. 235"
+ ],
+ "plansManquants": [
+  "Référence du moteur et de la pompe montés",
+  "Éclaté de la variante installée",
+  "Vues aspiration / refoulement",
+  "Plan de montage, couples et circuit de refroidissement"
+ ],
+ "pieces": [
+  {
+   "id": "corps_palier",
+   "nom": "Corps de palier",
+   "noeud": "corps_palier",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "carter",
+   "repere": "—",
+   "source": "fp",
+   "page": "p. PDF 244",
+   "description": "Porte les roulements de l'arbre.",
+   "dependances": [
+    "arbre"
+   ]
+  },
+  {
+   "id": "bouchon",
+   "nom": "Bouchon",
+   "noeud": "bouchon",
+   "parent": null,
+   "transformation": {
+    "position": [
+     -0.15,
+     0.07,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "accessoire",
+   "repere": "11",
+   "reference": "3056003",
+   "source": "fp",
+   "page": "p. PDF 245",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.08
+   },
+   "depose": [
+    0,
+    0.1,
+    0
+   ]
+  },
+  {
+   "id": "vis_volute_1",
+   "nom": "Vis de volute 1",
+   "noeud": "vis_volute_1",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.025,
+     0.09093,
+     0.0525
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_volute",
+   "repere": "13",
+   "reference": "FP-3012472",
+   "source": "fp",
+   "page": "p. PDF 245",
+   "fixe": "volute",
+   "depose": [
+    0.095,
+    0.0,
+    0.0
+   ],
+   "fixation": {
+    "axe": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "degagement": 0.035,
+    "tours": 4
+   }
+  },
+  {
+   "id": "vis_volute_2",
+   "nom": "Vis de volute 2",
+   "noeud": "vis_volute_2",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.025,
+     0.0,
+     0.105
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_volute",
+   "repere": "13",
+   "reference": "FP-3012472",
+   "source": "fp",
+   "page": "p. PDF 245",
+   "fixe": "volute",
+   "depose": [
+    0.095,
+    0.0,
+    0.0
+   ],
+   "fixation": {
+    "axe": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "degagement": 0.035,
+    "tours": 4
+   }
+  },
+  {
+   "id": "vis_volute_3",
+   "nom": "Vis de volute 3",
+   "noeud": "vis_volute_3",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.025,
+     -0.09093,
+     0.0525
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_volute",
+   "repere": "13",
+   "reference": "FP-3012472",
+   "source": "fp",
+   "page": "p. PDF 245",
+   "fixe": "volute",
+   "depose": [
+    0.095,
+    0.0,
+    0.0
+   ],
+   "fixation": {
+    "axe": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "degagement": 0.035,
+    "tours": 4
+   }
+  },
+  {
+   "id": "vis_volute_4",
+   "nom": "Vis de volute 4",
+   "noeud": "vis_volute_4",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.025,
+     -0.09093,
+     -0.0525
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_volute",
+   "repere": "13",
+   "reference": "FP-3012472",
+   "source": "fp",
+   "page": "p. PDF 245",
+   "fixe": "volute",
+   "depose": [
+    0.095,
+    0.0,
+    0.0
+   ],
+   "fixation": {
+    "axe": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "degagement": 0.035,
+    "tours": 4
+   }
+  },
+  {
+   "id": "vis_volute_5",
+   "nom": "Vis de volute 5",
+   "noeud": "vis_volute_5",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.025,
+     -0.0,
+     -0.105
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_volute",
+   "repere": "13",
+   "reference": "FP-3012472",
+   "source": "fp",
+   "page": "p. PDF 245",
+   "fixe": "volute",
+   "depose": [
+    0.095,
+    0.0,
+    0.0
+   ],
+   "fixation": {
+    "axe": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "degagement": 0.035,
+    "tours": 4
+   }
+  },
+  {
+   "id": "vis_volute_6",
+   "nom": "Vis de volute 6",
+   "noeud": "vis_volute_6",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.025,
+     0.09093,
+     -0.0525
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_volute",
+   "repere": "13",
+   "reference": "FP-3012472",
+   "source": "fp",
+   "page": "p. PDF 245",
+   "fixe": "volute",
+   "depose": [
+    0.095,
+    0.0,
+    0.0
+   ],
+   "fixation": {
+    "axe": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "degagement": 0.035,
+    "tours": 4
+   }
+  },
+  {
+   "id": "volute",
+   "nom": "Corps de pompe (volute)",
+   "noeud": "volute",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "carter",
+   "repere": "12",
+   "source": "fp",
+   "page": "p. PDF 244",
+   "simplification": "Enveloppe de principe : la spirale réelle n'est pas cotée sur l'éclaté.",
+   "eclate": {
+    "axe": [
+     1,
+     0,
+     0
+    ],
+    "distance": 0.3
+   },
+   "depose": [
+    0.28,
+    0.05,
+    0
+   ],
+   "dependances": [
+    "vis_volute_1",
+    "vis_volute_2",
+    "vis_volute_3",
+    "vis_volute_4",
+    "vis_volute_5",
+    "vis_volute_6"
+   ]
+  },
+  {
+   "id": "robinet_vidange",
+   "nom": "Robinet de vidange",
+   "noeud": "robinet_vidange",
+   "parent": "volute",
+   "transformation": {
+    "position": [
+     0.05,
+     -0.135,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "accessoire",
+   "repere": "10",
+   "reference": "FP-S962E",
+   "source": "fp",
+   "page": "p. PDF 245",
+   "eclate": {
+    "axe": [
+     0,
+     -1,
+     0
+    ],
+    "distance": 0.06
+   }
+  },
+  {
+   "id": "joint_torique",
+   "nom": "Joint torique",
+   "noeud": "joint_torique",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.002,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "joint",
+   "repere": "9",
+   "reference": "FP-145623",
+   "source": "fp",
+   "page": "p. PDF 245",
+   "eclate": {
+    "axe": [
+     1,
+     0,
+     0
+    ],
+    "distance": 0.2
+   },
+   "depose": [
+    0.18,
+    0.12,
+    0
+   ],
+   "dependances": [
+    "volute"
+   ]
+  },
+  {
+   "id": "roue",
+   "nom": "Roue à aubes",
+   "noeud": "roue",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.045,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "roue",
+   "repere": "—",
+   "source": "fp",
+   "page": "p. PDF 244",
+   "simplification": "Aubes droites ; forme et sens réels à relever sur la pièce.",
+   "eclate": {
+    "axe": [
+     1,
+     0,
+     0
+    ],
+    "distance": 0.15
+   },
+   "depose": [
+    0.2,
+    -0.1,
+    0
+   ],
+   "dependances": [
+    "volute"
+   ]
+  },
+  {
+   "id": "garniture",
+   "nom": "Garniture mécanique",
+   "noeud": "garniture",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.012,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "etancheite",
+   "repere": "2",
+   "reference": "3609826",
+   "source": "fp",
+   "page": "p. PDF 245",
+   "eclate": {
+    "axe": [
+     1,
+     0,
+     0
+    ],
+    "distance": 0.08
+   },
+   "depose": [
+    0.16,
+    -0.16,
+    0
+   ],
+   "dependances": [
+    "roue"
+   ]
+  },
+  {
+   "id": "vis_couvercle_1",
+   "nom": "Vis de couvercle arrière 1",
+   "noeud": "vis_couvercle_1",
+   "parent": null,
+   "transformation": {
+    "position": [
+     -0.288,
+     0.0495,
+     0.0495
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_couvercle",
+   "source": "fp",
+   "page": "p. PDF 244",
+   "fixe": "couvercle_arriere",
+   "depose": [
+    -0.095,
+    0.0,
+    0.0
+   ],
+   "fixation": {
+    "axe": [
+     -1.0,
+     0.0,
+     0.0
+    ],
+    "degagement": 0.035,
+    "tours": 4
+   }
+  },
+  {
+   "id": "vis_couvercle_2",
+   "nom": "Vis de couvercle arrière 2",
+   "noeud": "vis_couvercle_2",
+   "parent": null,
+   "transformation": {
+    "position": [
+     -0.288,
+     -0.0495,
+     0.0495
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_couvercle",
+   "source": "fp",
+   "page": "p. PDF 244",
+   "fixe": "couvercle_arriere",
+   "depose": [
+    -0.095,
+    0.0,
+    0.0
+   ],
+   "fixation": {
+    "axe": [
+     -1.0,
+     0.0,
+     0.0
+    ],
+    "degagement": 0.035,
+    "tours": 4
+   }
+  },
+  {
+   "id": "vis_couvercle_3",
+   "nom": "Vis de couvercle arrière 3",
+   "noeud": "vis_couvercle_3",
+   "parent": null,
+   "transformation": {
+    "position": [
+     -0.288,
+     -0.0495,
+     -0.0495
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_couvercle",
+   "source": "fp",
+   "page": "p. PDF 244",
+   "fixe": "couvercle_arriere",
+   "depose": [
+    -0.095,
+    0.0,
+    0.0
+   ],
+   "fixation": {
+    "axe": [
+     -1.0,
+     0.0,
+     0.0
+    ],
+    "degagement": 0.035,
+    "tours": 4
+   }
+  },
+  {
+   "id": "vis_couvercle_4",
+   "nom": "Vis de couvercle arrière 4",
+   "noeud": "vis_couvercle_4",
+   "parent": null,
+   "transformation": {
+    "position": [
+     -0.288,
+     0.0495,
+     -0.0495
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_couvercle",
+   "source": "fp",
+   "page": "p. PDF 244",
+   "fixe": "couvercle_arriere",
+   "depose": [
+    -0.095,
+    0.0,
+    0.0
+   ],
+   "fixation": {
+    "axe": [
+     -1.0,
+     0.0,
+     0.0
+    ],
+    "degagement": 0.035,
+    "tours": 4
+   }
+  },
+  {
+   "id": "couvercle_arriere",
+   "nom": "Couvercle arrière",
+   "noeud": "couvercle_arriere",
+   "parent": null,
+   "transformation": {
+    "position": [
+     -0.276,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "carter",
+   "repere": "—",
+   "source": "fp",
+   "page": "p. PDF 244",
+   "simplification": "Regroupe le carter d'entraînement du dessin.",
+   "eclate": {
+    "axe": [
+     -1,
+     0,
+     0
+    ],
+    "distance": 0.16
+   },
+   "depose": [
+    -0.2,
+    0.08,
+    0
+   ],
+   "dependances": [
+    "vis_couvercle_1",
+    "vis_couvercle_2",
+    "vis_couvercle_3",
+    "vis_couvercle_4"
+   ]
+  },
+  {
+   "id": "joint_plat",
+   "nom": "Joint plat",
+   "noeud": "joint_plat",
+   "parent": null,
+   "transformation": {
+    "position": [
+     -0.269,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "joint",
+   "repere": "7",
+   "reference": "FP-3202283",
+   "source": "fp",
+   "page": "p. PDF 245",
+   "eclate": {
+    "axe": [
+     -1,
+     0,
+     0
+    ],
+    "distance": 0.1
+   },
+   "depose": [
+    -0.16,
+    0.16,
+    0
+   ],
+   "dependances": [
+    "couvercle_arriere"
+   ]
+  },
+  {
+   "id": "pignon",
+   "nom": "Pignon d'entraînement",
+   "noeud": "pignon",
+   "parent": null,
+   "transformation": {
+    "position": [
+     -0.33,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "entrainement",
+   "repere": "—",
+   "source": "fp",
+   "page": "p. PDF 244",
+   "eclate": {
+    "axe": [
+     -1,
+     0,
+     0
+    ],
+    "distance": 0.3
+   },
+   "depose": [
+    -0.18,
+    -0.15,
+    0
+   ]
+  },
+  {
+   "id": "arbre",
+   "nom": "Arbre équipé",
+   "noeud": "arbre",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "arbre",
+   "repere": "1",
+   "reference": "FP-3042827",
+   "source": "fp",
+   "page": "p. PDF 245",
+   "description": "Arbre avec ses roulements et anneaux d'arrêt, extrait d'un bloc.",
+   "eclate": {
+    "axe": [
+     -1,
+     0,
+     0
+    ],
+    "distance": 0.05
+   },
+   "depose": [
+    -0.45,
+    -0.05,
+    0
+   ],
+   "dependances": [
+    "pignon",
+    "garniture",
+    "couvercle_arriere",
+    "joint_plat"
+   ]
+  },
+  {
+   "id": "roulement_3",
+   "nom": "Roulement à billes (3)",
+   "noeud": "roulement_3",
+   "parent": "arbre",
+   "transformation": {
+    "position": [
+     -0.08,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "roulement",
+   "repere": "3",
+   "reference": "FP-S16002",
+   "source": "fp",
+   "page": "p. PDF 245",
+   "eclate": {
+    "axe": [
+     1,
+     0,
+     0
+    ],
+    "distance": 0.06
+   }
+  },
+  {
+   "id": "roulement_4",
+   "nom": "Roulement à billes (4)",
+   "noeud": "roulement_4",
+   "parent": "arbre",
+   "transformation": {
+    "position": [
+     -0.22,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "roulement",
+   "repere": "4",
+   "reference": "FP-S16069",
+   "source": "fp",
+   "page": "p. PDF 245",
+   "eclate": {
+    "axe": [
+     -1,
+     0,
+     0
+    ],
+    "distance": 0.12
+   },
+   "dependances": [
+    "circlip_5"
+   ]
+  },
+  {
+   "id": "circlip_5",
+   "nom": "Anneau d'arrêt (5)",
+   "noeud": "circlip_5",
+   "parent": "arbre",
+   "transformation": {
+    "position": [
+     -0.24,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "arret",
+   "repere": "5",
+   "reference": "FP-70183",
+   "source": "fp",
+   "page": "p. PDF 245",
+   "eclate": {
+    "axe": [
+     -1,
+     0,
+     0
+    ],
+    "distance": 0.18
+   }
+  },
+  {
+   "id": "circlip_6",
+   "nom": "Anneau d'arrêt (6)",
+   "noeud": "circlip_6",
+   "parent": "arbre",
+   "transformation": {
+    "position": [
+     -0.205,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "arret",
+   "repere": "6",
+   "reference": "FP-205258",
+   "source": "fp",
+   "page": "p. PDF 245",
+   "eclate": {
+    "axe": [
+     -1,
+     0,
+     0
+    ],
+    "distance": 0.09
+   }
+  },
+  {
+   "id": "retenue",
+   "nom": "Retenue (14)",
+   "noeud": "retenue",
+   "parent": "arbre",
+   "transformation": {
+    "position": [
+     -0.06,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "arret",
+   "repere": "14",
+   "reference": "3034721",
+   "source": "fp",
+   "page": "p. PDF 245",
+   "eclate": {
+    "axe": [
+     1,
+     0,
+     0
+    ],
+    "distance": 0.1
+   }
+  }
+ ],
+ "scenario": {
+  "titre": "Dévissage, dépose et repose de la pompe",
+  "illustratif": true,
+  "avertissement": "Scénario illustratif en simulation. Ordre, couples et outillage à prendre dans la gamme approuvée par CAMRAIL. L'application ne pilote aucun équipement.",
+  "etapes": [
+   {
+    "id": "d1",
+    "texte": "Dévisser les six vis de volute",
+    "action": "devisser",
+    "pieces": [
+     "vis_volute_1",
+     "vis_volute_2",
+     "vis_volute_3",
+     "vis_volute_4",
+     "vis_volute_5",
+     "vis_volute_6"
+    ]
+   },
+   {
+    "id": "d2",
+    "texte": "Déposer la volute",
+    "action": "deposer",
+    "pieces": [
+     "volute"
+    ]
+   },
+   {
+    "id": "d3",
+    "texte": "Déposer le joint torique",
+    "action": "deposer",
+    "pieces": [
+     "joint_torique"
+    ]
+   },
+   {
+    "id": "d4",
+    "texte": "Déposer la roue à aubes",
+    "action": "deposer",
+    "pieces": [
+     "roue"
+    ]
+   },
+   {
+    "id": "d5",
+    "texte": "Déposer la garniture mécanique",
+    "action": "deposer",
+    "pieces": [
+     "garniture"
+    ]
+   },
+   {
+    "id": "d6",
+    "texte": "Dévisser les quatre vis du couvercle arrière",
+    "action": "devisser",
+    "pieces": [
+     "vis_couvercle_1",
+     "vis_couvercle_2",
+     "vis_couvercle_3",
+     "vis_couvercle_4"
+    ]
+   },
+   {
+    "id": "d7",
+    "texte": "Déposer le couvercle arrière",
+    "action": "deposer",
+    "pieces": [
+     "couvercle_arriere"
+    ]
+   },
+   {
+    "id": "d8",
+    "texte": "Déposer le joint plat",
+    "action": "deposer",
+    "pieces": [
+     "joint_plat"
+    ]
+   },
+   {
+    "id": "d9",
+    "texte": "Déposer le pignon d'entraînement",
+    "action": "deposer",
+    "pieces": [
+     "pignon"
+    ]
+   },
+   {
+    "id": "d10",
+    "texte": "Déposer l'arbre équipé",
+    "action": "deposer",
+    "pieces": [
+     "arbre"
+    ]
+   },
+   {
+    "id": "r1",
+    "texte": "Reposer l'arbre équipé",
+    "action": "reposer",
+    "pieces": [
+     "arbre"
+    ]
+   },
+   {
+    "id": "r2",
+    "texte": "Reposer le pignon d'entraînement",
+    "action": "reposer",
+    "pieces": [
+     "pignon"
+    ]
+   },
+   {
+    "id": "r3",
+    "texte": "Reposer le joint plat",
+    "action": "reposer",
+    "pieces": [
+     "joint_plat"
+    ]
+   },
+   {
+    "id": "r4",
+    "texte": "Reposer le couvercle arrière",
+    "action": "reposer",
+    "pieces": [
+     "couvercle_arriere"
+    ]
+   },
+   {
+    "id": "r5",
+    "texte": "Revisser les quatre vis du couvercle arrière",
+    "action": "visser",
+    "pieces": [
+     "vis_couvercle_1",
+     "vis_couvercle_2",
+     "vis_couvercle_3",
+     "vis_couvercle_4"
+    ]
+   },
+   {
+    "id": "r6",
+    "texte": "Reposer la garniture mécanique",
+    "action": "reposer",
+    "pieces": [
+     "garniture"
+    ]
+   },
+   {
+    "id": "r7",
+    "texte": "Reposer la roue à aubes",
+    "action": "reposer",
+    "pieces": [
+     "roue"
+    ]
+   },
+   {
+    "id": "r8",
+    "texte": "Reposer le joint torique",
+    "action": "reposer",
+    "pieces": [
+     "joint_torique"
+    ]
+   },
+   {
+    "id": "r9",
+    "texte": "Reposer la volute",
+    "action": "reposer",
+    "pieces": [
+     "volute"
+    ]
+   },
+   {
+    "id": "r10",
+    "texte": "Revisser les six vis de volute",
+    "action": "visser",
+    "pieces": [
+     "vis_volute_1",
+     "vis_volute_2",
+     "vis_volute_3",
+     "vis_volute_4",
+     "vis_volute_5",
+     "vis_volute_6"
+    ]
+   }
+  ]
+ },
+ "articulations": [],
+ "etats": []
+}

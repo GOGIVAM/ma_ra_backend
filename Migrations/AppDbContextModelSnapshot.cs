@@ -115,6 +115,60 @@ namespace MaRa.Api.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("MaRa.Api.Models.Entities.DecisionEssieu", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("id");
+
+                    b.Property<DateTime>("DecideAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("decide_at");
+
+                    b.Property<string>("Decideur")
+                        .IsRequired()
+                        .HasMaxLength(120)
+                        .HasColumnType("character varying(120)")
+                        .HasColumnName("decideur");
+
+                    b.Property<string>("DecideurId")
+                        .IsRequired()
+                        .HasMaxLength(450)
+                        .HasColumnType("character varying(450)")
+                        .HasColumnName("decideur_id");
+
+                    b.Property<string>("Decision")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("character varying(30)")
+                        .HasColumnName("decision");
+
+                    b.Property<string>("Motif")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("character varying(1000)")
+                        .HasColumnName("motif");
+
+                    b.Property<string>("NumeroEssieu")
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("character varying(60)")
+                        .HasColumnName("numero_essieu");
+
+                    b.Property<Guid>("VisiteId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("visite_id");
+
+                    b.HasKey("Id")
+                        .HasName("pk_decisions_essieu");
+
+                    b.HasIndex("NumeroEssieu", "DecideAt")
+                        .HasDatabaseName("ix_decisions_essieu_numero_essieu_decide_at");
+
+                    b.ToTable("decisions_essieu", (string)null);
+                });
+
             modelBuilder.Entity("MaRa.Api.Models.Entities.Document", b =>
                 {
                     b.Property<Guid>("Id")
@@ -266,6 +320,14 @@ namespace MaRa.Api.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("gamme_id");
 
+                    b.Property<decimal?>("LimiteMax")
+                        .HasColumnType("numeric")
+                        .HasColumnName("limite_max");
+
+                    b.Property<decimal?>("LimiteMin")
+                        .HasColumnType("numeric")
+                        .HasColumnName("limite_min");
+
                     b.Property<string>("NiveauSecurite")
                         .IsRequired()
                         .HasMaxLength(10)
@@ -275,6 +337,11 @@ namespace MaRa.Api.Migrations
                     b.Property<int>("OrdreIndex")
                         .HasColumnType("integer")
                         .HasColumnName("ordre_index");
+
+                    b.Property<string>("Unite")
+                        .HasMaxLength(15)
+                        .HasColumnType("character varying(15)")
+                        .HasColumnName("unite");
 
                     b.HasKey("Id")
                         .HasName("pk_etapes");
@@ -476,6 +543,10 @@ namespace MaRa.Api.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("gamme_id");
 
+                    b.Property<string>("GammeInstantane")
+                        .HasColumnType("text")
+                        .HasColumnName("gamme_instantane");
+
                     b.Property<string>("GammeStatut")
                         .IsRequired()
                         .HasMaxLength(20)
@@ -512,6 +583,10 @@ namespace MaRa.Api.Migrations
                         .HasColumnType("character varying(120)")
                         .HasColumnName("signataire");
 
+                    b.Property<bool>("VersionConforme")
+                        .HasColumnType("boolean")
+                        .HasColumnName("version_conforme");
+
                     b.HasKey("Id")
                         .HasName("pk_visites_essieu");
 
@@ -541,10 +616,28 @@ namespace MaRa.Api.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("etape_id");
 
+                    b.Property<bool>("HorsLimites")
+                        .HasColumnType("boolean")
+                        .HasColumnName("hors_limites");
+
+                    b.Property<decimal?>("LimiteMax")
+                        .HasColumnType("numeric")
+                        .HasColumnName("limite_max");
+
+                    b.Property<decimal?>("LimiteMin")
+                        .HasColumnType("numeric")
+                        .HasColumnName("limite_min");
+
                     b.Property<string>("Mesure")
                         .HasMaxLength(40)
                         .HasColumnType("character varying(40)")
                         .HasColumnName("mesure");
+
+                    b.Property<string>("NiveauSecurite")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("character varying(10)")
+                        .HasColumnName("niveau_securite");
 
                     b.Property<string>("Note")
                         .HasMaxLength(1000)
@@ -569,6 +662,15 @@ namespace MaRa.Api.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("character varying(10)")
                         .HasColumnName("resultat");
+
+                    b.Property<string>("Unite")
+                        .HasMaxLength(15)
+                        .HasColumnType("character varying(15)")
+                        .HasColumnName("unite");
+
+                    b.Property<decimal?>("Valeur")
+                        .HasColumnType("numeric")
+                        .HasColumnName("valeur");
 
                     b.Property<Guid>("VisiteId")
                         .HasColumnType("uuid")

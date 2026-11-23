@@ -105,6 +105,8 @@ try
         opts.AddPolicy("DMAT",       p => p.RequireClaim("groupe", "DMAT",       "ADMIN"));
         opts.AddPolicy("DIF",        p => p.RequireClaim("groupe", "DIF",        "ADMIN"));
         opts.AddPolicy("CI",         p => p.RequireClaim("groupe", "CI", "CIF",  "ADMIN"));
+        // Décision de l'expert sur un essieu en écart : groupes à confirmer avec CAMRAIL au jalon G0.
+        opts.AddPolicy("Decision",   p => p.RequireClaim("groupe", "CI", "CIF",  "ADMIN"));
         opts.AddPolicy("Technicien", p => p.RequireClaim("groupe",
             "DMAT", "DIF", "CI", "CIF", "ADMIN"));
     });

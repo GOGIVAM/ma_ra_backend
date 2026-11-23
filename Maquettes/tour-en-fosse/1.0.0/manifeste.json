@@ -1,0 +1,567 @@
+{
+ "schema": "mara-maquette/1",
+ "actif": "tour-en-fosse",
+ "version": "1.0.0",
+ "classe": "tours_atelier",
+ "codes": [
+  "TRA-001"
+ ],
+ "titre": "Tour en fosse pour reprofilage des roues",
+ "variante": "Tour en fosse type U2000-400, essieu de voie métrique",
+ "statut": "illustratif",
+ "statutLibelle": "Encombrements de brochure, sous-ensembles de principe",
+ "avertissement": "Maquette illustrative d'une référence publique. Ce n'est pas l'équipement CAMRAIL.",
+ "echelle": {
+  "unite": "m",
+  "ra_1_1": false,
+  "motif": "Dimensions et calage non validés sur la variante CAMRAIL."
+ },
+ "glb": {
+  "fichier": "modele.glb",
+  "octets": 151108,
+  "sha256": "8fa88cc03ec751f098d67822db5bf6a74ff3805fea0ac75ef63779f01fe1b88a"
+ },
+ "vueInitiale": "trois_quarts",
+ "coupe": {
+  "axe": "x",
+  "libelle": "Coupe transversale de la fosse"
+ },
+ "sources": [
+  {
+   "id": "hegenscheidt",
+   "titre": "Fiche tour en fosse U2000-400",
+   "editeur": "Hegenscheidt-MFD / NSH USA",
+   "url": "https://nsh-usa.com/wp-content/uploads/documents/hegenscheidt-u2000-400-2021.pdf",
+   "page": "p. 1–2",
+   "fichier": "docs/recherche/catalogue_equipements_ra/sources/07-tour/Hegenscheidt_U2000-400.pdf"
+  },
+  {
+   "id": "bls",
+   "titre": "Fiche tour en fosse",
+   "editeur": "BLS",
+   "url": "https://www.bls.ch/-/media/bls/pdf/uebrige-pdfs/leistungen-dritte/bahnproduktion/bls_factsheet_unterflurdrehbank_f.pdf",
+   "page": "p. 1–2",
+   "fichier": "docs/recherche/catalogue_equipements_ra/sources/07-tour/BLS_tour_en_fosse_FR.pdf"
+  }
+ ],
+ "cotes": [
+  {
+   "libelle": "Emprise machine (L × l × h)",
+   "valeur": "5,5 × 2,9 × 2,3",
+   "unite": "m",
+   "statut": "brochure",
+   "source": "hegenscheidt"
+  },
+  {
+   "libelle": "Fosse (L × l × p)",
+   "valeur": "7,0 × 6,0 × 2,3",
+   "unite": "m",
+   "statut": "brochure",
+   "source": "hegenscheidt"
+  },
+  {
+   "libelle": "Diamètre de roue usinable",
+   "valeur": "350 à 1 400",
+   "unite": "mm",
+   "statut": "brochure",
+   "source": "hegenscheidt"
+  },
+  {
+   "libelle": "Charge par essieu maximale",
+   "valeur": "400",
+   "unite": "kN",
+   "statut": "brochure",
+   "source": "hegenscheidt"
+  }
+ ],
+ "simplifications": [
+  "Bâti en deux blocs",
+  "Galets, têtes d'outil et palpeurs de principe",
+  "Fosse sans escaliers ni garde-corps"
+ ],
+ "plansManquants": [
+  "Inventaire des tours avec références",
+  "Plan d'implantation de la fosse",
+  "Plans des ensembles galets / outil",
+  "Plans de bridage",
+  "Schémas de commande"
+ ],
+ "pieces": [
+  {
+   "id": "fosse",
+   "nom": "Fosse",
+   "noeud": "fosse",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "genie_civil",
+   "source": "hegenscheidt",
+   "page": "p. 2"
+  },
+  {
+   "id": "rails",
+   "nom": "Rails et rails amovibles",
+   "noeud": "rails",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "voie",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.2
+   }
+  },
+  {
+   "id": "bati",
+   "nom": "Bâti",
+   "noeud": "bati",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "bati",
+   "source": "hegenscheidt",
+   "page": "p. 1",
+   "eclate": {
+    "axe": [
+     0,
+     -1,
+     0
+    ],
+    "distance": 0.4
+   }
+  },
+  {
+   "id": "galets",
+   "nom": "Galets d'entraînement",
+   "noeud": "galets",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "galets",
+   "source": "bls",
+   "page": "p. 1",
+   "eclate": {
+    "axe": [
+     0,
+     -1,
+     0
+    ],
+    "distance": 0.3
+   }
+  },
+  {
+   "id": "tete_outil_g",
+   "nom": "Tête porte-outil gauche",
+   "noeud": "tete_outil_g",
+   "parent": null,
+   "transformation": {
+    "position": [
+     -0.85,
+     -0.45,
+     0.25
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "outil",
+   "eclate": {
+    "axe": [
+     -1,
+     0,
+     0
+    ],
+    "distance": 0.4
+   }
+  },
+  {
+   "id": "tete_outil_d",
+   "nom": "Tête porte-outil droite",
+   "noeud": "tete_outil_d",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.85,
+     -0.45,
+     0.25
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "outil",
+   "eclate": {
+    "axe": [
+     1,
+     0,
+     0
+    ],
+    "distance": 0.4
+   }
+  },
+  {
+   "id": "palpeurs",
+   "nom": "Palpeurs de mesure",
+   "noeud": "palpeurs",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "mesure",
+   "source": "hegenscheidt",
+   "page": "p. 1",
+   "eclate": {
+    "axe": [
+     0,
+     0,
+     -1
+    ],
+    "distance": 0.3
+   }
+  },
+  {
+   "id": "pupitre",
+   "nom": "Pupitre de commande",
+   "noeud": "pupitre",
+   "parent": null,
+   "transformation": {
+    "position": [
+     2.6,
+     0.0,
+     3.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "commande"
+  },
+  {
+   "id": "essieu_usine",
+   "nom": "Essieu à reprofiler",
+   "noeud": "essieu_usine",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.46,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "essieu",
+   "description": "Essieu de démonstration positionné sur les galets.",
+   "ensemble": true
+  },
+  {
+   "id": "axe_tour",
+   "nom": "Axe",
+   "noeud": "axe_tour",
+   "parent": "essieu_usine",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "essieu",
+   "source": "eg6",
+   "page": "p. 1"
+  },
+  {
+   "id": "roue_tour_g",
+   "nom": "Roue gauche",
+   "noeud": "roue_tour_g",
+   "parent": "essieu_usine",
+   "transformation": {
+    "position": [
+     -0.5045,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "essieu"
+  },
+  {
+   "id": "roue_tour_d",
+   "nom": "Roue droite",
+   "noeud": "roue_tour_d",
+   "parent": "essieu_usine",
+   "transformation": {
+    "position": [
+     0.5045,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     1.0,
+     0.0,
+     0.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "essieu"
+  }
+ ],
+ "scenario": null,
+ "articulations": [
+  {
+   "id": "amener_essieu",
+   "libelle": "Positionnement de l'essieu",
+   "unite": "m",
+   "min": -3.2,
+   "max": 0,
+   "pas": 0.05,
+   "valeur": 0,
+   "cibles": [
+    {
+     "piece": "essieu_usine",
+     "type": "translation",
+     "axe": [
+      0,
+      0,
+      1
+     ],
+     "facteur": 1
+    }
+   ]
+  },
+  {
+   "id": "approche_outils",
+   "libelle": "Approche des outils",
+   "unite": "m",
+   "min": 0,
+   "max": 0.15,
+   "pas": 0.005,
+   "valeur": 0,
+   "cibles": [
+    {
+     "piece": "tete_outil_g",
+     "type": "translation",
+     "axe": [
+      1,
+      0,
+      0
+     ],
+     "facteur": 1
+    },
+    {
+     "piece": "tete_outil_d",
+     "type": "translation",
+     "axe": [
+      -1,
+      0,
+      0
+     ],
+     "facteur": 1
+    }
+   ]
+  }
+ ],
+ "etats": []
+}

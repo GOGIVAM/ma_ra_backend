@@ -15,6 +15,7 @@ public class AppDbContext : IdentityDbContext<ApplicationUser>
     public DbSet<InterventionLog> InterventionLogs => Set<InterventionLog>();
     public DbSet<VisiteEssieu> VisitesEssieu => Set<VisiteEssieu>();
     public DbSet<VisiteEtape> VisitesEtapes => Set<VisiteEtape>();
+    public DbSet<DecisionEssieu> DecisionsEssieu => Set<DecisionEssieu>();
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -63,6 +64,12 @@ public class AppDbContext : IdentityDbContext<ApplicationUser>
         {
             e.HasKey(x => x.Id);
             e.HasIndex(x => new { x.VisiteId, x.EtapeId }).IsUnique();
+        });
+
+        builder.Entity<DecisionEssieu>(d =>
+        {
+            d.HasKey(x => x.Id);
+            d.HasIndex(x => new { x.NumeroEssieu, x.DecideAt });
         });
 
         builder.Entity<InterventionLog>(il =>

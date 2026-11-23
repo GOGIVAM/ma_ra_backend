@@ -19,6 +19,13 @@ public class Etape
     public string NiveauSecurite { get; set; } = "NONE";
 
     public int? DureeSecondes { get; set; }
+
+    /// <summary>Limites de la mesure, tirées de la gamme CAMRAIL validée. Vides dans les gammes de démonstration.</summary>
+    public decimal? LimiteMin { get; set; }
+    public decimal? LimiteMax { get; set; }
+
+    [MaxLength(15)]
+    public string? Unite { get; set; }
     public string? Detail { get; set; }
 
     public Guid GammeId { get; set; }

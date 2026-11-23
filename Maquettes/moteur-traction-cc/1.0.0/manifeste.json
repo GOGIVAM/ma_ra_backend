@@ -1,0 +1,964 @@
+{
+ "schema": "mara-maquette/1",
+ "actif": "moteur-traction-cc",
+ "version": "1.0.0",
+ "classe": "moteur_traction",
+ "codes": [
+  "LOC-001"
+ ],
+ "titre": "Moteur de traction à courant continu",
+ "variante": "Moteur à collecteur suspendu par le nez, coupe de principe",
+ "statut": "coupe_de_principe",
+ "statutLibelle": "Coupe de principe d'après une coupe historique, organes internes non cotés",
+ "avertissement": "Démonstration. La coupe de référence (ABB 1925) et les familles EMD D77 servent de principe ; ce n'est pas le moteur des locomotives CAMRAIL.",
+ "echelle": {
+  "unite": "m",
+  "ra_1_1": false,
+  "motif": "Dimensions et calage non validés sur la variante CAMRAIL."
+ },
+ "glb": {
+  "fichier": "modele.glb",
+  "octets": 216488,
+  "sha256": "e4769f85968401cd4cb6841bff6cd4d236cc12eefe132739a6d6891a20f572b3"
+ },
+ "vueInitiale": "trois_quarts",
+ "coupe": {
+  "axe": "z",
+  "libelle": "Coupe longitudinale"
+ },
+ "sources": [
+  {
+   "id": "abb",
+   "titre": "The Brown Boveri Review, novembre 1925, fig. 8 « Section through traction motor »",
+   "editeur": "ABB / Brown Boveri",
+   "url": "https://library.e.abb.com/public/e07aced6fc044eb49b3b75ced58de876/bbc_mitteilungen_1925_e_11.pdf",
+   "page": "p. imprimée 228 (PDF 8)",
+   "fichier": "docs/recherche/catalogue_equipements_ra/sources/01-moteur/ABB_Brown_Boveri_coupe_moteur.pdf"
+  }
+ ],
+ "cotes": [
+  {
+   "libelle": "Dimensions",
+   "valeur": "non relevées",
+   "unite": "",
+   "statut": "hypothese"
+  },
+  {
+   "libelle": "Diamètre de carcasse retenu pour la maquette",
+   "valeur": "≈ 760",
+   "unite": "mm",
+   "statut": "hypothese"
+  }
+ ],
+ "simplifications": [
+  "Induit, pôles et collecteur sans encoches ni lamelles",
+  "Engrenage d'essieu réduit à deux roues dentées",
+  "Carter d'engrenages et ventilation non représentés"
+ ],
+ "plansManquants": [
+  "Modèle et série du moteur monté sur la locomotive",
+  "Coupe d'ensemble du constructeur",
+  "Éclaté porte-balais / paliers",
+  "Plan d'interface moteur–essieu",
+  "Schéma de connexions"
+ ],
+ "pieces": [
+  {
+   "id": "carcasse",
+   "nom": "Carcasse (stator)",
+   "noeud": "carcasse",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "carcasse",
+   "source": "abb",
+   "page": "p. 228, fig. 8",
+   "description": "Carcasse et nez de suspension.",
+   "dependances": [
+    "induit"
+   ]
+  },
+  {
+   "id": "poles",
+   "nom": "Pôles principaux",
+   "noeud": "poles",
+   "parent": null,
+   "transformation": {
+    "position": [
+     -0.05,
+     0.45,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "stator",
+   "source": "abb",
+   "page": "p. 228, fig. 8",
+   "simplification": "Pôles auxiliaires non représentés."
+  },
+  {
+   "id": "induit",
+   "nom": "Induit",
+   "noeud": "induit",
+   "parent": null,
+   "transformation": {
+    "position": [
+     -0.06,
+     0.45,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "rotor",
+   "source": "abb",
+   "page": "p. 228, fig. 8",
+   "eclate": {
+    "axe": [
+     -1,
+     0,
+     0
+    ],
+    "distance": 0.9
+   },
+   "depose": [
+    -1.2,
+    0,
+    0
+   ],
+   "dependances": [
+    "flasque_entrainement",
+    "pignon_moteur",
+    "porte_balais_1",
+    "porte_balais_2",
+    "porte_balais_3",
+    "porte_balais_4"
+   ]
+  },
+  {
+   "id": "arbre_moteur",
+   "nom": "Arbre",
+   "noeud": "arbre_moteur",
+   "parent": "induit",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "rotor"
+  },
+  {
+   "id": "collecteur",
+   "nom": "Collecteur",
+   "noeud": "collecteur",
+   "parent": "induit",
+   "transformation": {
+    "position": [
+     0.42,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "collecteur",
+   "source": "abb",
+   "page": "p. 228, fig. 8"
+  },
+  {
+   "id": "flasque_collecteur",
+   "nom": "Flasque côté collecteur",
+   "noeud": "flasque_collecteur",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.47,
+     0.45,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "flasque",
+   "eclate": {
+    "axe": [
+     1,
+     0,
+     0
+    ],
+    "distance": 0.5
+   }
+  },
+  {
+   "id": "flasque_entrainement",
+   "nom": "Flasque côté entraînement",
+   "noeud": "flasque_entrainement",
+   "parent": null,
+   "transformation": {
+    "position": [
+     -0.47,
+     0.45,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "flasque",
+   "eclate": {
+    "axe": [
+     -1,
+     0,
+     0
+    ],
+    "distance": 0.4
+   },
+   "depose": [
+    -0.6,
+    0,
+    0
+   ],
+   "dependances": [
+    "pignon_moteur"
+   ]
+  },
+  {
+   "id": "pignon_moteur",
+   "nom": "Pignon moteur",
+   "noeud": "pignon_moteur",
+   "parent": null,
+   "transformation": {
+    "position": [
+     -0.66,
+     0.45,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "transmission",
+   "eclate": {
+    "axe": [
+     -1,
+     0,
+     0
+    ],
+    "distance": 0.6
+   },
+   "depose": [
+    -0.4,
+    0,
+    0.3
+   ]
+  },
+  {
+   "id": "couronne",
+   "nom": "Roue dentée d'essieu",
+   "noeud": "couronne",
+   "parent": null,
+   "transformation": {
+    "position": [
+     -0.66,
+     0.45,
+     -0.55
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "transmission",
+   "eclate": {
+    "axe": [
+     -1,
+     0,
+     0
+    ],
+    "distance": 0.4
+   }
+  },
+  {
+   "id": "axe_interface",
+   "nom": "Essieu (repère d'interface)",
+   "noeud": "axe_interface",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.45,
+     -0.55
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "interface",
+   "description": "Position de l'essieu moteur pour la suspension par le nez."
+  },
+  {
+   "id": "paliers_suspension",
+   "nom": "Paliers de suspension",
+   "noeud": "paliers_suspension",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.45,
+     -0.55
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "interface",
+   "eclate": {
+    "axe": [
+     0,
+     0,
+     -1
+    ],
+    "distance": 0.3
+   }
+  },
+  {
+   "id": "trappe_1",
+   "nom": "Trappe d'inspection du collecteur",
+   "noeud": "trappe_1",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.36,
+     0.84,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "trappe",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.4
+   },
+   "depose": [
+    0,
+    0.45,
+    0.2
+   ],
+   "dependances": [
+    "vis_trappe_1",
+    "vis_trappe_2",
+    "vis_trappe_3",
+    "vis_trappe_4"
+   ]
+  },
+  {
+   "id": "vis_trappe_1",
+   "nom": "Vis de trappe 1",
+   "noeud": "vis_trappe_1",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.24,
+     0.855,
+     -0.09
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_trappe",
+   "fixe": "trappe_1",
+   "depose": [
+    0.0,
+    0.095,
+    0.0
+   ],
+   "fixation": {
+    "axe": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "degagement": 0.035,
+    "tours": 4
+   }
+  },
+  {
+   "id": "vis_trappe_2",
+   "nom": "Vis de trappe 2",
+   "noeud": "vis_trappe_2",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.48,
+     0.855,
+     -0.09
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_trappe",
+   "fixe": "trappe_1",
+   "depose": [
+    0.0,
+    0.095,
+    0.0
+   ],
+   "fixation": {
+    "axe": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "degagement": 0.035,
+    "tours": 4
+   }
+  },
+  {
+   "id": "vis_trappe_3",
+   "nom": "Vis de trappe 3",
+   "noeud": "vis_trappe_3",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.24,
+     0.855,
+     0.09
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_trappe",
+   "fixe": "trappe_1",
+   "depose": [
+    0.0,
+    0.095,
+    0.0
+   ],
+   "fixation": {
+    "axe": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "degagement": 0.035,
+    "tours": 4
+   }
+  },
+  {
+   "id": "vis_trappe_4",
+   "nom": "Vis de trappe 4",
+   "noeud": "vis_trappe_4",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.48,
+     0.855,
+     0.09
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_trappe",
+   "fixe": "trappe_1",
+   "depose": [
+    0.0,
+    0.095,
+    0.0
+   ],
+   "fixation": {
+    "axe": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "degagement": 0.035,
+    "tours": 4
+   }
+  },
+  {
+   "id": "porte_balais_1",
+   "nom": "Porte-balais 1",
+   "noeud": "porte_balais_1",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.36,
+     0.675,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "porte_balais",
+   "source": "abb",
+   "page": "p. 228, fig. 8",
+   "description": "Porte-balais et balai en carbone.",
+   "eclate": {
+    "axe": [
+     0,
+     1.0,
+     6.123233995736766e-17
+    ],
+    "distance": 0.25
+   },
+   "depose": [
+    0,
+    0.8,
+    3.061616997868383e-17
+   ],
+   "dependances": [
+    "trappe_1"
+   ]
+  },
+  {
+   "id": "porte_balais_2",
+   "nom": "Porte-balais 2",
+   "noeud": "porte_balais_2",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.36,
+     0.45,
+     0.225
+    ],
+    "rotation": [
+     -0.707107,
+     -0.0,
+     -0.0,
+     0.707107
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "porte_balais",
+   "source": "abb",
+   "page": "p. 228, fig. 8",
+   "description": "Porte-balais et balai en carbone.",
+   "eclate": {
+    "axe": [
+     0,
+     0.0,
+     1.0
+    ],
+    "distance": 0.25
+   },
+   "depose": [
+    0,
+    0.3,
+    0.5
+   ]
+  },
+  {
+   "id": "porte_balais_3",
+   "nom": "Porte-balais 3",
+   "noeud": "porte_balais_3",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.36,
+     0.225,
+     -0.0
+    ],
+    "rotation": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "porte_balais",
+   "source": "abb",
+   "page": "p. 228, fig. 8",
+   "description": "Porte-balais et balai en carbone.",
+   "eclate": {
+    "axe": [
+     0,
+     -1.0,
+     -1.8369701987210297e-16
+    ],
+    "distance": 0.25
+   },
+   "depose": [
+    0,
+    -0.2,
+    -9.184850993605148e-17
+   ]
+  },
+  {
+   "id": "porte_balais_4",
+   "nom": "Porte-balais 4",
+   "noeud": "porte_balais_4",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.36,
+     0.45,
+     -0.225
+    ],
+    "rotation": [
+     0.707107,
+     0.0,
+     0.0,
+     0.707107
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "porte_balais",
+   "source": "abb",
+   "page": "p. 228, fig. 8",
+   "description": "Porte-balais et balai en carbone.",
+   "eclate": {
+    "axe": [
+     0,
+     1.2246467991473532e-16,
+     -1.0
+    ],
+    "distance": 0.25
+   },
+   "depose": [
+    0,
+    0.30000000000000004,
+    -0.5
+   ]
+  }
+ ],
+ "scenario": {
+  "titre": "Accès au porte-balais 1",
+  "illustratif": true,
+  "avertissement": "Scénario illustratif en simulation. Ordre, couples et outillage à prendre dans la gamme approuvée par CAMRAIL. L'application ne pilote aucun équipement.",
+  "etapes": [
+   {
+    "id": "d1",
+    "texte": "Dévisser les vis de la trappe",
+    "action": "devisser",
+    "pieces": [
+     "vis_trappe_1",
+     "vis_trappe_2",
+     "vis_trappe_3",
+     "vis_trappe_4"
+    ]
+   },
+   {
+    "id": "d2",
+    "texte": "Déposer la trappe d'inspection",
+    "action": "deposer",
+    "pieces": [
+     "trappe_1"
+    ]
+   },
+   {
+    "id": "d3",
+    "texte": "Déposer le porte-balais 1",
+    "action": "deposer",
+    "pieces": [
+     "porte_balais_1"
+    ]
+   },
+   {
+    "id": "r1",
+    "texte": "Reposer le porte-balais 1",
+    "action": "reposer",
+    "pieces": [
+     "porte_balais_1"
+    ]
+   },
+   {
+    "id": "r2",
+    "texte": "Reposer la trappe d'inspection",
+    "action": "reposer",
+    "pieces": [
+     "trappe_1"
+    ]
+   },
+   {
+    "id": "r3",
+    "texte": "Revisser les vis de la trappe",
+    "action": "visser",
+    "pieces": [
+     "vis_trappe_1",
+     "vis_trappe_2",
+     "vis_trappe_3",
+     "vis_trappe_4"
+    ]
+   }
+  ]
+ },
+ "articulations": [],
+ "etats": []
+}

@@ -1,0 +1,1735 @@
+{
+ "schema": "mara-maquette/1",
+ "actif": "pont-roulant-palan",
+ "version": "1.0.0",
+ "classe": "pont_roulant",
+ "codes": [
+  "PR-001"
+ ],
+ "titre": "Pont roulant monopoutre et palan à câble",
+ "variante": "Pont monopoutre type CXT, palan à câble type SH sur chariot monorail",
+ "statut": "illustratif",
+ "statutLibelle": "Illustratif : silhouettes de brochures, dimensions non relevées",
+ "avertissement": "Maquette illustrative d'une référence publique. Ce n'est pas l'équipement CAMRAIL.",
+ "echelle": {
+  "unite": "m",
+  "ra_1_1": false,
+  "motif": "Dimensions et calage non validés sur la variante CAMRAIL."
+ },
+ "glb": {
+  "fichier": "modele.glb",
+  "octets": 573524,
+  "sha256": "a06317b9a2478d18190c7aa2031866f87b5235a4d95e7858caf735722d9841ad"
+ },
+ "vueInitiale": "trois_quarts",
+ "coupe": {
+  "axe": "z",
+  "libelle": "Coupe par l'axe du tambour"
+ },
+ "sources": [
+  {
+   "id": "stahl",
+   "titre": "Brochure palan à câble SH",
+   "editeur": "STAHL CraneSystems",
+   "url": "https://www.stahlcranes.com/fileadmin/user_upload/Dokumente/Drucke/Broschueren/br_sz_sh_en_2107_web.pdf",
+   "page": "p. 4–11",
+   "fichier": "docs/recherche/catalogue_equipements_ra/sources/06-pont/STAHL_SH_constructeur.pdf"
+  },
+  {
+   "id": "konecranes",
+   "titre": "Brochure ponts roulants CXT",
+   "editeur": "Konecranes",
+   "url": "https://www.konecranes.com/sites/default/files/2023-05/brochure_cxt_cranes.pdf",
+   "page": "p. 2 et suivantes",
+   "fichier": "docs/recherche/catalogue_equipements_ra/sources/06-pont/Konecranes_CXT_pont_roulant.pdf"
+  }
+ ],
+ "cotes": [
+  {
+   "libelle": "Portée retenue pour la maquette",
+   "valeur": "6 000",
+   "unite": "mm",
+   "statut": "hypothese"
+  },
+  {
+   "libelle": "Hauteur du chemin de roulement",
+   "valeur": "5 000",
+   "unite": "mm",
+   "statut": "hypothese"
+  },
+  {
+   "libelle": "Charge du palan SH 3 à SH 6",
+   "valeur": "3 200 à 32 000",
+   "unite": "kg",
+   "statut": "brochure",
+   "source": "stahl"
+  },
+  {
+   "libelle": "Mouflages proposés",
+   "valeur": "1/1, 2/1, 2/2, 4/1, 4/2, 8/2",
+   "unite": "",
+   "statut": "brochure",
+   "source": "stahl"
+  }
+ ],
+ "simplifications": [
+  "Mouflage 2 brins représenté",
+  "Rainures du tambour et câble remplacés par une hélice",
+  "Chariot monorail sans motorisation détaillée",
+  "Chemins de roulement sans fixations"
+ ],
+ "plansManquants": [
+  "Plan du pont ou du portique installé",
+  "Modèle exact du palan et plan d'encombrement",
+  "Schéma du chariot et du mouflage",
+  "Implantation et plans électriques",
+  "Dossier fabricant et rapports de vérification périodique"
+ ],
+ "pieces": [
+  {
+   "id": "chemins",
+   "nom": "Chemins de roulement",
+   "noeud": "chemins",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "structure",
+   "source": "konecranes",
+   "page": "p. 2"
+  },
+  {
+   "id": "pont",
+   "nom": "Pont (poutre et sommiers)",
+   "noeud": "pont",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "pont",
+   "source": "konecranes",
+   "page": "p. 2",
+   "ensemble": true
+  },
+  {
+   "id": "poutre",
+   "nom": "Poutre principale",
+   "noeud": "poutre",
+   "parent": "pont",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "pont",
+   "source": "konecranes",
+   "page": "p. 2",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.8
+   }
+  },
+  {
+   "id": "sommiers",
+   "nom": "Sommiers",
+   "noeud": "sommiers",
+   "parent": "pont",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "pont",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.5
+   }
+  },
+  {
+   "id": "galets_pont",
+   "nom": "Galets de translation",
+   "noeud": "galets_pont",
+   "parent": "pont",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "roulement",
+   "eclate": {
+    "axe": [
+     0,
+     -1,
+     0
+    ],
+    "distance": 0.3
+   }
+  },
+  {
+   "id": "chariot",
+   "nom": "Chariot",
+   "noeud": "chariot",
+   "parent": "pont",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "chariot",
+   "source": "stahl",
+   "page": "p. 5",
+   "ensemble": true
+  },
+  {
+   "id": "chassis_chariot",
+   "nom": "Châssis du chariot",
+   "noeud": "chassis_chariot",
+   "parent": "chariot",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "chariot",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.3
+   }
+  },
+  {
+   "id": "galets_chariot",
+   "nom": "Galets du chariot",
+   "noeud": "galets_chariot",
+   "parent": "chariot",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "roulement",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.2
+   }
+  },
+  {
+   "id": "palan",
+   "nom": "Palan à câble",
+   "noeud": "palan",
+   "parent": "chariot",
+   "transformation": {
+    "position": [
+     0.0,
+     4.35,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "palan",
+   "source": "stahl",
+   "page": "p. 4–7",
+   "ensemble": true
+  },
+  {
+   "id": "tambour",
+   "nom": "Tambour",
+   "noeud": "tambour",
+   "parent": "palan",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "tambour",
+   "source": "stahl",
+   "page": "p. 6",
+   "description": "Tambour à rainure simple, câble enroulé.",
+   "eclate": {
+    "axe": [
+     0,
+     -1,
+     0
+    ],
+    "distance": 0.45
+   },
+   "depose": [
+    0,
+    -0.7,
+    0.4
+   ],
+   "dependances": [
+    "capot_tambour",
+    "guide_cable"
+   ]
+  },
+  {
+   "id": "cable_enroule",
+   "nom": "Câble enroulé",
+   "noeud": "cable_enroule",
+   "parent": "tambour",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "cable",
+   "source": "stahl",
+   "page": "p. 6"
+  },
+  {
+   "id": "guide_cable",
+   "nom": "Guide-câble",
+   "noeud": "guide_cable",
+   "parent": "palan",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "tambour",
+   "source": "stahl",
+   "page": "p. 6",
+   "description": "Guide-câble fermé en fonte GJS (brochure).",
+   "eclate": {
+    "axe": [
+     0,
+     -1,
+     0
+    ],
+    "distance": 0.3
+   },
+   "depose": [
+    0,
+    -0.3,
+    0.55
+   ],
+   "dependances": [
+    "capot_tambour"
+   ]
+  },
+  {
+   "id": "capot_tambour",
+   "nom": "Capot du tambour",
+   "noeud": "capot_tambour",
+   "parent": "palan",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "carter",
+   "simplification": "Demi-coquille de protection, non représentative de la carrosserie réelle.",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.35
+   },
+   "depose": [
+    0,
+    0.25,
+    0.45
+   ],
+   "dependances": [
+    "vis_capot_1",
+    "vis_capot_2",
+    "vis_capot_3",
+    "vis_capot_4"
+   ]
+  },
+  {
+   "id": "moteur_levage",
+   "nom": "Moteur de levage",
+   "noeud": "moteur_levage",
+   "parent": "palan",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "motorisation",
+   "source": "stahl",
+   "page": "p. 6",
+   "eclate": {
+    "axe": [
+     -1,
+     0,
+     0
+    ],
+    "distance": 0.4
+   }
+  },
+  {
+   "id": "frein",
+   "nom": "Frein de levage",
+   "noeud": "frein",
+   "parent": "palan",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "motorisation",
+   "source": "stahl",
+   "page": "p. 8",
+   "eclate": {
+    "axe": [
+     -1,
+     0,
+     0
+    ],
+    "distance": 0.6
+   }
+  },
+  {
+   "id": "reducteur",
+   "nom": "Réducteur de levage",
+   "noeud": "reducteur",
+   "parent": "palan",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "motorisation",
+   "source": "stahl",
+   "page": "p. 7",
+   "description": "Engrenages à lubrification à vie en bain d'huile (brochure).",
+   "eclate": {
+    "axe": [
+     1,
+     0,
+     0
+    ],
+    "distance": 0.4
+   }
+  },
+  {
+   "id": "commande",
+   "nom": "Coffret de commande",
+   "noeud": "commande",
+   "parent": "palan",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "commande",
+   "source": "stahl",
+   "page": "p. 7",
+   "eclate": {
+    "axe": [
+     0,
+     0,
+     1
+    ],
+    "distance": 0.3
+   }
+  },
+  {
+   "id": "fin_de_course",
+   "nom": "Fin de course à engrenage",
+   "noeud": "fin_de_course",
+   "parent": "palan",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "securite",
+   "source": "stahl",
+   "page": "p. 8",
+   "eclate": {
+    "axe": [
+     1,
+     1,
+     0
+    ],
+    "distance": 0.25
+   }
+  },
+  {
+   "id": "vis_capot_1",
+   "nom": "Vis du capot 1",
+   "noeud": "vis_capot_1",
+   "parent": "palan",
+   "transformation": {
+    "position": [
+     -0.3,
+     0.03,
+     0.205
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_capot",
+   "source": "stahl",
+   "page": "p. 6",
+   "fixe": "capot_tambour",
+   "depose": [
+    0,
+    0,
+    0.12
+   ],
+   "fixation": {
+    "axe": [
+     0,
+     0,
+     1
+    ],
+    "degagement": 0.035,
+    "tours": 4
+   }
+  },
+  {
+   "id": "vis_capot_2",
+   "nom": "Vis du capot 2",
+   "noeud": "vis_capot_2",
+   "parent": "palan",
+   "transformation": {
+    "position": [
+     0.3,
+     0.03,
+     0.205
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_capot",
+   "source": "stahl",
+   "page": "p. 6",
+   "fixe": "capot_tambour",
+   "depose": [
+    0,
+    0,
+    0.12
+   ],
+   "fixation": {
+    "axe": [
+     0,
+     0,
+     1
+    ],
+    "degagement": 0.035,
+    "tours": 4
+   }
+  },
+  {
+   "id": "vis_capot_3",
+   "nom": "Vis du capot 3",
+   "noeud": "vis_capot_3",
+   "parent": "palan",
+   "transformation": {
+    "position": [
+     -0.3,
+     0.03,
+     -0.205
+    ],
+    "rotation": [
+     0.0,
+     1.0,
+     0.0,
+     0.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_capot",
+   "source": "stahl",
+   "page": "p. 6",
+   "fixe": "capot_tambour",
+   "depose": [
+    0,
+    0,
+    -0.12
+   ],
+   "fixation": {
+    "axe": [
+     0,
+     0,
+     -1
+    ],
+    "degagement": 0.035,
+    "tours": 4
+   }
+  },
+  {
+   "id": "vis_capot_4",
+   "nom": "Vis du capot 4",
+   "noeud": "vis_capot_4",
+   "parent": "palan",
+   "transformation": {
+    "position": [
+     0.3,
+     0.03,
+     -0.205
+    ],
+    "rotation": [
+     0.0,
+     1.0,
+     0.0,
+     0.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_capot",
+   "source": "stahl",
+   "page": "p. 6",
+   "fixe": "capot_tambour",
+   "depose": [
+    0,
+    0,
+    -0.12
+   ],
+   "fixation": {
+    "axe": [
+     0,
+     0,
+     -1
+    ],
+    "degagement": 0.035,
+    "tours": 4
+   }
+  },
+  {
+   "id": "moufle",
+   "nom": "Moufle",
+   "noeud": "moufle",
+   "parent": "chariot",
+   "transformation": {
+    "position": [
+     0.0,
+     3.2,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "moufle",
+   "source": "stahl",
+   "page": "p. 4",
+   "description": "Moufle à deux poulies et crochet.",
+   "ensemble": true
+  },
+  {
+   "id": "flasque_avant",
+   "nom": "Flasque avant",
+   "noeud": "flasque_avant",
+   "parent": "moufle",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "moufle",
+   "eclate": {
+    "axe": [
+     0,
+     0,
+     1
+    ],
+    "distance": 0.2
+   },
+   "depose": [
+    0,
+    0,
+    0.35
+   ],
+   "dependances": [
+    "vis_flasque_1",
+    "vis_flasque_2",
+    "vis_flasque_3",
+    "vis_flasque_4"
+   ]
+  },
+  {
+   "id": "flasque_arriere",
+   "nom": "Flasque arrière",
+   "noeud": "flasque_arriere",
+   "parent": "moufle",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "moufle",
+   "eclate": {
+    "axe": [
+     0,
+     0,
+     -1
+    ],
+    "distance": 0.2
+   }
+  },
+  {
+   "id": "poulie_g",
+   "nom": "Poulie gauche",
+   "noeud": "poulie_g",
+   "parent": "moufle",
+   "transformation": {
+    "position": [
+     -0.06,
+     0.04,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "poulie",
+   "eclate": {
+    "axe": [
+     -1,
+     0,
+     0.5
+    ],
+    "distance": 0.25
+   },
+   "depose": [
+    -0.25,
+    0,
+    0.3
+   ],
+   "dependances": [
+    "flasque_avant"
+   ]
+  },
+  {
+   "id": "poulie_d",
+   "nom": "Poulie droite",
+   "noeud": "poulie_d",
+   "parent": "moufle",
+   "transformation": {
+    "position": [
+     0.06,
+     0.04,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "poulie",
+   "eclate": {
+    "axe": [
+     1,
+     0,
+     0.5
+    ],
+    "distance": 0.25
+   },
+   "depose": [
+    0.25,
+    0,
+    0.3
+   ],
+   "dependances": [
+    "flasque_avant"
+   ]
+  },
+  {
+   "id": "axe_poulies",
+   "nom": "Axe des poulies",
+   "noeud": "axe_poulies",
+   "parent": "moufle",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "poulie",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.15
+   }
+  },
+  {
+   "id": "crochet",
+   "nom": "Crochet",
+   "noeud": "crochet",
+   "parent": "moufle",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "crochet",
+   "source": "stahl",
+   "page": "p. 5",
+   "simplification": "Crochet simple de principe, sans cotes de contrôle d'ouverture.",
+   "eclate": {
+    "axe": [
+     0,
+     -1,
+     0
+    ],
+    "distance": 0.3
+   }
+  },
+  {
+   "id": "linguet",
+   "nom": "Linguet de sécurité",
+   "noeud": "linguet",
+   "parent": "moufle",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "crochet",
+   "eclate": {
+    "axe": [
+     0,
+     -1,
+     0
+    ],
+    "distance": 0.35
+   }
+  },
+  {
+   "id": "vis_flasque_1",
+   "nom": "Vis du flasque 1",
+   "noeud": "vis_flasque_1",
+   "parent": "moufle",
+   "transformation": {
+    "position": [
+     0.09192,
+     0.09192,
+     0.072
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_flasque",
+   "fixe": "flasque_avant",
+   "depose": [
+    0.0,
+    0.0,
+    0.12
+   ],
+   "fixation": {
+    "axe": [
+     0.0,
+     0.0,
+     1.0
+    ],
+    "degagement": 0.06,
+    "tours": 4
+   }
+  },
+  {
+   "id": "vis_flasque_2",
+   "nom": "Vis du flasque 2",
+   "noeud": "vis_flasque_2",
+   "parent": "moufle",
+   "transformation": {
+    "position": [
+     -0.09192,
+     0.09192,
+     0.072
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_flasque",
+   "fixe": "flasque_avant",
+   "depose": [
+    0.0,
+    0.0,
+    0.12
+   ],
+   "fixation": {
+    "axe": [
+     0.0,
+     0.0,
+     1.0
+    ],
+    "degagement": 0.06,
+    "tours": 4
+   }
+  },
+  {
+   "id": "vis_flasque_3",
+   "nom": "Vis du flasque 3",
+   "noeud": "vis_flasque_3",
+   "parent": "moufle",
+   "transformation": {
+    "position": [
+     -0.09192,
+     -0.09192,
+     0.072
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_flasque",
+   "fixe": "flasque_avant",
+   "depose": [
+    0.0,
+    0.0,
+    0.12
+   ],
+   "fixation": {
+    "axe": [
+     0.0,
+     0.0,
+     1.0
+    ],
+    "degagement": 0.06,
+    "tours": 4
+   }
+  },
+  {
+   "id": "vis_flasque_4",
+   "nom": "Vis du flasque 4",
+   "noeud": "vis_flasque_4",
+   "parent": "moufle",
+   "transformation": {
+    "position": [
+     0.09192,
+     -0.09192,
+     0.072
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_flasque",
+   "fixe": "flasque_avant",
+   "depose": [
+    0.0,
+    0.0,
+    0.12
+   ],
+   "fixation": {
+    "axe": [
+     0.0,
+     0.0,
+     1.0
+    ],
+    "degagement": 0.06,
+    "tours": 4
+   }
+  },
+  {
+   "id": "brins",
+   "nom": "Brins du câble",
+   "noeud": "brins",
+   "parent": "chariot",
+   "transformation": {
+    "position": [
+     0.0,
+     4.33,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "cable",
+   "source": "stahl",
+   "page": "p. 4",
+   "simplification": "Deux brins droits ; le mouflage réel est à relever."
+  }
+ ],
+ "scenario": {
+  "titre": "Isoler le tambour et ouvrir le moufle",
+  "illustratif": true,
+  "avertissement": "Scénario illustratif en simulation. Ordre, couples et outillage à prendre dans la gamme approuvée par CAMRAIL. L'application ne pilote aucun équipement.",
+  "etapes": [
+   {
+    "id": "d1",
+    "texte": "Dévisser les vis du capot",
+    "action": "devisser",
+    "pieces": [
+     "vis_capot_1",
+     "vis_capot_2",
+     "vis_capot_3",
+     "vis_capot_4"
+    ]
+   },
+   {
+    "id": "d2",
+    "texte": "Déposer le capot du tambour",
+    "action": "deposer",
+    "pieces": [
+     "capot_tambour"
+    ]
+   },
+   {
+    "id": "d3",
+    "texte": "Déposer le guide-câble",
+    "action": "deposer",
+    "pieces": [
+     "guide_cable"
+    ]
+   },
+   {
+    "id": "d4",
+    "texte": "Déposer le tambour",
+    "action": "deposer",
+    "pieces": [
+     "tambour"
+    ]
+   },
+   {
+    "id": "d5",
+    "texte": "Dévisser les vis du flasque du moufle",
+    "action": "devisser",
+    "pieces": [
+     "vis_flasque_1",
+     "vis_flasque_2",
+     "vis_flasque_3",
+     "vis_flasque_4"
+    ]
+   },
+   {
+    "id": "d6",
+    "texte": "Déposer le flasque avant",
+    "action": "deposer",
+    "pieces": [
+     "flasque_avant"
+    ]
+   },
+   {
+    "id": "d7",
+    "texte": "Déposer les deux poulies",
+    "action": "deposer",
+    "pieces": [
+     "poulie_g",
+     "poulie_d"
+    ]
+   },
+   {
+    "id": "r1",
+    "texte": "Reposer les deux poulies",
+    "action": "reposer",
+    "pieces": [
+     "poulie_g",
+     "poulie_d"
+    ]
+   },
+   {
+    "id": "r2",
+    "texte": "Reposer le flasque avant",
+    "action": "reposer",
+    "pieces": [
+     "flasque_avant"
+    ]
+   },
+   {
+    "id": "r3",
+    "texte": "Revisser les vis du flasque du moufle",
+    "action": "visser",
+    "pieces": [
+     "vis_flasque_1",
+     "vis_flasque_2",
+     "vis_flasque_3",
+     "vis_flasque_4"
+    ]
+   },
+   {
+    "id": "r4",
+    "texte": "Reposer le tambour",
+    "action": "reposer",
+    "pieces": [
+     "tambour"
+    ]
+   },
+   {
+    "id": "r5",
+    "texte": "Reposer le guide-câble",
+    "action": "reposer",
+    "pieces": [
+     "guide_cable"
+    ]
+   },
+   {
+    "id": "r6",
+    "texte": "Reposer le capot du tambour",
+    "action": "reposer",
+    "pieces": [
+     "capot_tambour"
+    ]
+   },
+   {
+    "id": "r7",
+    "texte": "Revisser les vis du capot",
+    "action": "visser",
+    "pieces": [
+     "vis_capot_1",
+     "vis_capot_2",
+     "vis_capot_3",
+     "vis_capot_4"
+    ]
+   }
+  ]
+ },
+ "articulations": [
+  {
+   "id": "translation_pont",
+   "libelle": "Translation du pont",
+   "unite": "m",
+   "min": -3.0,
+   "max": 3.0,
+   "pas": 0.05,
+   "valeur": 0.0,
+   "cibles": [
+    {
+     "piece": "pont",
+     "type": "translation",
+     "axe": [
+      0,
+      0,
+      1
+     ],
+     "facteur": 1
+    }
+   ]
+  },
+  {
+   "id": "direction_chariot",
+   "libelle": "Direction du chariot",
+   "unite": "m",
+   "min": -2.4,
+   "max": 2.4,
+   "pas": 0.05,
+   "valeur": 0.0,
+   "cibles": [
+    {
+     "piece": "chariot",
+     "type": "translation",
+     "axe": [
+      1,
+      0,
+      0
+     ],
+     "facteur": 1
+    }
+   ]
+  },
+  {
+   "id": "levage",
+   "libelle": "Levage du moufle",
+   "unite": "m",
+   "min": -0.2,
+   "max": 2.8,
+   "pas": 0.05,
+   "valeur": 0.0,
+   "cibles": [
+    {
+     "piece": "moufle",
+     "type": "translation",
+     "axe": [
+      0,
+      -1,
+      0
+     ],
+     "facteur": 1
+    },
+    {
+     "piece": "brins",
+     "type": "etirer",
+     "axe": [
+      0,
+      1,
+      0
+     ],
+     "longueur": 1.0899999999999994
+    }
+   ]
+  }
+ ],
+ "etats": []
+}

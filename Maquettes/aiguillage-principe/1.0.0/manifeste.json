@@ -1,0 +1,516 @@
+{
+ "schema": "mara-maquette/1",
+ "actif": "aiguillage-principe",
+ "version": "1.0.0",
+ "classe": "aiguillage",
+ "codes": [
+  "AIG-001"
+ ],
+ "titre": "Appareil de voie à commande électrique",
+ "variante": "Aiguillage simple de principe (tangente 1/8), voie métrique",
+ "statut": "illustratif",
+ "statutLibelle": "Géométrie de principe, pas un plan de pose",
+ "avertissement": "Démonstration pédagogique. Le plan C1.07 décrit un aiguillage américain à voie normale ; la géométrie CAMRAIL vient de son plan de pose métrique.",
+ "echelle": {
+  "unite": "m",
+  "ra_1_1": false,
+  "motif": "Dimensions et calage non validés sur la variante CAMRAIL."
+ },
+ "glb": {
+  "fichier": "modele.glb",
+  "octets": 28948,
+  "sha256": "5d9c1d6d5cd7d3c3f37408cf381c31e07da25b497bd0c4db0f9e198ac55bbe30"
+ },
+ "vueInitiale": "dessus",
+ "coupe": {
+  "axe": "z",
+  "libelle": "Coupe en travers"
+ },
+ "sources": [
+  {
+   "id": "c107",
+   "titre": "Plan C1.07, aiguillage n° 8",
+   "editeur": "U.S. Army Corps of Engineers",
+   "url": "https://transportation.erdc.dren.mil/triservice/standard_drawings/c107.pdf",
+   "page": "p. 1",
+   "fichier": "docs/recherche/catalogue_equipements_ra/sources/09-aiguillage/USACE_C107_plan_aiguillage.pdf"
+  },
+  {
+   "id": "unistar",
+   "titre": "Fiche UNISTAR HR COMPACT",
+   "editeur": "voestalpine Railway Systems",
+   "url": "https://cdnstorevoestalpine.blob.core.windows.net/documents/795438/original/railwaysystems_factsheet_UNISTAR_HR_COMPACT_en.pdf",
+   "page": "p. 1–2",
+   "fichier": "docs/recherche/catalogue_equipements_ra/sources/09-aiguillage/voestalpine_UNISTAR_HR_COMPACT.pdf"
+  }
+ ],
+ "cotes": [
+  {
+   "libelle": "Tangente de déviation retenue",
+   "valeur": "1/8",
+   "unite": "",
+   "statut": "hypothese",
+   "source": "c107"
+  },
+  {
+   "libelle": "Course de l'actionneur COMPACT",
+   "valeur": "60 à 220",
+   "unite": "mm",
+   "statut": "brochure",
+   "source": "unistar"
+  },
+  {
+   "libelle": "Masse de l'actionneur",
+   "valeur": "145",
+   "unite": "kg",
+   "statut": "brochure",
+   "source": "unistar"
+  },
+  {
+   "libelle": "Écartement",
+   "valeur": "1 000",
+   "unite": "mm",
+   "statut": "hypothese"
+  }
+ ],
+ "simplifications": [
+  "Rails en section rectangulaire",
+  "Lames droites",
+  "Longueur réduite",
+  "Verrouillage non représenté"
+ ],
+ "plansManquants": [
+  "Plan de pose métrique avec sens et variante",
+  "Profil du rail",
+  "Dessins de la commande et du verrouillage",
+  "Schémas de câblage autorisés"
+ ],
+ "pieces": [
+  {
+   "id": "traverses",
+   "nom": "Traverses",
+   "noeud": "traverses",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "voie"
+  },
+  {
+   "id": "rail_contre_droit",
+   "nom": "Rail contre-aiguille droit",
+   "noeud": "rail_contre_droit",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "rail"
+  },
+  {
+   "id": "rail_contre_gauche",
+   "nom": "Rail contre-aiguille gauche",
+   "noeud": "rail_contre_gauche",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "rail"
+  },
+  {
+   "id": "rail_droit_interieur",
+   "nom": "Rail droit intérieur",
+   "noeud": "rail_droit_interieur",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "rail"
+  },
+  {
+   "id": "rail_devie",
+   "nom": "Rail dévié intérieur",
+   "noeud": "rail_devie",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "rail"
+  },
+  {
+   "id": "coeur",
+   "nom": "Cœur de croisement",
+   "noeud": "coeur",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "coeur",
+   "source": "c107",
+   "page": "p. 1",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.3
+   }
+  },
+  {
+   "id": "contre_rails",
+   "nom": "Contre-rails",
+   "noeud": "contre_rails",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "contre_rail",
+   "source": "c107",
+   "page": "p. 1"
+  },
+  {
+   "id": "lame_droite",
+   "nom": "Lame droite",
+   "noeud": "lame_droite",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.43,
+     0.0,
+     5.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "lame",
+   "source": "c107",
+   "page": "p. 1",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.25
+   }
+  },
+  {
+   "id": "lame_gauche",
+   "nom": "Lame gauche",
+   "noeud": "lame_gauche",
+   "parent": null,
+   "transformation": {
+    "position": [
+     -0.43,
+     0.0,
+     5.0
+    ],
+    "rotation": [
+     -0.0,
+     -0.010998,
+     -0.0,
+     0.99994
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "lame",
+   "source": "c107",
+   "page": "p. 1",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.25
+   }
+  },
+  {
+   "id": "tringle",
+   "nom": "Tringle de manœuvre",
+   "noeud": "tringle",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "tringle",
+   "eclate": {
+    "axe": [
+     0,
+     0,
+     -1
+    ],
+    "distance": 0.3
+   }
+  },
+  {
+   "id": "moteur_aiguille",
+   "nom": "Moteur d'aiguille",
+   "noeud": "moteur_aiguille",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "commande",
+   "source": "unistar",
+   "page": "p. 1",
+   "description": "Actionneur électro-hydraulique compact (référence de démonstration).",
+   "eclate": {
+    "axe": [
+     -1,
+     0,
+     0
+    ],
+    "distance": 0.4
+   }
+  }
+ ],
+ "scenario": null,
+ "articulations": [
+  {
+   "id": "manoeuvre",
+   "libelle": "Manœuvre des lames (pédagogique)",
+   "unite": "",
+   "min": 0,
+   "max": 1,
+   "pas": 0.02,
+   "valeur": 0,
+   "cibles": [
+    {
+     "piece": "lame_droite",
+     "type": "rotation",
+     "axe": [
+      0,
+      1,
+      0
+     ],
+     "facteur": 0.021996451697036862
+    },
+    {
+     "piece": "lame_gauche",
+     "type": "rotation",
+     "axe": [
+      0,
+      1,
+      0
+     ],
+     "facteur": 0.021996451697036862
+    },
+    {
+     "piece": "tringle",
+     "type": "translation",
+     "axe": [
+      -1,
+      0,
+      0
+     ],
+     "facteur": 0.11
+    }
+   ]
+  }
+ ],
+ "etats": []
+}

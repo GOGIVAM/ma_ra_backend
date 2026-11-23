@@ -26,7 +26,8 @@ public record VisiteRequest(
 
 public record VisiteEtapeResponse(
     Guid EtapeId, int Ordre, string Description, string Resultat,
-    string? Mesure, string? Note, bool Photo, DateTime RealiseeAt);
+    string? Mesure, string? Note, bool Photo, DateTime RealiseeAt,
+    bool HorsLimites, decimal? LimiteMin, decimal? LimiteMax, string? Unite);
 
 public record VisiteSummary(
     Guid Id, string NumeroEssieu, string GammeCode, int GammeVersion, string GammeStatut,
@@ -35,7 +36,7 @@ public record VisiteSummary(
 public record VisiteResponse(
     Guid Id, string NumeroEssieu, string GammeCode, int GammeVersion, string GammeStatut,
     string Signataire, DateTime DebutAt, DateTime ClotureAt, DateTime RecueAt, int NombreEcarts,
-    IEnumerable<VisiteEtapeResponse> Etapes);
+    IEnumerable<VisiteEtapeResponse> Etapes, bool VersionConforme);
 
 public record ValidationGammeRequest(
     [Required, MaxLength(200)] string SourceDocument,

@@ -31,6 +31,10 @@ public static class DbInitializer
         }
 
         await SeedDemoEssieuT17Async(db, log);
+
+        // Gammes créées avant l'ajout du statut : elles sont des brouillons.
+        var sansStatut = await db.Gammes.Where(g => g.Statut == "").ExecuteUpdateAsync(s => s.SetProperty(g => g.Statut, "BROUILLON"));
+        if (sansStatut > 0) log.LogInformation("{Count} gammes sans statut passées en brouillon", sansStatut);
     }
 
     // ─────────────────────────────────────────────────────────────────────────
@@ -48,6 +52,7 @@ public static class DbInitializer
             ("chef.dif",     "chef.dif@camrail.cm",     "Chef@Dif2025!",      "DIF"),
             ("coordinateur", "coord.info@camrail.cm",   "Coord@CI2025!",      "CI"),
             ("formateur",    "formateur@camrail.cm",    "Form@CIF2025!",      "CIF"),
+            ("securite",     "securite@camrail.cm",     "Secu@CMSF2025!",     "CMSF"),
         };
 
         foreach (var (username, email, password, groupe) in usersToCreate)
@@ -146,11 +151,10 @@ public static class DbInitializer
         {
             var ancienne = await db.Etapes.FirstOrDefaultAsync(e =>
                 e.GammeId == NewId(117, 1) && e.Description.StartsWith("En cas de doute"));
-            if (ancienne is not null)
-            {
-                ancienne.Description = PointArret;
-                await db.SaveChangesAsync();
-            }
+            if (ancienne is not null) ancienne.Description = PointArret;
+            var gammeT17 = await db.Gammes.Include(g => g.Etapes).FirstOrDefaultAsync(g => g.Id == NewId(117, 1));
+            if (gammeT17 is not null) AppliquerRefsMaquette(gammeT17);
+            await db.SaveChangesAsync();
             return;
         }
 
@@ -194,6 +198,7 @@ public static class DbInitializer
                 E("Clôturer : signature de l'opérateur et compte rendu de l'essieu", "ORANGE"),
             },
         });
+        AppliquerRefsMaquette(db.Gammes.Local.First(g => g.Id == NewId(117, 1)));
 
         await db.SaveChangesAsync();
         log.LogInformation("Démonstration essieu T17 créée");
@@ -234,7 +239,14 @@ public static class DbInitializer
     private const string Ge  = "22000000-0000-0000-0000-000000000003";
     private const string Sig = "22000000-0000-0000-0000-000000000004";
 
-    private static List<Gamme> GammesDemo() => new()
+    private static List<Gamme> GammesDemo()
+    {
+        var gammes = GammesDemoTextes();
+        foreach (var g in gammes) AppliquerRefsMaquette(g);
+        return gammes;
+    }
+
+    private static List<Gamme> GammesDemoTextes() => new()
     {
         G(1, 1, "GMT-001", "Révision des balais et du collecteur, moteur de traction",
             "moteur_traction", "DMAT", Mtr,
@@ -368,16 +380,16 @@ public static class DbInitializer
             Step(8, "Faire les manœuvres d'essai prévues par la gamme"),
             Step(9, "Lever la consigne après accord du régulateur")),
 
-        G(10, 1, "GTRS-001", "Contrôle de l'huile et du conservateur, transformateur",
+        G(10, 1, "GTRS-001", "Inspection visuelle d'un transformateur immergé à cuve hermétique",
             "transformateur_ht", "DIF", Trs,
             Step(1, "Consigner le transformateur : ouvrir et verrouiller les départs", "ROUGE"),
             Step(2, "Vérifier l'absence de tension côté HT avec la perche", "ROUGE"),
             Step(3, "Mettre à la terre et en court-circuit les phases HT et BT", "ROUGE"),
             Step(4, "Prélever un échantillon d'huile au robinet de fond", "ORANGE"),
             Step(5, "Faire analyser la rigidité diélectrique (seuil validé)"),
-            Step(6, "Contrôler le niveau d'huile du conservateur"),
-            Step(7, "Vérifier la couleur du dessiccateur au silicagel"),
-            Step(8, "Inspecter les radiateurs : fuite, dépôts"),
+            Step(6, "Repérer les zones d'étanchéité de la cuve"),
+            Step(7, "Examiner les parties visibles des traversées HT et BT"),
+            Step(8, "Inspecter les parois ondulées : fuite, dépôts"),
             Step(9, "Contrôler le serrage des bornes HT et BT", "ORANGE"),
             Step(10, "Lever la mise à la terre, déconsigner, remettre en service", "ROUGE")),
 
@@ -440,16 +452,78 @@ public static class DbInitializer
             if (g.Titre != ref_.Titre) { g.Titre = ref_.Titre; modifies++; }
             foreach (var etape in g.Etapes)
             {
-                var texte = ref_.Etapes.FirstOrDefault(r => r.OrdreIndex == etape.OrdreIndex)?.Description;
-                if (texte is null || etape.Description == texte) continue;
-                etape.Description = texte;
-                modifies++;
+                var modele = ref_.Etapes.FirstOrDefault(r => r.OrdreIndex == etape.OrdreIndex);
+                if (modele is null) continue;
+                if (etape.Description != modele.Description) { etape.Description = modele.Description; modifies++; }
+                if (etape.ArContentRef != modele.ArContentRef) { etape.ArContentRef = modele.ArContentRef; modifies++; }
             }
         }
 
         if (modifies == 0) return;
         await db.SaveChangesAsync();
         log.LogInformation("{Count} textes de démonstration remplacés", modifies);
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // LIENS ÉTAPE → MAQUETTE  (catalogue ma_ra_dotnet/Maquettes)
+    // Format : maquette:<actif>?piece=<pièce ou organe>&vue=<vue>
+    // ─────────────────────────────────────────────────────────────────────────
+
+    private static string Ref(string actif, string? piece = null, string? vue = null)
+    {
+        var q = new List<string>();
+        if (piece is not null) q.Add($"piece={piece}");
+        if (vue is not null) q.Add($"vue={vue}");
+        return $"maquette:{actif}" + (q.Count > 0 ? "?" + string.Join("&", q) : "");
+    }
+
+    private const string AxeEg6 = "axe-eg6", Bogie = "bogie-y25-metrique", Pompe = "pompe-eau-qsk19",
+        Pont = "pont-roulant-palan", Moteur = "moteur-traction-cc", Compresseur = "compresseur-pistons",
+        Tour = "tour-en-fosse", Aiguillage = "aiguillage-principe", Grue = "grue-ferroviaire",
+        Draisine = "draisine-vmt", Transfo = "transformateur-immerge", Groupe = "groupe-electrogene",
+        Signal = "signal-led";
+
+    private static readonly Dictionary<string, Dictionary<int, string>> RefsMaquette = new()
+    {
+        ["GESS-T17-DEMO"] = new() { [1] = Ref(AxeEg6), [4] = Ref(AxeEg6), [5] = Ref(AxeEg6, "corps"),
+            [6] = Ref(Bogie, "roue_1g"), [7] = Ref(Bogie, "boite_1g", "eclate") },
+        ["GBG-001"] = new() { [3] = Ref(Bogie, "chassis"), [4] = Ref(Bogie, "roulement_ext_1g", "eclate"),
+            [5] = Ref(Bogie, "roue_1g"), [6] = Ref(Bogie, "boite_1g"), [7] = Ref(Bogie, "boite_1g", "eclate"),
+            [8] = Ref(Bogie, "ressorts_1g"), [9] = Ref(Bogie, "traverse"), [10] = Ref(Bogie, "chassis") },
+        ["GPMP-001"] = new() { [3] = Ref(Pompe, "volute"), [4] = Ref(Pompe, "garniture", "eclate"),
+            [5] = Ref(Pompe, "roue", "eclate"), [6] = Ref(Pompe, "garniture", "eclate"), [7] = Ref(Pompe, "vis_volute"),
+            [8] = Ref(Pompe, "volute"), [9] = Ref(Pompe, "volute") },
+        ["GPR-001"] = new() { [2] = Ref(Pont, "poutre"), [3] = Ref(Pont, "crochet"), [4] = Ref(Pont, "fin_de_course"),
+            [5] = Ref(Pont, "galets_pont"), [6] = Ref(Pont, "chemins"), [8] = Ref(Pont, "frein") },
+        ["GMT-001"] = new() { [3] = Ref(Moteur, "trappe_1"), [4] = Ref(Moteur, "porte_balais_1"),
+            [5] = Ref(Moteur, "collecteur", "coupe"), [6] = Ref(Moteur, "collecteur", "coupe"),
+            [7] = Ref(Moteur, "porte_balais_1"), [8] = Ref(Moteur, "induit", "coupe"), [9] = Ref(Moteur, "carcasse") },
+        ["GMT-002"] = new() { [2] = Ref(Moteur, "trappe_1"), [3] = Ref(Moteur, "poles", "coupe") },
+        ["GCMP-001"] = new() { [3] = Ref(Compresseur, "filtre_admission"), [4] = Ref(Compresseur, "filtre_admission"),
+            [5] = Ref(Compresseur, "soupapes_bp", "coupe"), [7] = Ref(Compresseur, "accouplement") },
+        ["GGRF-001"] = new() { [2] = Ref(Grue, "treuil"), [7] = Ref(Grue, "tete_fleche"), [8] = Ref(Grue, "crochet_grue") },
+        ["GTRA-001"] = new() { [1] = Ref(Tour, "essieu_usine"), [3] = Ref(Tour, "roue_tour_g"),
+            [5] = Ref(Tour, "tete_outil_g"), [7] = Ref(Tour, "tete_outil_d"), [8] = Ref(Tour, "palpeurs") },
+        ["GDRA-001"] = new() { [2] = Ref(Draisine, "moteur_diesel"), [4] = Ref(Draisine, "moteur_diesel"),
+            [6] = Ref(Draisine, "freins_draisine_1"), [7] = Ref(Draisine, "freins_draisine_1") },
+        ["GAIG-001"] = new() { [2] = Ref(Aiguillage, "moteur_aiguille"), [3] = Ref(Aiguillage, "lame_droite"),
+            [4] = Ref(Aiguillage, "lame_gauche"), [6] = Ref(Aiguillage, "traverses"), [7] = Ref(Aiguillage, "moteur_aiguille") },
+        ["GAIG-002"] = new() { [2] = Ref(Aiguillage, "moteur_aiguille"), [3] = Ref(Aiguillage, "lame_droite"),
+            [7] = Ref(Aiguillage, "tringle") },
+        ["GTRS-001"] = new() { [6] = Ref(Transfo, "cuve"), [7] = Ref(Transfo, "traversee"), [8] = Ref(Transfo, "ondes"),
+            [9] = Ref(Transfo, "traversees_bt") },
+        ["GGE-001"] = new() { [2] = Ref(Groupe, "moteur_ge"), [3] = Ref(Groupe, "radiateur"), [4] = Ref(Groupe, "batterie"),
+            [8] = Ref(Groupe, "alternateur") },
+        ["GSIG-001"] = new() { [2] = Ref(Signal, "mat"), [3] = Ref(Signal, "feu_vert"), [6] = Ref(Signal, "module_vert", "eclate"),
+            [7] = Ref(Signal, "module_vert") },
+    };
+
+    /// <summary>Renseigne le lien vers la maquette des étapes de démonstration ; les autres gardent leur valeur.</summary>
+    private static void AppliquerRefsMaquette(Gamme g)
+    {
+        if (!RefsMaquette.TryGetValue(g.Code, out var refs)) return;
+        foreach (var e in g.Etapes)
+            if (refs.TryGetValue(e.OrdreIndex, out var r)) e.ArContentRef = r;
     }
 
     // ─────────────────────────────────────────────────────────────────────────

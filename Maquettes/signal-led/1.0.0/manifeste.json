@@ -1,0 +1,983 @@
+{
+ "schema": "mara-maquette/1",
+ "actif": "signal-led",
+ "version": "1.0.0",
+ "classe": "signal_ferroviaire",
+ "codes": [
+  "SIG-001"
+ ],
+ "titre": "Signal lumineux à LED",
+ "variante": "Mât et trois feux 8 pouces, module type GTX série 93",
+ "statut": "illustratif",
+ "statutLibelle": "Module d'après dessin coté, mât et tête de principe",
+ "avertissement": "Maquette illustrative d'une référence publique. Ce n'est pas l'équipement CAMRAIL. Les états affichés sont une simulation pédagogique.",
+ "echelle": {
+  "unite": "m",
+  "ra_1_1": false,
+  "motif": "Dimensions et calage non validés sur la variante CAMRAIL."
+ },
+ "glb": {
+  "fichier": "modele.glb",
+  "octets": 77048,
+  "sha256": "a3d14a8856c8ee90f8ee2c742c058732a1d81e3ebd2de481756681918a163b99"
+ },
+ "vueInitiale": "face",
+ "coupe": {
+  "axe": "x",
+  "libelle": "Coupe des feux"
+ },
+ "sources": [
+  {
+   "id": "gtx",
+   "titre": "Fiche module LED Wayside 8 pouces, série 93",
+   "editeur": "Current",
+   "url": "https://cdn.currentlighting.com/site/specsheet/GTX_RAIL127_RM4_93_Wayside_Sgnal_8in_12V_AC_Spec.pdf",
+   "page": "p. 2",
+   "fichier": "docs/recherche/catalogue_equipements_ra/sources/12-signal/Current_GTX_Wayside_8in.pdf"
+  },
+  {
+   "id": "westcode",
+   "titre": "Guide signaux Wayside LED",
+   "editeur": "Westcode",
+   "url": "https://www.westcodeus.com/wp-content/uploads/2022/07/Wayside-User-Guide_V7_Oct21_WEB.pdf",
+   "page": "p. 3–12",
+   "fichier": "docs/recherche/catalogue_equipements_ra/sources/12-signal/Westcode_Wayside_LED.pdf"
+  }
+ ],
+ "cotes": [
+  {
+   "libelle": "Diamètre du module",
+   "valeur": "208 (8,2 in)",
+   "unite": "mm",
+   "statut": "plan",
+   "source": "gtx"
+  },
+  {
+   "libelle": "Profondeur du module",
+   "valeur": "152 (6 in)",
+   "unite": "mm",
+   "statut": "plan",
+   "source": "gtx"
+  },
+  {
+   "libelle": "Hauteur du mât retenue",
+   "valeur": "4 000",
+   "unite": "mm",
+   "statut": "hypothese"
+  }
+ ],
+ "simplifications": [
+  "Boîtier, visière et cible de principe",
+  "Fixation du module par bague et quatre vis, sans référence"
+ ],
+ "plansManquants": [
+  "Plan de mât et de tête",
+  "Nombre et disposition des modules",
+  "Référence du fabricant",
+  "Connectique et schéma autorisé de la variante"
+ ],
+ "pieces": [
+  {
+   "id": "massif",
+   "nom": "Massif de fondation",
+   "noeud": "massif",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "support"
+  },
+  {
+   "id": "mat",
+   "nom": "Mât",
+   "noeud": "mat",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "support",
+   "source": "westcode",
+   "page": "p. 3"
+  },
+  {
+   "id": "cible",
+   "nom": "Cible (écran de contraste)",
+   "noeud": "cible",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     3.4,
+     0.08
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "tete",
+   "eclate": {
+    "axe": [
+     0,
+     0,
+     -1
+    ],
+    "distance": 0.2
+   }
+  },
+  {
+   "id": "feu_vert",
+   "nom": "Feu vert",
+   "noeud": "feu_vert",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     3.8,
+     0.1
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "tete",
+   "source": "westcode",
+   "page": "p. 6",
+   "ensemble": true
+  },
+  {
+   "id": "boitier_vert",
+   "nom": "Boîtier vert",
+   "noeud": "boitier_vert",
+   "parent": "feu_vert",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "tete",
+   "eclate": {
+    "axe": [
+     0,
+     0,
+     -1
+    ],
+    "distance": 0.15
+   }
+  },
+  {
+   "id": "module_vert",
+   "nom": "Module optique vert",
+   "noeud": "module_vert",
+   "parent": "feu_vert",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "module_optique",
+   "source": "gtx",
+   "page": "p. 2",
+   "eclate": {
+    "axe": [
+     0,
+     0,
+     1
+    ],
+    "distance": 0.12
+   },
+   "depose": [
+    0.35,
+    0,
+    0.3
+   ],
+   "dependances": [
+    "visiere_vert",
+    "joint_vert"
+   ]
+  },
+  {
+   "id": "visiere_vert",
+   "nom": "Visière vert",
+   "noeud": "visiere_vert",
+   "parent": "feu_vert",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "visiere",
+   "eclate": {
+    "axe": [
+     0,
+     0,
+     1
+    ],
+    "distance": 0.36
+   },
+   "depose": [
+    0,
+    0.3,
+    0.45
+   ],
+   "dependances": [
+    "vis_bague_1",
+    "vis_bague_2",
+    "vis_bague_3",
+    "vis_bague_4"
+   ]
+  },
+  {
+   "id": "joint_vert",
+   "nom": "Joint du module",
+   "noeud": "joint_vert",
+   "parent": "feu_vert",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "joint",
+   "eclate": {
+    "axe": [
+     0,
+     0,
+     1
+    ],
+    "distance": 0.06
+   },
+   "depose": [
+    0.3,
+    -0.15,
+    0.25
+   ],
+   "dependances": [
+    "visiere_vert"
+   ]
+  },
+  {
+   "id": "vis_bague_1",
+   "nom": "Vis de bague 1",
+   "noeud": "vis_bague_1",
+   "parent": "feu_vert",
+   "transformation": {
+    "position": [
+     0.08344,
+     0.08344,
+     0.235
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_bague",
+   "fixe": "visiere_vert",
+   "depose": [
+    0.0,
+    0.0,
+    0.08
+   ],
+   "fixation": {
+    "axe": [
+     0.0,
+     0.0,
+     1.0
+    ],
+    "degagement": 0.02,
+    "tours": 4
+   }
+  },
+  {
+   "id": "vis_bague_2",
+   "nom": "Vis de bague 2",
+   "noeud": "vis_bague_2",
+   "parent": "feu_vert",
+   "transformation": {
+    "position": [
+     -0.08344,
+     0.08344,
+     0.235
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_bague",
+   "fixe": "visiere_vert",
+   "depose": [
+    0.0,
+    0.0,
+    0.08
+   ],
+   "fixation": {
+    "axe": [
+     0.0,
+     0.0,
+     1.0
+    ],
+    "degagement": 0.02,
+    "tours": 4
+   }
+  },
+  {
+   "id": "vis_bague_3",
+   "nom": "Vis de bague 3",
+   "noeud": "vis_bague_3",
+   "parent": "feu_vert",
+   "transformation": {
+    "position": [
+     -0.08344,
+     -0.08344,
+     0.235
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_bague",
+   "fixe": "visiere_vert",
+   "depose": [
+    0.0,
+    0.0,
+    0.08
+   ],
+   "fixation": {
+    "axe": [
+     0.0,
+     0.0,
+     1.0
+    ],
+    "degagement": 0.02,
+    "tours": 4
+   }
+  },
+  {
+   "id": "vis_bague_4",
+   "nom": "Vis de bague 4",
+   "noeud": "vis_bague_4",
+   "parent": "feu_vert",
+   "transformation": {
+    "position": [
+     0.08344,
+     -0.08344,
+     0.235
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_bague",
+   "fixe": "visiere_vert",
+   "depose": [
+    0.0,
+    0.0,
+    0.08
+   ],
+   "fixation": {
+    "axe": [
+     0.0,
+     0.0,
+     1.0
+    ],
+    "degagement": 0.02,
+    "tours": 4
+   }
+  },
+  {
+   "id": "feu_jaune",
+   "nom": "Feu jaune",
+   "noeud": "feu_jaune",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     3.4,
+     0.1
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "tete",
+   "source": "westcode",
+   "page": "p. 6",
+   "ensemble": true
+  },
+  {
+   "id": "boitier_jaune",
+   "nom": "Boîtier jaune",
+   "noeud": "boitier_jaune",
+   "parent": "feu_jaune",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "tete",
+   "eclate": {
+    "axe": [
+     0,
+     0,
+     -1
+    ],
+    "distance": 0.15
+   }
+  },
+  {
+   "id": "module_jaune",
+   "nom": "Module optique jaune",
+   "noeud": "module_jaune",
+   "parent": "feu_jaune",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "module_optique",
+   "source": "gtx",
+   "page": "p. 2",
+   "eclate": {
+    "axe": [
+     0,
+     0,
+     1
+    ],
+    "distance": 0.12
+   }
+  },
+  {
+   "id": "visiere_jaune",
+   "nom": "Visière jaune",
+   "noeud": "visiere_jaune",
+   "parent": "feu_jaune",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "visiere",
+   "eclate": {
+    "axe": [
+     0,
+     0,
+     1
+    ],
+    "distance": 0.36
+   }
+  },
+  {
+   "id": "feu_rouge",
+   "nom": "Feu rouge",
+   "noeud": "feu_rouge",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     3.0,
+     0.1
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "tete",
+   "source": "westcode",
+   "page": "p. 6",
+   "ensemble": true
+  },
+  {
+   "id": "boitier_rouge",
+   "nom": "Boîtier rouge",
+   "noeud": "boitier_rouge",
+   "parent": "feu_rouge",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "tete",
+   "eclate": {
+    "axe": [
+     0,
+     0,
+     -1
+    ],
+    "distance": 0.15
+   }
+  },
+  {
+   "id": "module_rouge",
+   "nom": "Module optique rouge",
+   "noeud": "module_rouge",
+   "parent": "feu_rouge",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "module_optique",
+   "source": "gtx",
+   "page": "p. 2",
+   "eclate": {
+    "axe": [
+     0,
+     0,
+     1
+    ],
+    "distance": 0.12
+   }
+  },
+  {
+   "id": "visiere_rouge",
+   "nom": "Visière rouge",
+   "noeud": "visiere_rouge",
+   "parent": "feu_rouge",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "visiere",
+   "eclate": {
+    "axe": [
+     0,
+     0,
+     1
+    ],
+    "distance": 0.36
+   }
+  }
+ ],
+ "scenario": {
+  "titre": "Remplacement du module optique vert",
+  "illustratif": true,
+  "avertissement": "Scénario illustratif en simulation. Ordre, couples et outillage à prendre dans la gamme approuvée par CAMRAIL. L'application ne pilote aucun équipement.",
+  "etapes": [
+   {
+    "id": "d1",
+    "texte": "Dévisser les vis de bague",
+    "action": "devisser",
+    "pieces": [
+     "vis_bague_1",
+     "vis_bague_2",
+     "vis_bague_3",
+     "vis_bague_4"
+    ]
+   },
+   {
+    "id": "d2",
+    "texte": "Déposer la visière",
+    "action": "deposer",
+    "pieces": [
+     "visiere_vert"
+    ]
+   },
+   {
+    "id": "d3",
+    "texte": "Déposer le joint du module",
+    "action": "deposer",
+    "pieces": [
+     "joint_vert"
+    ]
+   },
+   {
+    "id": "d4",
+    "texte": "Déposer le module optique vert",
+    "action": "deposer",
+    "pieces": [
+     "module_vert"
+    ]
+   },
+   {
+    "id": "r1",
+    "texte": "Reposer le module optique vert",
+    "action": "reposer",
+    "pieces": [
+     "module_vert"
+    ]
+   },
+   {
+    "id": "r2",
+    "texte": "Reposer le joint du module",
+    "action": "reposer",
+    "pieces": [
+     "joint_vert"
+    ]
+   },
+   {
+    "id": "r3",
+    "texte": "Reposer la visière",
+    "action": "reposer",
+    "pieces": [
+     "visiere_vert"
+    ]
+   },
+   {
+    "id": "r4",
+    "texte": "Revisser les vis de bague",
+    "action": "visser",
+    "pieces": [
+     "vis_bague_1",
+     "vis_bague_2",
+     "vis_bague_3",
+     "vis_bague_4"
+    ]
+   }
+  ]
+ },
+ "articulations": [],
+ "etats": [
+  {
+   "id": "eteint",
+   "libelle": "Éteint",
+   "allumes": []
+  },
+  {
+   "id": "voie_libre",
+   "libelle": "Voie libre (vert)",
+   "allumes": [
+    "module_vert"
+   ],
+   "couleur": "#2fe08a"
+  },
+  {
+   "id": "avertissement",
+   "libelle": "Avertissement (jaune)",
+   "allumes": [
+    "module_jaune"
+   ],
+   "couleur": "#ffc933"
+  },
+  {
+   "id": "arret",
+   "libelle": "Arrêt (rouge)",
+   "allumes": [
+    "module_rouge"
+   ],
+   "couleur": "#ff3b30"
+  }
+ ]
+}

@@ -1,0 +1,883 @@
+{
+ "schema": "mara-maquette/1",
+ "actif": "transformateur-immerge",
+ "version": "1.0.0",
+ "classe": "transformateur_ht",
+ "codes": [
+  "TRS-001"
+ ],
+ "titre": "Transformateur immergé dans l'huile",
+ "variante": "Enveloppe type Minera ODT, cuve à ondes ; partie active de principe",
+ "statut": "coupe_de_principe",
+ "statutLibelle": "Enveloppe de brochure, coupe noyau / enroulements de principe",
+ "avertissement": "Maquette illustrative d'une référence publique. Ce n'est pas l'équipement CAMRAIL. Les travaux réels sur transformateur relèvent des procédures de consignation de la DIF.",
+ "echelle": {
+  "unite": "m",
+  "ra_1_1": false,
+  "motif": "Dimensions et calage non validés sur la variante CAMRAIL."
+ },
+ "glb": {
+  "fichier": "modele.glb",
+  "octets": 592376,
+  "sha256": "c63a043250c5a6fc7be656e78b6358ae0f6e945cc47bde70fa7b0119c8ed49a1"
+ },
+ "vueInitiale": "trois_quarts",
+ "coupe": {
+  "axe": "z",
+  "libelle": "Coupe noyau / enroulements"
+ },
+ "sources": [
+  {
+   "id": "minera",
+   "titre": "Brochure Minera ODT, transformateurs immergés",
+   "editeur": "Schneider Electric (copie distributeur)",
+   "url": "https://shreesharaelectric.com/wp-content/uploads/2024/11/Schneider_Minera_ODT_OilType_CommercialBrochure.pdf",
+   "page": "p. 2",
+   "fichier": "docs/recherche/catalogue_equipements_ra/sources/10-transformateur/Schneider_Minera_ODT_brochure.pdf"
+  }
+ ],
+ "cotes": [
+  {
+   "libelle": "Puissance de la gamme",
+   "valeur": "jusqu'à 4 000",
+   "unite": "kVA",
+   "statut": "brochure",
+   "source": "minera"
+  },
+  {
+   "libelle": "Tension de la gamme",
+   "valeur": "jusqu'à 36",
+   "unite": "kV",
+   "statut": "brochure",
+   "source": "minera"
+  },
+  {
+   "libelle": "Dimensions",
+   "valeur": "non cotées",
+   "unite": "",
+   "statut": "hypothese"
+  }
+ ],
+ "simplifications": [
+  "Noyau à trois colonnes et enroulements concentriques de principe",
+  "Ondes de cuve stylisées",
+  "Changeur de prises non représenté",
+  "Cuve hermétique sans conservateur ; la gamme de démonstration GTRS-001 cite un conservateur et un dessiccateur : la variante réelle tranchera"
+ ],
+ "plansManquants": [
+  "Plaque du transformateur installé",
+  "Plan d'encombrement",
+  "Implantation",
+  "Vue en coupe du fournisseur",
+  "Schéma unifilaire et documentation de la variante"
+ ],
+ "pieces": [
+  {
+   "id": "cuve",
+   "nom": "Cuve",
+   "noeud": "cuve",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "cuve",
+   "source": "minera",
+   "page": "p. 2",
+   "dependances": [
+    "partie_active"
+   ]
+  },
+  {
+   "id": "ondes",
+   "nom": "Ondes de refroidissement",
+   "noeud": "ondes",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "refroidissement",
+   "source": "minera",
+   "page": "p. 2"
+  },
+  {
+   "id": "roulettes",
+   "nom": "Galets de manutention",
+   "noeud": "roulettes",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "accessoire"
+  },
+  {
+   "id": "couvercle",
+   "nom": "Couvercle",
+   "noeud": "couvercle",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     1.38,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "cuve",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.5
+   },
+   "depose": [
+    0,
+    0.6,
+    0
+   ],
+   "dependances": [
+    "vis_couvercle_t_1",
+    "vis_couvercle_t_2",
+    "vis_couvercle_t_3",
+    "vis_couvercle_t_4",
+    "vis_couvercle_t_5",
+    "vis_couvercle_t_6"
+   ]
+  },
+  {
+   "id": "traversees_ht",
+   "nom": "Traversées HT",
+   "noeud": "traversees_ht",
+   "parent": "couvercle",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     -0.18
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "traversee",
+   "source": "minera",
+   "page": "p. 2",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.4
+   }
+  },
+  {
+   "id": "traversees_bt",
+   "nom": "Traversées BT",
+   "noeud": "traversees_bt",
+   "parent": "couvercle",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.22
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "traversee",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.3
+   }
+  },
+  {
+   "id": "thermometre",
+   "nom": "Thermomètre",
+   "noeud": "thermometre",
+   "parent": "couvercle",
+   "transformation": {
+    "position": [
+     0.55,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "accessoire",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.2
+   }
+  },
+  {
+   "id": "anneaux",
+   "nom": "Anneaux de levage",
+   "noeud": "anneaux",
+   "parent": "couvercle",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "accessoire"
+  },
+  {
+   "id": "robinet_vidange_t",
+   "nom": "Robinet de vidange",
+   "noeud": "robinet_vidange_t",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.45,
+     0.3,
+     0.44
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "accessoire",
+   "eclate": {
+    "axe": [
+     0,
+     0,
+     1
+    ],
+    "distance": 0.2
+   }
+  },
+  {
+   "id": "plaque",
+   "nom": "Plaque signalétique",
+   "noeud": "plaque",
+   "parent": null,
+   "transformation": {
+    "position": [
+     -0.3,
+     0.95,
+     0.405
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "accessoire"
+  },
+  {
+   "id": "partie_active",
+   "nom": "Partie active (de principe)",
+   "noeud": "partie_active",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.2,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "partie_active",
+   "simplification": "Coupe de principe : aucune vue constructeur disponible.",
+   "ensemble": true,
+   "depose": [
+    0,
+    1.6,
+    0
+   ],
+   "dependances": [
+    "couvercle"
+   ]
+  },
+  {
+   "id": "noyau",
+   "nom": "Noyau magnétique",
+   "noeud": "noyau",
+   "parent": "partie_active",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "partie_active"
+  },
+  {
+   "id": "enroulements",
+   "nom": "Enroulements",
+   "noeud": "enroulements",
+   "parent": "partie_active",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "partie_active",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.4
+   }
+  },
+  {
+   "id": "vis_couvercle_t_1",
+   "nom": "Vis du couvercle 1",
+   "noeud": "vis_couvercle_t_1",
+   "parent": null,
+   "transformation": {
+    "position": [
+     -0.6,
+     1.42,
+     0.36
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_couvercle_t",
+   "fixe": "couvercle",
+   "depose": [
+    0.0,
+    0.095,
+    0.0
+   ],
+   "fixation": {
+    "axe": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "degagement": 0.035,
+    "tours": 4
+   }
+  },
+  {
+   "id": "vis_couvercle_t_2",
+   "nom": "Vis du couvercle 2",
+   "noeud": "vis_couvercle_t_2",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     1.42,
+     0.36
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_couvercle_t",
+   "fixe": "couvercle",
+   "depose": [
+    0.0,
+    0.095,
+    0.0
+   ],
+   "fixation": {
+    "axe": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "degagement": 0.035,
+    "tours": 4
+   }
+  },
+  {
+   "id": "vis_couvercle_t_3",
+   "nom": "Vis du couvercle 3",
+   "noeud": "vis_couvercle_t_3",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.6,
+     1.42,
+     0.36
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_couvercle_t",
+   "fixe": "couvercle",
+   "depose": [
+    0.0,
+    0.095,
+    0.0
+   ],
+   "fixation": {
+    "axe": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "degagement": 0.035,
+    "tours": 4
+   }
+  },
+  {
+   "id": "vis_couvercle_t_4",
+   "nom": "Vis du couvercle 4",
+   "noeud": "vis_couvercle_t_4",
+   "parent": null,
+   "transformation": {
+    "position": [
+     -0.6,
+     1.42,
+     -0.36
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_couvercle_t",
+   "fixe": "couvercle",
+   "depose": [
+    0.0,
+    0.095,
+    0.0
+   ],
+   "fixation": {
+    "axe": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "degagement": 0.035,
+    "tours": 4
+   }
+  },
+  {
+   "id": "vis_couvercle_t_5",
+   "nom": "Vis du couvercle 5",
+   "noeud": "vis_couvercle_t_5",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     1.42,
+     -0.36
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_couvercle_t",
+   "fixe": "couvercle",
+   "depose": [
+    0.0,
+    0.095,
+    0.0
+   ],
+   "fixation": {
+    "axe": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "degagement": 0.035,
+    "tours": 4
+   }
+  },
+  {
+   "id": "vis_couvercle_t_6",
+   "nom": "Vis du couvercle 6",
+   "noeud": "vis_couvercle_t_6",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.6,
+     1.42,
+     -0.36
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_couvercle_t",
+   "fixe": "couvercle",
+   "depose": [
+    0.0,
+    0.095,
+    0.0
+   ],
+   "fixation": {
+    "axe": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "degagement": 0.035,
+    "tours": 4
+   }
+  }
+ ],
+ "scenario": {
+  "titre": "Ouverture de la cuve (principe)",
+  "illustratif": true,
+  "avertissement": "Scénario illustratif en simulation. Ordre, couples et outillage à prendre dans la gamme approuvée par CAMRAIL. L'application ne pilote aucun équipement.",
+  "etapes": [
+   {
+    "id": "d1",
+    "texte": "Dévisser les vis du couvercle",
+    "action": "devisser",
+    "pieces": [
+     "vis_couvercle_t_1",
+     "vis_couvercle_t_2",
+     "vis_couvercle_t_3",
+     "vis_couvercle_t_4",
+     "vis_couvercle_t_5",
+     "vis_couvercle_t_6"
+    ]
+   },
+   {
+    "id": "d2",
+    "texte": "Déposer le couvercle et ses traversées",
+    "action": "deposer",
+    "pieces": [
+     "couvercle"
+    ]
+   },
+   {
+    "id": "d3",
+    "texte": "Déposer (décuver) la partie active",
+    "action": "deposer",
+    "pieces": [
+     "partie_active"
+    ]
+   },
+   {
+    "id": "r1",
+    "texte": "Reposer (décuver) la partie active",
+    "action": "reposer",
+    "pieces": [
+     "partie_active"
+    ]
+   },
+   {
+    "id": "r2",
+    "texte": "Reposer le couvercle et ses traversées",
+    "action": "reposer",
+    "pieces": [
+     "couvercle"
+    ]
+   },
+   {
+    "id": "r3",
+    "texte": "Revisser les vis du couvercle",
+    "action": "visser",
+    "pieces": [
+     "vis_couvercle_t_1",
+     "vis_couvercle_t_2",
+     "vis_couvercle_t_3",
+     "vis_couvercle_t_4",
+     "vis_couvercle_t_5",
+     "vis_couvercle_t_6"
+    ]
+   }
+  ]
+ },
+ "articulations": [],
+ "etats": []
+}

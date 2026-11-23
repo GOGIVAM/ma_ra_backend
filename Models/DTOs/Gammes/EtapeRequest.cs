@@ -8,5 +8,8 @@ public record EtapeRequest(
     [MaxLength(200)]           string? ArContentRef,
     [MaxLength(10)]            string NiveauSecurite = "NONE",
     [Range(0, 86400)]          int?   DureeSecondes  = null,
-                               string? Detail         = null
+                               string? Detail         = null,
+                               decimal? LimiteMin     = null,
+                               decimal? LimiteMax     = null,
+    [MaxLength(15)]            string? Unite          = null
 );

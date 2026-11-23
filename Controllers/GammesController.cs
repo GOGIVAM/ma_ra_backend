@@ -130,6 +130,26 @@ public class GammesController : ControllerBase
         return NoContent();
     }
 
+    /// <summary>Crée un nouveau scénario à partir d'une gamme existante prise comme modèle.</summary>
+    [HttpPost("{id:guid}/dupliquer")]
+    [Authorize(Policy = "AdminOnly")]
+    public async Task<IActionResult> Dupliquer(Guid id, [FromBody] DuplicationGammeRequest req)
+    {
+        var modele = await _db.Gammes.Include(g => g.Etapes).FirstOrDefaultAsync(g => g.Id == id);
+        if (modele is null) return NotFound();
+        var code = req.Code.Trim();
+        if (await _db.Gammes.AnyAsync(g => g.Code == code))
+            return Conflict(new { message = $"Code '{code}' déjà utilisé." });
+
+        var copie = modele.CopierCommeModele(code, req.Titre.Trim());
+        _db.Gammes.Add(copie);
+        await _db.SaveChangesAsync();
+
+        var caller = User.Identity?.Name ?? "?";
+        _audit.LogAction(caller, "DUPLIQUE_GAMME", $"modele={modele.Code} copie={code}");
+        return Ok(await GetFullGamme(copie.Id));
+    }
+
     /// <summary>Valide une gamme : la source documentaire est obligatoire.</summary>
     [HttpPost("{id:guid}/valider")]
     [Authorize(Policy = "CI")]
@@ -168,6 +188,9 @@ public class GammesController : ControllerBase
             OrdreIndex     = req.OrdreIndex,
             Description    = req.Description,
             ArContentRef   = req.ArContentRef,
+            LimiteMin      = req.LimiteMin,
+            LimiteMax      = req.LimiteMax,
+            Unite          = string.IsNullOrWhiteSpace(req.Unite) ? null : req.Unite.Trim(),
             NiveauSecurite = req.NiveauSecurite,
             DureeSecondes  = req.DureeSecondes,
             Detail         = req.Detail,
@@ -190,6 +213,9 @@ public class GammesController : ControllerBase
         etape.OrdreIndex     = req.OrdreIndex;
         etape.Description    = req.Description;
         etape.ArContentRef   = req.ArContentRef;
+        etape.LimiteMin      = req.LimiteMin;
+        etape.LimiteMax      = req.LimiteMax;
+        etape.Unite          = string.IsNullOrWhiteSpace(req.Unite) ? null : req.Unite.Trim();
         etape.NiveauSecurite = req.NiveauSecurite;
         etape.DureeSecondes  = req.DureeSecondes;
         etape.Detail         = req.Detail;
@@ -230,5 +256,5 @@ public class GammesController : ControllerBase
 
     private static EtapeResponse ToEtapeResponse(Etape e) => new(
         e.Id, e.OrdreIndex, e.Description, e.ArContentRef,
-        e.NiveauSecurite, e.DureeSecondes, e.Detail);
+        e.NiveauSecurite, e.DureeSecondes, e.Detail, e.LimiteMin, e.LimiteMax, e.Unite);
 }

@@ -1,0 +1,478 @@
+{
+ "schema": "mara-maquette/1",
+ "actif": "axe-eg6",
+ "version": "1.0.0",
+ "classe": "bogie_essieux",
+ "codes": [
+  "ESS-T17-DEMO"
+ ],
+ "titre": "Axe d'essieu de voie métrique",
+ "variante": "Axe EG6 142.090, voie métrique, 20 t par essieu",
+ "statut": "cotes_plan",
+ "statutLibelle": "Cotes lues sur un plan public, maquette de travail",
+ "avertissement": "Maquette de travail. Ce n'est pas l'essieu T17 de CAMRAIL.",
+ "echelle": {
+  "unite": "m",
+  "ra_1_1": false,
+  "motif": "Dimensions et calage non validés sur la variante CAMRAIL."
+ },
+ "glb": {
+  "fichier": "modele.glb",
+  "octets": 100080,
+  "sha256": "d66c522169419432dd95dcfc52e3c05e3b0acb3c6235d8bec3a53e8c24d4512f"
+ },
+ "vueInitiale": "trois_quarts",
+ "coupe": {
+  "axe": "z",
+  "libelle": "Coupe longitudinale (axe plein)"
+ },
+ "sources": [
+  {
+   "id": "eg6",
+   "titre": "Plan SNCFT EG6 142.090, « Essieu axe prêt à assemblage », indice C",
+   "editeur": "SNCFT",
+   "url": "https://www.oc.com.tn/wp-content/uploads/2025/03/04-pieces-jointes-au-CCTP-EG6-142.090_compressed-1.pdf",
+   "page": "p. 1"
+  }
+ ],
+ "cotes": [
+  {
+   "libelle": "Longueur totale",
+   "valeur": "1774 ±1",
+   "unite": "mm",
+   "statut": "plan",
+   "source": "eg6"
+  },
+  {
+   "libelle": "Fusée",
+   "valeur": "Ø130 p6, longueur 217 ±0,5",
+   "unite": "mm",
+   "statut": "plan",
+   "source": "eg6"
+  },
+  {
+   "libelle": "Portée intermédiaire",
+   "valeur": "Ø160 k7, longueur 73 +1/0",
+   "unite": "mm",
+   "statut": "plan",
+   "source": "eg6"
+  },
+  {
+   "libelle": "Portée de calage de roue",
+   "valeur": "Ø185 v6, longueur 185",
+   "unite": "mm",
+   "statut": "plan",
+   "source": "eg6"
+  },
+  {
+   "libelle": "Corps",
+   "valeur": "Ø170 +2/0, longueur 824",
+   "unite": "mm",
+   "statut": "plan",
+   "source": "eg6"
+  }
+ ],
+ "simplifications": [
+  "Raccords des détails B, C et D approchés par des chanfreins ou un arc tangent",
+  "Gorge Ø151,8 du détail B, trous de centre et taraudages M20 non représentés"
+ ],
+ "plansManquants": [
+  "Plan de l'axe T17 avec indice",
+  "Plans des roues et des boîtes d'essieu T17",
+  "Limites d'usure et cotes de maintenance de la gamme CAMRAIL"
+ ],
+ "pieces": [
+  {
+   "id": "fusee_g",
+   "nom": "Fusées, gauche",
+   "noeud": "fusee_g",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "fusee",
+   "source": "eg6",
+   "page": "p. 1",
+   "description": "Ø130, portent les roulements des boîtes d'essieu.",
+   "ensemble": true
+  },
+  {
+   "id": "fusee_d",
+   "nom": "Fusées, droite",
+   "noeud": "fusee_d",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "fusee",
+   "source": "eg6",
+   "page": "p. 1",
+   "description": "Ø130, portent les roulements des boîtes d'essieu.",
+   "ensemble": true
+  },
+  {
+   "id": "portee_intermediaire_g",
+   "nom": "Portées Ø160, gauche",
+   "noeud": "portee_intermediaire_g",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "portee_intermediaire",
+   "source": "eg6",
+   "page": "p. 1",
+   "description": "Entre fusée et portée de calage.",
+   "ensemble": true
+  },
+  {
+   "id": "portee_intermediaire_d",
+   "nom": "Portées Ø160, droite",
+   "noeud": "portee_intermediaire_d",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "portee_intermediaire",
+   "source": "eg6",
+   "page": "p. 1",
+   "description": "Entre fusée et portée de calage.",
+   "ensemble": true
+  },
+  {
+   "id": "portee_calage_g",
+   "nom": "Portées de calage, gauche",
+   "noeud": "portee_calage_g",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "portee_calage",
+   "source": "eg6",
+   "page": "p. 1",
+   "description": "Ø185, reçoivent les roues emmanchées.",
+   "ensemble": true
+  },
+  {
+   "id": "portee_calage_d",
+   "nom": "Portées de calage, droite",
+   "noeud": "portee_calage_d",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "portee_calage",
+   "source": "eg6",
+   "page": "p. 1",
+   "description": "Ø185, reçoivent les roues emmanchées.",
+   "ensemble": true
+  },
+  {
+   "id": "corps_g",
+   "nom": "Corps d'axe, gauche",
+   "noeud": "corps_g",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "corps",
+   "source": "eg6",
+   "page": "p. 1",
+   "description": "Ø170, partie centrale entre les roues.",
+   "ensemble": true
+  },
+  {
+   "id": "corps_d",
+   "nom": "Corps d'axe, droite",
+   "noeud": "corps_d",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "corps",
+   "source": "eg6",
+   "page": "p. 1",
+   "description": "Ø170, partie centrale entre les roues.",
+   "ensemble": true
+  }
+ ],
+ "scenario": null,
+ "articulations": [],
+ "etats": [],
+ "compat": {
+  "recalculerNormales": true,
+  "teintes": {
+   "fusee": "#c3cad3",
+   "portee_intermediaire": "#a7b0bb",
+   "portee_calage": "#8d97a3",
+   "corps": "#7c8794"
+  }
+ },
+ "planCote": {
+  "type": "profil_axe",
+  "titre": "Axe d'essieu de voie métrique",
+  "source": "Plan SNCFT EG6 142.090, « Essieu axe prêt à assemblage », indice C, 20/07/2006",
+  "url": "https://www.oc.com.tn/wp-content/uploads/2025/03/04-pieces-jointes-au-CCTP-EG6-142.090_compressed-1.pdf",
+  "profil": [
+   [
+    0.0,
+    63.0
+   ],
+   [
+    2.0,
+    65.0
+   ],
+   [
+    214.0,
+    65.0
+   ],
+   [
+    217.0,
+    68.0
+   ],
+   [
+    217.0,
+    80.0
+   ],
+   [
+    282.0,
+    80.0
+   ],
+   [
+    290.0,
+    92.5
+   ],
+   [
+    290.0,
+    92.5
+   ],
+   [
+    475.0,
+    92.5
+   ],
+   [
+    475.0,
+    92.5
+   ],
+   [
+    478.75,
+    91.04
+   ],
+   [
+    482.5,
+    89.63
+   ],
+   [
+    486.25,
+    88.33
+   ],
+   [
+    490.0,
+    87.2
+   ],
+   [
+    493.75,
+    86.26
+   ],
+   [
+    497.5,
+    85.57
+   ],
+   [
+    501.25,
+    85.14
+   ],
+   [
+    505.0,
+    85.0
+   ],
+   [
+    887.0,
+    85.0
+   ]
+  ],
+  "zones": [
+   [
+    "fusee",
+    217
+   ],
+   [
+    "portee_intermediaire",
+    290
+   ],
+   [
+    "portee_calage",
+    475
+   ],
+   [
+    "corps",
+    887.0
+   ]
+  ]
+ },
+ "organes": {
+  "fusee": "Fusées",
+  "portee_intermediaire": "Portées Ø160",
+  "portee_calage": "Portées de calage",
+  "corps": "Corps d'axe"
+ }
+}

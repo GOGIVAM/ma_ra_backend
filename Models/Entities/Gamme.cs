@@ -47,6 +47,30 @@ public class Gamme
     public string StatutEffectif(DateTime maintenant) =>
         Statut == "VALIDEE" && ExpireAt is not null && ExpireAt <= maintenant ? "EXPIREE" : Statut;
 
+    /// <summary>
+    /// Copie servant de modèle pour un nouveau scénario : étapes et liens vers la maquette repris,
+    /// statut brouillon, version 1, aucune validation héritée.
+    /// </summary>
+    public Gamme CopierCommeModele(string code, string titre) => new()
+    {
+        Id               = Guid.NewGuid(),
+        Code             = code,
+        Titre            = titre,
+        ClasseEquipement = ClasseEquipement,
+        Direction        = Direction,
+        EquipementId     = EquipementId,
+        Etapes           = Etapes.OrderBy(e => e.OrdreIndex).Select(e => new Etape
+        {
+            Id             = Guid.NewGuid(),
+            OrdreIndex     = e.OrdreIndex,
+            Description    = e.Description,
+            NiveauSecurite = e.NiveauSecurite,
+            DureeSecondes  = e.DureeSecondes,
+            ArContentRef   = e.ArContentRef,
+            Detail         = e.Detail,
+        }).ToList(),
+    };
+
     /// <summary>Une gamme modifiée doit être revalidée avant usage.</summary>
     public void MarquerModifiee()
     {

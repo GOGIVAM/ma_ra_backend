@@ -1,0 +1,2244 @@
+{
+ "schema": "mara-maquette/1",
+ "actif": "bogie-y25-metrique",
+ "version": "1.0.0",
+ "classe": "bogie_essieux",
+ "codes": [
+  "BOG-001"
+ ],
+ "titre": "Bogie à deux essieux",
+ "variante": "Organisation Y25Ls-C (ELH) avec axes EG6 de voie métrique",
+ "statut": "illustratif",
+ "statutLibelle": "Illustratif : combinaison de deux références publiques",
+ "avertissement": "Démonstration. Le Y25Ls-C est un bogie de voie normale ; les axes EG6 sont de voie métrique. Ce n'est pas le bogie T17 de CAMRAIL.",
+ "echelle": {
+  "unite": "m",
+  "ra_1_1": false,
+  "motif": "Dimensions et calage non validés sur la variante CAMRAIL."
+ },
+ "glb": {
+  "fichier": "modele.glb",
+  "octets": 354076,
+  "sha256": "26a040af22fb42b841aff1d88fe1f2bef60bd0d349561875bad47970e1f6e622"
+ },
+ "vueInitiale": "trois_quarts",
+ "coupe": {
+  "axe": "x",
+  "libelle": "Coupe transversale"
+ },
+ "sources": [
+  {
+   "id": "elh",
+   "titre": "Fiche bogie Y25Ls-C",
+   "editeur": "ELH",
+   "url": "https://www.elh.de/fileadmin/template/img/prospekte/11_Y25Ls-C.pdf",
+   "page": "p. 1",
+   "fichier": "docs/recherche/catalogue_equipements_ra/sources/02-bogie/ELH_Y25Ls-C_fiche.pdf"
+  },
+  {
+   "id": "eg6",
+   "titre": "Plan SNCFT EG6 142.090, « Essieu axe prêt à assemblage », indice C",
+   "editeur": "SNCFT",
+   "url": "https://www.oc.com.tn/wp-content/uploads/2025/03/04-pieces-jointes-au-CCTP-EG6-142.090_compressed-1.pdf",
+   "page": "p. 1"
+  }
+ ],
+ "cotes": [
+  {
+   "libelle": "Empattement",
+   "valeur": "1 800",
+   "unite": "mm",
+   "statut": "brochure",
+   "source": "elh"
+  },
+  {
+   "libelle": "Diamètre de roue neuve / usée",
+   "valeur": "920 / 840",
+   "unite": "mm",
+   "statut": "brochure",
+   "source": "elh"
+  },
+  {
+   "libelle": "Charge par essieu",
+   "valeur": "22,5",
+   "unite": "t",
+   "statut": "brochure",
+   "source": "elh"
+  },
+  {
+   "libelle": "Masse du bogie",
+   "valeur": "≈ 4 130",
+   "unite": "kg",
+   "statut": "brochure",
+   "source": "elh"
+  },
+  {
+   "libelle": "Longueur de l'axe EG6",
+   "valeur": "1 774 ±1",
+   "unite": "mm",
+   "statut": "plan",
+   "source": "eg6"
+  },
+  {
+   "libelle": "Longerons, traverse, freins",
+   "valeur": "non cotés",
+   "unite": "",
+   "statut": "hypothese"
+  }
+ ],
+ "simplifications": [
+  "Châssis en H simplifié, sans glissières ni découpes",
+  "Timonerie de frein réduite à deux traverses et une barre",
+  "Brides de boîte et leurs vis : principe de démontage, pas la conception Y25"
+ ],
+ "plansManquants": [
+  "Plan du bogie T17 avec variante et nomenclature",
+  "Plan axe / roues / boîtes T17",
+  "Coupes des paliers",
+  "Dessins de suspension et de frein",
+  "Photos sur bogie et essieu déposé"
+ ],
+ "pieces": [
+  {
+   "id": "chassis",
+   "nom": "Châssis de bogie",
+   "noeud": "chassis",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "chassis",
+   "description": "Longerons, traverse, appui caisse et timonerie.",
+   "ensemble": true,
+   "depose": [
+    0,
+    0.6,
+    0
+   ],
+   "dependances": [
+    "bride_1g",
+    "bride_1d",
+    "bride_2g",
+    "bride_2d"
+   ]
+  },
+  {
+   "id": "longerons",
+   "nom": "Longerons",
+   "noeud": "longerons",
+   "parent": "chassis",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "chassis",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.4
+   }
+  },
+  {
+   "id": "traverse",
+   "nom": "Traverse",
+   "noeud": "traverse",
+   "parent": "chassis",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "chassis",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.5
+   }
+  },
+  {
+   "id": "crapaudine",
+   "nom": "Crapaudine (appui caisse)",
+   "noeud": "crapaudine",
+   "parent": "chassis",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "appui_caisse",
+   "source": "elh",
+   "page": "p. 1",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.8
+   }
+  },
+  {
+   "id": "lissoirs",
+   "nom": "Lissoirs latéraux",
+   "noeud": "lissoirs",
+   "parent": "chassis",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "appui_caisse",
+   "source": "elh",
+   "page": "p. 1",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.7
+   }
+  },
+  {
+   "id": "timonerie",
+   "nom": "Timonerie de frein",
+   "noeud": "timonerie",
+   "parent": "chassis",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "frein",
+   "source": "elh",
+   "page": "p. 1",
+   "simplification": "Principe d'une timonerie 120 kN à freinage unilatéral, non dessinée d'après plan.",
+   "eclate": {
+    "axe": [
+     0,
+     -1,
+     0
+    ],
+    "distance": 0.25
+   }
+  },
+  {
+   "id": "semelle_1g",
+   "nom": "Semelle de frein 1 gauche",
+   "noeud": "semelle_1g",
+   "parent": "chassis",
+   "transformation": {
+    "position": [
+     -0.5045,
+     0.46,
+     0.41
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "frein",
+   "source": "elh",
+   "page": "p. 1",
+   "description": "Semelle composite, 2 × 250 mm sur la fiche.",
+   "eclate": {
+    "axe": [
+     0,
+     0,
+     -1.0
+    ],
+    "distance": 0.2
+   }
+  },
+  {
+   "id": "bride_1g",
+   "nom": "Bride de boîte 1 gauche",
+   "noeud": "bride_1g",
+   "parent": "chassis",
+   "transformation": {
+    "position": [
+     -0.7785,
+     0.3,
+     0.9
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "bride",
+   "simplification": "Organe de retenue de principe pour illustrer la dépose.",
+   "depose": [
+    0,
+    -0.35,
+    0
+   ]
+  },
+  {
+   "id": "vis_bride_1g_1",
+   "nom": "Vis de bride 1g 1",
+   "noeud": "vis_bride_1g_1",
+   "parent": "chassis",
+   "transformation": {
+    "position": [
+     -0.7785,
+     0.28,
+     0.77
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_bride",
+   "fixe": "bride_1g",
+   "depose": [
+    0,
+    -0.12,
+    0
+   ],
+   "fixation": {
+    "axe": [
+     0,
+     -1,
+     0
+    ],
+    "degagement": 0.05,
+    "tours": 5
+   }
+  },
+  {
+   "id": "vis_bride_1g_2",
+   "nom": "Vis de bride 1g 2",
+   "noeud": "vis_bride_1g_2",
+   "parent": "chassis",
+   "transformation": {
+    "position": [
+     -0.7785,
+     0.28,
+     1.03
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_bride",
+   "fixe": "bride_1g",
+   "depose": [
+    0,
+    -0.12,
+    0
+   ],
+   "fixation": {
+    "axe": [
+     0,
+     -1,
+     0
+    ],
+    "degagement": 0.05,
+    "tours": 5
+   }
+  },
+  {
+   "id": "semelle_1d",
+   "nom": "Semelle de frein 1 droite",
+   "noeud": "semelle_1d",
+   "parent": "chassis",
+   "transformation": {
+    "position": [
+     0.5045,
+     0.46,
+     0.41
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "frein",
+   "source": "elh",
+   "page": "p. 1",
+   "description": "Semelle composite, 2 × 250 mm sur la fiche.",
+   "eclate": {
+    "axe": [
+     0,
+     0,
+     -1.0
+    ],
+    "distance": 0.2
+   }
+  },
+  {
+   "id": "bride_1d",
+   "nom": "Bride de boîte 1 droite",
+   "noeud": "bride_1d",
+   "parent": "chassis",
+   "transformation": {
+    "position": [
+     0.7785,
+     0.3,
+     0.9
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "bride",
+   "simplification": "Organe de retenue de principe pour illustrer la dépose.",
+   "depose": [
+    0,
+    -0.35,
+    0
+   ]
+  },
+  {
+   "id": "vis_bride_1d_1",
+   "nom": "Vis de bride 1d 1",
+   "noeud": "vis_bride_1d_1",
+   "parent": "chassis",
+   "transformation": {
+    "position": [
+     0.7785,
+     0.28,
+     0.77
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_bride",
+   "fixe": "bride_1d",
+   "depose": [
+    0,
+    -0.12,
+    0
+   ],
+   "fixation": {
+    "axe": [
+     0,
+     -1,
+     0
+    ],
+    "degagement": 0.05,
+    "tours": 5
+   }
+  },
+  {
+   "id": "vis_bride_1d_2",
+   "nom": "Vis de bride 1d 2",
+   "noeud": "vis_bride_1d_2",
+   "parent": "chassis",
+   "transformation": {
+    "position": [
+     0.7785,
+     0.28,
+     1.03
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_bride",
+   "fixe": "bride_1d",
+   "depose": [
+    0,
+    -0.12,
+    0
+   ],
+   "fixation": {
+    "axe": [
+     0,
+     -1,
+     0
+    ],
+    "degagement": 0.05,
+    "tours": 5
+   }
+  },
+  {
+   "id": "essieu_1",
+   "nom": "Essieu monté 1",
+   "noeud": "essieu_1",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.46,
+     0.9
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "essieu",
+   "description": "Axe, deux roues calées et deux boîtes d'essieu.",
+   "ensemble": true,
+   "depose": [
+    0,
+    0,
+    1.6
+   ],
+   "dependances": [
+    "chassis",
+    "ressorts_1g",
+    "ressorts_1d"
+   ]
+  },
+  {
+   "id": "axe_1",
+   "nom": "Axe 1 (profil EG6)",
+   "noeud": "axe_1",
+   "parent": "essieu_1",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "axe",
+   "source": "eg6",
+   "page": "p. 1",
+   "simplification": "Profil EG6 142.090 de voie métrique, pas l'axe T17.",
+   "eclate": {
+    "axe": [
+     0,
+     -1,
+     0
+    ],
+    "distance": 0.25
+   }
+  },
+  {
+   "id": "roue_1g",
+   "nom": "Roue 1 gauche",
+   "noeud": "roue_1g",
+   "parent": "essieu_1",
+   "transformation": {
+    "position": [
+     -0.5045,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "roue",
+   "source": "elh",
+   "page": "p. 1",
+   "simplification": "Ø 920 mm neuf de la fiche Y25Ls-C ; profil de roulement non modélisé.",
+   "eclate": {
+    "axe": [
+     -1,
+     0,
+     0
+    ],
+    "distance": 0.35
+   }
+  },
+  {
+   "id": "boite_1g",
+   "nom": "Boîte d'essieu 1 gauche",
+   "noeud": "boite_1g",
+   "parent": "essieu_1",
+   "transformation": {
+    "position": [
+     -0.7785,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "boite",
+   "source": "elh",
+   "page": "p. 1",
+   "description": "Boîte d'essieu à roulements (BA 004 sur le Y25Ls-C).",
+   "ensemble": true,
+   "eclate": {
+    "axe": [
+     -1,
+     0,
+     0
+    ],
+    "distance": 0.6
+   }
+  },
+  {
+   "id": "corps_boite_1g",
+   "nom": "Corps de boîte",
+   "noeud": "corps_boite_1g",
+   "parent": "boite_1g",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "boite",
+   "simplification": "Ailes d'appui des ressorts simplifiées."
+  },
+  {
+   "id": "couvercle_1g",
+   "nom": "Couvercle de boîte",
+   "noeud": "couvercle_1g",
+   "parent": "boite_1g",
+   "transformation": {
+    "position": [
+     -0.11,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "boite",
+   "eclate": {
+    "axe": [
+     -1,
+     0,
+     0
+    ],
+    "distance": 0.32
+   }
+  },
+  {
+   "id": "roulement_ext_1g",
+   "nom": "Roulement extérieur",
+   "noeud": "roulement_ext_1g",
+   "parent": "boite_1g",
+   "transformation": {
+    "position": [
+     -0.05,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "roulement",
+   "eclate": {
+    "axe": [
+     -1,
+     0,
+     0
+    ],
+    "distance": 0.22
+   }
+  },
+  {
+   "id": "roulement_int_1g",
+   "nom": "Roulement intérieur",
+   "noeud": "roulement_int_1g",
+   "parent": "boite_1g",
+   "transformation": {
+    "position": [
+     0.035,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "roulement",
+   "eclate": {
+    "axe": [
+     -1,
+     0,
+     0
+    ],
+    "distance": 0.12
+   }
+  },
+  {
+   "id": "labyrinthe_1g",
+   "nom": "Bague de labyrinthe",
+   "noeud": "labyrinthe_1g",
+   "parent": "boite_1g",
+   "transformation": {
+    "position": [
+     0.1,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "boite",
+   "eclate": {
+    "axe": [
+     1,
+     0,
+     0
+    ],
+    "distance": 0.06
+   }
+  },
+  {
+   "id": "ressorts_1g",
+   "nom": "Ressorts de suspension 1 gauche",
+   "noeud": "ressorts_1g",
+   "parent": null,
+   "transformation": {
+    "position": [
+     -0.7785,
+     0.575,
+     0.9
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "suspension",
+   "source": "elh",
+   "page": "p. 1",
+   "simplification": "Suspension à deux étages de la fiche, représentée par deux ressorts concentriques.",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.25
+   },
+   "depose": [
+    -0.5,
+    0.3,
+    0
+   ],
+   "dependances": [
+    "chassis"
+   ]
+  },
+  {
+   "id": "roue_1d",
+   "nom": "Roue 1 droite",
+   "noeud": "roue_1d",
+   "parent": "essieu_1",
+   "transformation": {
+    "position": [
+     0.5045,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     1.0,
+     0.0,
+     0.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "roue",
+   "source": "elh",
+   "page": "p. 1",
+   "simplification": "Ø 920 mm neuf de la fiche Y25Ls-C ; profil de roulement non modélisé.",
+   "eclate": {
+    "axe": [
+     1,
+     0,
+     0
+    ],
+    "distance": 0.35
+   }
+  },
+  {
+   "id": "boite_1d",
+   "nom": "Boîte d'essieu 1 droite",
+   "noeud": "boite_1d",
+   "parent": "essieu_1",
+   "transformation": {
+    "position": [
+     0.7785,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     1.0,
+     0.0,
+     0.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "boite",
+   "source": "elh",
+   "page": "p. 1",
+   "description": "Boîte d'essieu à roulements (BA 004 sur le Y25Ls-C).",
+   "ensemble": true,
+   "eclate": {
+    "axe": [
+     1,
+     0,
+     0
+    ],
+    "distance": 0.6
+   }
+  },
+  {
+   "id": "corps_boite_1d",
+   "nom": "Corps de boîte",
+   "noeud": "corps_boite_1d",
+   "parent": "boite_1d",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "boite",
+   "simplification": "Ailes d'appui des ressorts simplifiées."
+  },
+  {
+   "id": "couvercle_1d",
+   "nom": "Couvercle de boîte",
+   "noeud": "couvercle_1d",
+   "parent": "boite_1d",
+   "transformation": {
+    "position": [
+     -0.11,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "boite",
+   "eclate": {
+    "axe": [
+     -1,
+     0,
+     0
+    ],
+    "distance": 0.32
+   }
+  },
+  {
+   "id": "roulement_ext_1d",
+   "nom": "Roulement extérieur",
+   "noeud": "roulement_ext_1d",
+   "parent": "boite_1d",
+   "transformation": {
+    "position": [
+     -0.05,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "roulement",
+   "eclate": {
+    "axe": [
+     -1,
+     0,
+     0
+    ],
+    "distance": 0.22
+   }
+  },
+  {
+   "id": "roulement_int_1d",
+   "nom": "Roulement intérieur",
+   "noeud": "roulement_int_1d",
+   "parent": "boite_1d",
+   "transformation": {
+    "position": [
+     0.035,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "roulement",
+   "eclate": {
+    "axe": [
+     -1,
+     0,
+     0
+    ],
+    "distance": 0.12
+   }
+  },
+  {
+   "id": "labyrinthe_1d",
+   "nom": "Bague de labyrinthe",
+   "noeud": "labyrinthe_1d",
+   "parent": "boite_1d",
+   "transformation": {
+    "position": [
+     0.1,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "boite",
+   "eclate": {
+    "axe": [
+     1,
+     0,
+     0
+    ],
+    "distance": 0.06
+   }
+  },
+  {
+   "id": "ressorts_1d",
+   "nom": "Ressorts de suspension 1 droite",
+   "noeud": "ressorts_1d",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.7785,
+     0.575,
+     0.9
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "suspension",
+   "source": "elh",
+   "page": "p. 1",
+   "simplification": "Suspension à deux étages de la fiche, représentée par deux ressorts concentriques.",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.25
+   },
+   "depose": [
+    0.5,
+    0.3,
+    0
+   ],
+   "dependances": [
+    "chassis"
+   ]
+  },
+  {
+   "id": "semelle_2g",
+   "nom": "Semelle de frein 2 gauche",
+   "noeud": "semelle_2g",
+   "parent": "chassis",
+   "transformation": {
+    "position": [
+     -0.5045,
+     0.46,
+     -0.41
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "frein",
+   "source": "elh",
+   "page": "p. 1",
+   "description": "Semelle composite, 2 × 250 mm sur la fiche.",
+   "eclate": {
+    "axe": [
+     0,
+     0,
+     1.0
+    ],
+    "distance": 0.2
+   }
+  },
+  {
+   "id": "bride_2g",
+   "nom": "Bride de boîte 2 gauche",
+   "noeud": "bride_2g",
+   "parent": "chassis",
+   "transformation": {
+    "position": [
+     -0.7785,
+     0.3,
+     -0.9
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "bride",
+   "simplification": "Organe de retenue de principe pour illustrer la dépose.",
+   "depose": [
+    0,
+    -0.35,
+    0
+   ]
+  },
+  {
+   "id": "vis_bride_2g_1",
+   "nom": "Vis de bride 2g 1",
+   "noeud": "vis_bride_2g_1",
+   "parent": "chassis",
+   "transformation": {
+    "position": [
+     -0.7785,
+     0.28,
+     -1.03
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_bride",
+   "fixe": "bride_2g",
+   "depose": [
+    0,
+    -0.12,
+    0
+   ],
+   "fixation": {
+    "axe": [
+     0,
+     -1,
+     0
+    ],
+    "degagement": 0.05,
+    "tours": 5
+   }
+  },
+  {
+   "id": "vis_bride_2g_2",
+   "nom": "Vis de bride 2g 2",
+   "noeud": "vis_bride_2g_2",
+   "parent": "chassis",
+   "transformation": {
+    "position": [
+     -0.7785,
+     0.28,
+     -0.77
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_bride",
+   "fixe": "bride_2g",
+   "depose": [
+    0,
+    -0.12,
+    0
+   ],
+   "fixation": {
+    "axe": [
+     0,
+     -1,
+     0
+    ],
+    "degagement": 0.05,
+    "tours": 5
+   }
+  },
+  {
+   "id": "semelle_2d",
+   "nom": "Semelle de frein 2 droite",
+   "noeud": "semelle_2d",
+   "parent": "chassis",
+   "transformation": {
+    "position": [
+     0.5045,
+     0.46,
+     -0.41
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "frein",
+   "source": "elh",
+   "page": "p. 1",
+   "description": "Semelle composite, 2 × 250 mm sur la fiche.",
+   "eclate": {
+    "axe": [
+     0,
+     0,
+     1.0
+    ],
+    "distance": 0.2
+   }
+  },
+  {
+   "id": "bride_2d",
+   "nom": "Bride de boîte 2 droite",
+   "noeud": "bride_2d",
+   "parent": "chassis",
+   "transformation": {
+    "position": [
+     0.7785,
+     0.3,
+     -0.9
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "bride",
+   "simplification": "Organe de retenue de principe pour illustrer la dépose.",
+   "depose": [
+    0,
+    -0.35,
+    0
+   ]
+  },
+  {
+   "id": "vis_bride_2d_1",
+   "nom": "Vis de bride 2d 1",
+   "noeud": "vis_bride_2d_1",
+   "parent": "chassis",
+   "transformation": {
+    "position": [
+     0.7785,
+     0.28,
+     -1.03
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_bride",
+   "fixe": "bride_2d",
+   "depose": [
+    0,
+    -0.12,
+    0
+   ],
+   "fixation": {
+    "axe": [
+     0,
+     -1,
+     0
+    ],
+    "degagement": 0.05,
+    "tours": 5
+   }
+  },
+  {
+   "id": "vis_bride_2d_2",
+   "nom": "Vis de bride 2d 2",
+   "noeud": "vis_bride_2d_2",
+   "parent": "chassis",
+   "transformation": {
+    "position": [
+     0.7785,
+     0.28,
+     -0.77
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "vis_bride",
+   "fixe": "bride_2d",
+   "depose": [
+    0,
+    -0.12,
+    0
+   ],
+   "fixation": {
+    "axe": [
+     0,
+     -1,
+     0
+    ],
+    "degagement": 0.05,
+    "tours": 5
+   }
+  },
+  {
+   "id": "essieu_2",
+   "nom": "Essieu monté 2",
+   "noeud": "essieu_2",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.0,
+     0.46,
+     -0.9
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "essieu",
+   "description": "Axe, deux roues calées et deux boîtes d'essieu.",
+   "ensemble": true,
+   "depose": [
+    0,
+    0,
+    -1.6
+   ],
+   "dependances": [
+    "chassis",
+    "ressorts_2g",
+    "ressorts_2d"
+   ]
+  },
+  {
+   "id": "axe_2",
+   "nom": "Axe 2 (profil EG6)",
+   "noeud": "axe_2",
+   "parent": "essieu_2",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "axe",
+   "source": "eg6",
+   "page": "p. 1",
+   "simplification": "Profil EG6 142.090 de voie métrique, pas l'axe T17.",
+   "eclate": {
+    "axe": [
+     0,
+     -1,
+     0
+    ],
+    "distance": 0.25
+   }
+  },
+  {
+   "id": "roue_2g",
+   "nom": "Roue 2 gauche",
+   "noeud": "roue_2g",
+   "parent": "essieu_2",
+   "transformation": {
+    "position": [
+     -0.5045,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "roue",
+   "source": "elh",
+   "page": "p. 1",
+   "simplification": "Ø 920 mm neuf de la fiche Y25Ls-C ; profil de roulement non modélisé.",
+   "eclate": {
+    "axe": [
+     -1,
+     0,
+     0
+    ],
+    "distance": 0.35
+   }
+  },
+  {
+   "id": "boite_2g",
+   "nom": "Boîte d'essieu 2 gauche",
+   "noeud": "boite_2g",
+   "parent": "essieu_2",
+   "transformation": {
+    "position": [
+     -0.7785,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "boite",
+   "source": "elh",
+   "page": "p. 1",
+   "description": "Boîte d'essieu à roulements (BA 004 sur le Y25Ls-C).",
+   "ensemble": true,
+   "eclate": {
+    "axe": [
+     -1,
+     0,
+     0
+    ],
+    "distance": 0.6
+   }
+  },
+  {
+   "id": "corps_boite_2g",
+   "nom": "Corps de boîte",
+   "noeud": "corps_boite_2g",
+   "parent": "boite_2g",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "boite",
+   "simplification": "Ailes d'appui des ressorts simplifiées."
+  },
+  {
+   "id": "ressorts_2g",
+   "nom": "Ressorts de suspension 2 gauche",
+   "noeud": "ressorts_2g",
+   "parent": null,
+   "transformation": {
+    "position": [
+     -0.7785,
+     0.575,
+     -0.9
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "suspension",
+   "source": "elh",
+   "page": "p. 1",
+   "simplification": "Suspension à deux étages de la fiche, représentée par deux ressorts concentriques.",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.25
+   },
+   "depose": [
+    -0.5,
+    0.3,
+    0
+   ],
+   "dependances": [
+    "chassis"
+   ]
+  },
+  {
+   "id": "roue_2d",
+   "nom": "Roue 2 droite",
+   "noeud": "roue_2d",
+   "parent": "essieu_2",
+   "transformation": {
+    "position": [
+     0.5045,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     1.0,
+     0.0,
+     0.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "roue",
+   "source": "elh",
+   "page": "p. 1",
+   "simplification": "Ø 920 mm neuf de la fiche Y25Ls-C ; profil de roulement non modélisé.",
+   "eclate": {
+    "axe": [
+     1,
+     0,
+     0
+    ],
+    "distance": 0.35
+   }
+  },
+  {
+   "id": "boite_2d",
+   "nom": "Boîte d'essieu 2 droite",
+   "noeud": "boite_2d",
+   "parent": "essieu_2",
+   "transformation": {
+    "position": [
+     0.7785,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     1.0,
+     0.0,
+     0.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "boite",
+   "source": "elh",
+   "page": "p. 1",
+   "description": "Boîte d'essieu à roulements (BA 004 sur le Y25Ls-C).",
+   "ensemble": true,
+   "eclate": {
+    "axe": [
+     1,
+     0,
+     0
+    ],
+    "distance": 0.6
+   }
+  },
+  {
+   "id": "corps_boite_2d",
+   "nom": "Corps de boîte",
+   "noeud": "corps_boite_2d",
+   "parent": "boite_2d",
+   "transformation": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "boite",
+   "simplification": "Ailes d'appui des ressorts simplifiées."
+  },
+  {
+   "id": "ressorts_2d",
+   "nom": "Ressorts de suspension 2 droite",
+   "noeud": "ressorts_2d",
+   "parent": null,
+   "transformation": {
+    "position": [
+     0.7785,
+     0.575,
+     -0.9
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "echelle": [
+     1,
+     1,
+     1
+    ]
+   },
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "organe": "suspension",
+   "source": "elh",
+   "page": "p. 1",
+   "simplification": "Suspension à deux étages de la fiche, représentée par deux ressorts concentriques.",
+   "eclate": {
+    "axe": [
+     0,
+     1,
+     0
+    ],
+    "distance": 0.25
+   },
+   "depose": [
+    0.5,
+    0.3,
+    0
+   ],
+   "dependances": [
+    "chassis"
+   ]
+  }
+ ],
+ "scenario": {
+  "titre": "Sortie de l'essieu 1 du bogie",
+  "illustratif": true,
+  "avertissement": "Scénario illustratif en simulation. Ordre, couples et outillage à prendre dans la gamme approuvée par CAMRAIL. L'application ne pilote aucun équipement.",
+  "etapes": [
+   {
+    "id": "d1",
+    "texte": "Dévisser les vis des brides de boîte",
+    "action": "devisser",
+    "pieces": [
+     "vis_bride_1g_1",
+     "vis_bride_1g_2",
+     "vis_bride_1d_1",
+     "vis_bride_1d_2",
+     "vis_bride_2g_1",
+     "vis_bride_2g_2",
+     "vis_bride_2d_1",
+     "vis_bride_2d_2"
+    ]
+   },
+   {
+    "id": "d2",
+    "texte": "Déposer les brides de boîte",
+    "action": "deposer",
+    "pieces": [
+     "bride_1g",
+     "bride_1d",
+     "bride_2g",
+     "bride_2d"
+    ]
+   },
+   {
+    "id": "d3",
+    "texte": "Déposer (lever) le châssis",
+    "action": "deposer",
+    "pieces": [
+     "chassis"
+    ]
+   },
+   {
+    "id": "d4",
+    "texte": "Déposer les ressorts de l'essieu 1",
+    "action": "deposer",
+    "pieces": [
+     "ressorts_1g",
+     "ressorts_1d"
+    ]
+   },
+   {
+    "id": "d5",
+    "texte": "Déposer (rouler hors du bogie) l'essieu 1",
+    "action": "deposer",
+    "pieces": [
+     "essieu_1"
+    ]
+   },
+   {
+    "id": "r1",
+    "texte": "Reposer (rouler hors du bogie) l'essieu 1",
+    "action": "reposer",
+    "pieces": [
+     "essieu_1"
+    ]
+   },
+   {
+    "id": "r2",
+    "texte": "Reposer les ressorts de l'essieu 1",
+    "action": "reposer",
+    "pieces": [
+     "ressorts_1g",
+     "ressorts_1d"
+    ]
+   },
+   {
+    "id": "r3",
+    "texte": "Reposer (lever) le châssis",
+    "action": "reposer",
+    "pieces": [
+     "chassis"
+    ]
+   },
+   {
+    "id": "r4",
+    "texte": "Reposer les brides de boîte",
+    "action": "reposer",
+    "pieces": [
+     "bride_1g",
+     "bride_1d",
+     "bride_2g",
+     "bride_2d"
+    ]
+   },
+   {
+    "id": "r5",
+    "texte": "Revisser les vis des brides de boîte",
+    "action": "visser",
+    "pieces": [
+     "vis_bride_1g_1",
+     "vis_bride_1g_2",
+     "vis_bride_1d_1",
+     "vis_bride_1d_2",
+     "vis_bride_2g_1",
+     "vis_bride_2g_2",
+     "vis_bride_2d_1",
+     "vis_bride_2d_2"
+    ]
+   }
+  ]
+ },
+ "articulations": [],
+ "etats": []
+}

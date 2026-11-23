@@ -30,6 +30,7 @@ public class InferenceController : ControllerBase
 
     /// <summary>Reconnaissance via image base64.</summary>
     [HttpPost]
+    [Authorize(Policy = "Technicien")]
     public async Task<IActionResult> Recognize(
         [FromBody] InferenceProxyRequest req,
         CancellationToken ct)
